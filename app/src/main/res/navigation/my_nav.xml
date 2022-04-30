@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.roomapp.fragments.admin.users.list.ListFragment"
+        android:label="User List"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.roomapp.fragments.admin.users.add.AddFragment"
+        android:label="Add User"
+        tools:layout="@layout/fragment_add">
+        <action
+            android:id="@+id/action_addFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.roomapp.fragments.admin.users.update.UpdateFragment"
+        android:label="Update User"
+        tools:layout="@layout/fragment_update">
+        <action
+            android:id="@+id/action_updateFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.example.roomapp.fragments.admin.AdminFragment"
+        android:label="Admin Panel"
+        tools:layout="@layout/fragment_admin">
+        <action
+            android:id="@+id/action_adminFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_updatePasswordFragment"
+            app:destination="@id/updatePasswordFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_loggingFragment"
+            app:destination="@id/loggingFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.roomapp.fragments.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.roomapp.fragments.user.UserFragment"
+        android:label="User Panel"
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_userFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_updatePasswordFragment"
+            app:destination="@id/updatePasswordFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/updatePasswordFragment"
+        android:name="com.example.roomapp.fragments.user.UpdatePasswordFragment"
+        android:label="Change Password"
+        tools:layout="@layout/fragment_update_password" />
+    <fragment
+        android:id="@+id/loggingFragment"
+        android:name="com.example.roomapp.fragments.admin.log.LoggingFragment"
+        android:label="Logging"
+        tools:layout="@layout/fragment_logging" />
+</navigation>
