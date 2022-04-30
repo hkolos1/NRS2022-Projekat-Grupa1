@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.update
+package com.example.roomapp.fragments.admin.users.update
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -10,16 +10,20 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
+import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
+import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
+import java.util.*
 
 class UpdateFragment : Fragment() {
 
     private val args by navArgs<UpdateFragmentArgs>()
 
     private lateinit var mUserViewModel: UserViewModel
+    private lateinit var mLogViewModel: LogViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

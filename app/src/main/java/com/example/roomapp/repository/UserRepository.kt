@@ -1,6 +1,6 @@
 package com.example.roomapp.repository
 
-import android.util.Log
+import android.util.Log.*
 import androidx.lifecycle.LiveData
 import com.example.roomapp.data.UserDao
 import com.example.roomapp.model.User
@@ -25,8 +25,8 @@ class UserRepository(private val userDao: UserDao) {
         userDao.deleteAllUsers()
     }
 
-    suspend fun getUserName(userName: String):User?{
-        Log.i("MYTAG", "inside Repository Getusers fun ")
+    suspend fun getUserName(userName: String): User?{
+        i("MYTAG", "inside Repository Getusers fun ")
         return userDao.getUsername(userName)
     }
 

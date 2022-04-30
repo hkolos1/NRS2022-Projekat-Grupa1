@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.list
+package com.example.roomapp.fragments.admin.users.list
 
 import android.app.AlertDialog
 import android.os.Bundle

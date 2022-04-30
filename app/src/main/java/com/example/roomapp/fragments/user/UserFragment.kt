@@ -1,20 +1,27 @@
-package com.example.roomapp.fragments
+package com.example.roomapp.fragments.user
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
+import com.example.roomapp.fragments.admin.users.update.UpdateFragmentArgs
+import com.example.roomapp.model.Log
+import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.fragment_admin.view.*
 import kotlinx.android.synthetic.main.fragment_user.view.*
+import java.util.*
 
 class UserFragment : Fragment() {
 
     private lateinit var mUserViewModel: UserViewModel
+    private lateinit var mLogViewModel: LogViewModel
+    private val args by navArgs<UserFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +32,9 @@ class UserFragment : Fragment() {
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        view.textViewUser.text = "Welcome User"
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
+
+        view.textViewUser.text = "Welcome ${args.user.firstName}"
 
         view.btn_password.setOnClickListener {
             changePassword()
@@ -43,6 +52,8 @@ class UserFragment : Fragment() {
     }
 
     private fun logout() {
+        val cal: Calendar = Calendar.getInstance()
+        mLogViewModel.addLog(Log(0,args.user.firstName,"Logged out",cal.time.toString()))
         findNavController().navigate(R.id.action_userFragment_to_loginFragment)
     }
 

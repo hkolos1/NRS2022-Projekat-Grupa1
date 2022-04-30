@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24sp"
-    tools:context=".fragments.UserFragment">
+    tools:context=".fragments.user.UserFragment">
 
     <TextView
         android:id="@+id/textViewUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="107dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="24dp"
         android:text="Welcome User"
         android:textAlignment="center"
@@ -26,9 +26,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="191dp"
+        android:layout_marginTop="340dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="100dp"
         android:text="logout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_password" />

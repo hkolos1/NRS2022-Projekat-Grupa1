@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.add
+package com.example.roomapp.fragments.admin.users.add
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,14 +10,18 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.roomapp.R
+import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
+import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
+import java.util.*
 
 class AddFragment : Fragment() {
 
     private lateinit var mUserViewModel: UserViewModel
+    private lateinit var mLogViewModel: LogViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
