@@ -1,5 +1,6 @@
 package com.example.roomapp.fragments.login
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -83,6 +84,16 @@ class LoginFragment : Fragment() {
         })
 
         return view
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        uiScope.launch {
+            val usersNames = repository.getUserName("Admin")
+            if (usersNames == null) {
+                repository.addUser(User(0,"Admin","Admin",0))
+            }
+        }
     }
 
     private fun loginButton(view: View) {
