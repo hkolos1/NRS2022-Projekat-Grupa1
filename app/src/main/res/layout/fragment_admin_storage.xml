@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24sp"
-    tools:context=".fragments.admin.AdminFragment">
+    tools:context=".fragments.storageadmin.StorageAdminFragment">
 
     <TextView
         android:id="@+id/textViewAdmin"
@@ -22,44 +22,44 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_users"
+        android:id="@+id/btn_delivery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:text="users"
+        android:text="delivery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.27"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_storage" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_product" />
 
     <Button
-        android:id="@+id/btn_storage"
+        android:id="@+id/btn_product"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:text="storage"
+        android:text="products"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewAdmin" />
 
     <Button
-        android:id="@+id/btn_logging"
+        android:id="@+id/btn_branch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:text="Logging"
+        android:text="branch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_users" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_delivery" />
 
     <Button
-        android:id="@+id/btn_logout3"
+        android:id="@+id/btn_logout4"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
@@ -70,5 +70,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_logging" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_branch" />
 </androidx.constraintlayout.widget.ConstraintLayout>

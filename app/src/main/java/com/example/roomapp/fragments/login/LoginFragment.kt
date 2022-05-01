@@ -112,6 +112,10 @@ class LoginFragment : Fragment() {
                             val action = LoginFragmentDirections.actionLoginFragmentToAdminFragment(usersNames)
                             findNavController().navigate(action)
                         }
+                        else if(usersNames.age == 1){
+                            val action = LoginFragmentDirections.actionLoginFragmentToStorageAdminFragment(usersNames)
+                            findNavController().navigate(action)
+                        }
                         else{
                             val action = LoginFragmentDirections.actionLoginFragmentToUserFragment(usersNames)
                             findNavController().navigate(action)

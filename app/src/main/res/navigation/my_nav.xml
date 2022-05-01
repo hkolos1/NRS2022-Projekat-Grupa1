@@ -61,6 +61,9 @@
         <argument
             android:name="user"
             app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_adminFragment_to_storageAdminFragment"
+            app:destination="@id/storageAdminFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -73,6 +76,9 @@
         <action
             android:id="@+id/action_loginFragment_to_userFragment"
             app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_storageAdminFragment"
+            app:destination="@id/storageAdminFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -99,4 +105,40 @@
         android:name="com.example.roomapp.fragments.admin.log.LoggingFragment"
         android:label="Logging"
         tools:layout="@layout/fragment_logging" />
+    <fragment
+        android:id="@+id/storageAdminFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.StorageAdminFragment"
+        android:label="Storage Admin Panel"
+        tools:layout="@layout/fragment_admin_storage">
+        <action
+            android:id="@+id/action_storageAdminFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_storageAdminFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_storageAdminFragment_to_branchFragment"
+            app:destination="@id/branchFragment" />
+        <action
+            android:id="@+id/action_storageAdminFragment_to_deliveryFragment"
+            app:destination="@id/deliveryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.product.ProductFragment"
+        android:label="fragment_product"
+        tools:layout="@layout/fragment_product" />
+    <fragment
+        android:id="@+id/deliveryFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.delivery.DeliveryFragment"
+        android:label="fragment_delivery"
+        tools:layout="@layout/fragment_delivery" />
+    <fragment
+        android:id="@+id/branchFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.BranchFragment"
+        android:label="fragment_branch"
+        tools:layout="@layout/fragment_branch" />
 </navigation>
