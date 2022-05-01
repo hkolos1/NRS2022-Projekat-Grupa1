@@ -29,9 +29,14 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         holder.itemView.firstName_txt.text = currentItem.firstName
         holder.itemView.lastName_txt.text = currentItem.lastName
         var role = "User"
-        if(currentItem.age==0) role="Admin"
-        holder.itemView.age_txt.text = "($role)"
+        if(currentItem.age==0) {
+            role = "Admin"
+        }
+        else if(currentItem.age==1) {
+            role = "Storage Admin"
+        }
 
+        holder.itemView.age_txt.text = "($role)"
         holder.itemView.rowLayout.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
