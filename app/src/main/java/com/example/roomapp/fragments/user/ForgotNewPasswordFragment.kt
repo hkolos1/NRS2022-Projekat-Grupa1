@@ -3,38 +3,37 @@ package com.example.roomapp.fragments.user
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
 import com.example.roomapp.model.User
 import com.example.roomapp.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.fragment_confirmation_password.view.*
+import kotlinx.android.synthetic.main.fragment_forgot_new_password.view.*
 import kotlinx.android.synthetic.main.fragment_update_password.view.*
 
-class UpdatePasswordFragment : Fragment() {
+class ForgotNewPasswordFragment : Fragment() {
 
     private lateinit var mUserViewModel: UserViewModel
-    private lateinit var oldPassword: String
-    private lateinit var newPassword: String
-    private lateinit var confPassword: String
-    private val args by navArgs<UpdatePasswordFragmentArgs>()
+    private lateinit var newPasswordForgot: String
+    private lateinit var confPasswordForgot: String
+    private val args by navArgs<ForgotNewPasswordFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_update_password, container, false)
+        val view = inflater.inflate(R.layout.fragment_forgot_new_password, container, false)
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        view.oldPassword.addTextChangedListener(object : TextWatcher {
+        view.newPasswordForgot.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
 
@@ -44,11 +43,11 @@ class UpdatePasswordFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence, start: Int,
                                        before: Int, count: Int) {
-                oldPassword = s.toString()
+                newPasswordForgot = s.toString()
             }
         })
 
-        view.newPassword.addTextChangedListener(object : TextWatcher {
+        view.confirmPasswordForgot.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
 
@@ -58,45 +57,30 @@ class UpdatePasswordFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence, start: Int,
                                        before: Int, count: Int) {
-                newPassword = s.toString()
+                confPasswordForgot = s.toString()
             }
         })
 
-        view.confirmPassword.addTextChangedListener(object : TextWatcher {
-
-            override fun afterTextChanged(s: Editable) {}
-
-            override fun beforeTextChanged(s: CharSequence, start: Int,
-                                           count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence, start: Int,
-                                       before: Int, count: Int) {
-                confPassword = s.toString()
-            }
-        })
-
-        view.btn_chang_pass.setOnClickListener {
-            changPasswordButton(view)
+        view.btn_chang_pass_forgot.setOnClickListener {
+            changPasswordForgotButton(view)
         }
 
         return view
     }
 
-    private fun changPasswordButton(view: View) {
-        if (view.oldPassword.text.isEmpty() || view.newPassword.text.isEmpty() || view.confirmPassword.text.isEmpty()) {
+    private fun changPasswordForgotButton(view: View) {
+        if (view.newPasswordForgot.text.isEmpty() || view.confirmPasswordForgot.text.isEmpty() ) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
-        } else if (oldPassword == args.user.lastName && newPassword == confPassword){
-            var updatedUser = User(args.user.id , args.user.firstName , newPassword , args.user.age ,args.user.question,args.user.answer)
+        }else if (newPasswordForgot == confPasswordForgot){
+            var updatedUser = User(args.user.id , args.user.firstName , newPasswordForgot , args.user.age ,args.user.question,args.user.answer)
             mUserViewModel.updateUser(updatedUser)
 
-            val action = UpdatePasswordFragmentDirections.actionUpdateFragmentToUserFragment(args.user)
+            val action = ForgotNewPasswordFragmentDirections.actionForgotNewPasswordFragmentToLoggingFragment()
             findNavController().navigate(action)
-        }else if (newPassword != confPassword){
+        }else{
             Toast.makeText(requireContext(), "Passwords are not same", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(requireContext(), "Please check data you type", Toast.LENGTH_SHORT).show()
         }
+
     }
 
 }

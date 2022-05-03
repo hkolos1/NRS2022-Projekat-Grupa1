@@ -50,7 +50,9 @@ class AddFragment : Fragment() {
                 0,
                 firstName,
                 lastName,
-                age
+                age,
+                "",
+                ""
             )
             // Add Data to Database
             mUserViewModel.addUser(user)

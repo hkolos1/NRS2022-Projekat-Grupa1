@@ -79,7 +79,35 @@
         <action
             android:id="@+id/action_loginFragment_to_storageAdminFragment"
             app:destination="@id/storageAdminFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+
     </fragment>
+
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.roomapp.fragments.user.ForgotPasswordFragment"
+        android:label="Forgot Password"
+        tools:layout="@layout/fragment_forgot_password">
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_forgotNewPasswordFragment"
+            app:destination="@id/forgotNewPasswordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotNewPasswordFragment"
+        android:name="com.example.roomapp.fragments.user.ForgotNewPasswordFragment"
+        android:label="New Password"
+        tools:layout="@layout/fragment_forgot_new_password">
+        <action
+            android:id="@+id/action_forgotNewPasswordFragment_to_loggingFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+
     <fragment
         android:id="@+id/userFragment"
         android:name="com.example.roomapp.fragments.user.UserFragment"
@@ -91,6 +119,9 @@
         <action
             android:id="@+id/action_userFragment_to_updatePasswordFragment"
             app:destination="@id/updatePasswordFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_confirmationPasswordFragment"
+            app:destination="@id/confirmationPasswordFragment" />
         <argument
             android:name="user"
             app:argType="com.example.roomapp.model.User" />
@@ -99,7 +130,14 @@
         android:id="@+id/updatePasswordFragment"
         android:name="com.example.roomapp.fragments.user.UpdatePasswordFragment"
         android:label="Change Password"
-        tools:layout="@layout/fragment_update_password" />
+        tools:layout="@layout/fragment_update_password" >
+        <action
+        android:id="@+id/action_updateFragment_to_userFragment"
+        app:destination="@id/userFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
     <fragment
         android:id="@+id/loggingFragment"
         android:name="com.example.roomapp.fragments.admin.log.LoggingFragment"
@@ -126,6 +164,20 @@
             android:id="@+id/action_storageAdminFragment_to_deliveryFragment"
             app:destination="@id/deliveryFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/confirmationPasswordFragment"
+        android:name="com.example.roomapp.fragments.user.ConfirmationPasswordFragment"
+        android:label="User Panel"
+        tools:layout="@layout/fragment_confirmation_password" >
+    <action
+        android:id="@+id/action_confirmationPasswordFragment_to_userFragment"
+        app:destination="@id/userFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+
     <fragment
         android:id="@+id/productFragment"
         android:name="com.example.roomapp.fragments.storageadmin.product.ProductFragment"
@@ -142,3 +194,4 @@
         android:label="fragment_branch"
         tools:layout="@layout/fragment_branch" />
 </navigation>
+
