@@ -24,4 +24,7 @@
     <string name="Login_text">Login</string>
     <string name="Login_button">Login</string>
     <string name="signupText">Sign Up!</string>
+    <string name="view_all_products_in_branch">View all products in branch</string>
+    <string name="add_product_to_branch">Add product to branch</string>
+    <string name="welcome_admin">Welcome Admin</string>
 </resources>
