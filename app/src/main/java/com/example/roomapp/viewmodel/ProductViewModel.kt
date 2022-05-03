@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.roomapp.data.ProductDatabase
 import com.example.roomapp.model.Product
 import com.example.roomapp.repository.ProductRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class ProductViewModel(application: Application): AndroidViewModel(application) {
@@ -22,6 +24,31 @@ class ProductViewModel(application: Application): AndroidViewModel(application) 
         repository = ProductRepository(productDao)
         readAllData = repository.readAllData
     }
+    fun addProduct(product: Product){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addProduct(product)
+        }
+    }
+
+    fun updateProduct(product: Product){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateProduct(product)
+        }
+    }
+
+    fun deleteProduct(product: Product){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteProduct(product)
+        }
+    }
+
+    fun deleteAllProducts(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllProducts()
+        }
+    }
+
+
 
 
 
