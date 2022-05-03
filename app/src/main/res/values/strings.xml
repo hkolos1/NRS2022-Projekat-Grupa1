@@ -24,4 +24,12 @@
     <string name="Login_text">Login</string>
     <string name="Login_button">Login</string>
     <string name="signupText">Sign Up!</string>
+
+    <string-array name="SpinerQuestionItems">
+        <item>What is your favorite food ?</item>
+        <item>What is your best friend ?</item>
+        <item>What is your favorite club ?</item>
+        <item>What is your pet name ?</item>
+        <item>What is your favorite place ?</item>
+    </string-array>
 </resources>
