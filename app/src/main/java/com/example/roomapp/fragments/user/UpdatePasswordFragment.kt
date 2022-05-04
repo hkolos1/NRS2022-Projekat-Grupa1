@@ -95,7 +95,7 @@ class UpdatePasswordFragment : Fragment() {
         }else if (newPassword != confPassword){
             Toast.makeText(requireContext(), "Passwords are not same", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(requireContext(), "Please check data you type", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Old Password is incorrect", Toast.LENGTH_SHORT).show()
         }
     }
 

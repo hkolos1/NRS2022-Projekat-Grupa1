@@ -29,7 +29,6 @@ import java.util.*
 class ForgotPasswordFragment : Fragment() {
 
     private lateinit var mUserViewModel: UserViewModel
-    private lateinit var spinerForgotPassword: Spinner
     private lateinit var username: String
     private lateinit var answer: String
     private lateinit var repository: UserRepository
@@ -43,7 +42,7 @@ class ForgotPasswordFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_forgot_password, container, false)
-        spinerForgotPassword = view.findViewById(R.id.spinnerForgotPassword)
+
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
@@ -82,11 +81,6 @@ class ForgotPasswordFragment : Fragment() {
             }
         })
 
-        ArrayAdapter.createFromResource(view.context, R.array.SpinerQuestionItems,android.R.layout.simple_spinner_dropdown_item).also {
-                adap -> adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinerForgotPassword.adapter = adap
-        }
-
         return view
     }
 
@@ -98,13 +92,19 @@ class ForgotPasswordFragment : Fragment() {
             uiScope.launch {
                 val usersNames = repository.getUserName(username)
                 if (usersNames != null) {
-                    if(usersNames.firstName == username && usersNames.question == spinerForgotPassword.selectedItem.toString() && usersNames.answer == answer){
+                    when (usersNames.answer) {
+                        "" -> {
+                            Toast.makeText(requireContext(), "Please contact Admin for password change", Toast.LENGTH_LONG).show()
+                        }
+                        answer -> {
 
-                        val action = ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToForgotNewPasswordFragment(usersNames)
-                        findNavController().navigate(action)
+                            val action = ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToForgotNewPasswordFragment(usersNames)
+                            findNavController().navigate(action)
 
-                    }else{
-                        Toast.makeText(requireContext(), "Please check your Answer", Toast.LENGTH_SHORT).show()
+                        }
+                        else -> {
+                            Toast.makeText(requireContext(), "Please check your Answer", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 } else {
                     Toast.makeText(requireContext(), "User doesnt exist!", Toast.LENGTH_SHORT).show()

@@ -29,7 +29,6 @@ class UserFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        println("tu sam")
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_user, container, false)
         passStatus(view)

@@ -78,7 +78,7 @@ class ForgotNewPasswordFragment : Fragment() {
             val action = ForgotNewPasswordFragmentDirections.actionForgotNewPasswordFragmentToLoggingFragment()
             findNavController().navigate(action)
         }else{
-            Toast.makeText(requireContext(), "Passwords are not same", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Password do not match", Toast.LENGTH_SHORT).show()
         }
 
     }
