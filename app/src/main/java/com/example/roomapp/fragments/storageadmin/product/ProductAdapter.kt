@@ -20,19 +20,12 @@ class ProductAdapter(
     override fun getItemCount(): Int = products.size
     override fun onBindViewHolder(holder: ProdViewHolder, position: Int) {
         holder.prodTitle.text = products[position].prodName;
-        holder.prodDesc.text = products[position].prodDescription;
-        holder.prodCode.text = products[position].prodCode;
-        holder.prodAm.text = (products[position].prodAmount).toString();
     }
     fun updateProducts(prod: List<Product>) {
         this.products = prod
         notifyDataSetChanged()
     }
     inner class ProdViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val prodTitle: TextView = itemView.findViewById(R.id.prodName)
-        val prodDesc: TextView = itemView.findViewById(R.id.proDes)
-        val prodCode: TextView =itemView.findViewById(R.id.prodCode)
-        val prodAm: TextView =itemView.findViewById(R.id.prodAmount)
-
+        val prodTitle: TextView = itemView.findViewById(R.id.prName)
     }
 }

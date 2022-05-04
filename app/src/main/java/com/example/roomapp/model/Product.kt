@@ -10,7 +10,7 @@ data class Product(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val prodName: String,
-    val prodCode: String,
-    val prodDescription: String,
-    val prodAmount: Int
+    val quantity: Int,
+    //val branchId: Int,
+    val deliveryStatus: String
 ): Parcelable
