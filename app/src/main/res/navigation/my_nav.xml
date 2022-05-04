@@ -130,7 +130,17 @@
         android:id="@+id/productFragment"
         android:name="com.example.roomapp.fragments.storageadmin.product.ProductFragment"
         android:label="fragment_product"
-        tools:layout="@layout/fragment_product" />
+        tools:layout="@layout/fragment_product">
+        <action
+            android:id="@+id/action_productFragment_to_addProduct"
+            app:destination="@id/addProduct" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProduct"
+        android:name="com.example.roomapp.fragments.storageadmin.product.AddProductFragment"
+        android:label="fragment_add_product"
+        tools:layout="@layout/fragment_add_product" />
+
     <fragment
         android:id="@+id/deliveryFragment"
         android:name="com.example.roomapp.fragments.storageadmin.delivery.DeliveryFragment"
