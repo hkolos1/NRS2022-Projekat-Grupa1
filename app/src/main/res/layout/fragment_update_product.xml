@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.storageadmin.product.AddProductFragment">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.storageadmin.product.update.UpdateProductFragment">
 
     <EditText
-        android:id="@+id/addPrName"
+        android:id="@+id/updatePrName"
         android:layout_width="329dp"
         android:layout_height="50dp"
         android:layout_marginStart="40dp"
@@ -17,12 +16,12 @@
         android:width="100dp"
         android:height="20dp"
         android:hint="PRODUCT NAME"
-        app:layout_constraintBottom_toTopOf="@+id/addPrDes"
+        app:layout_constraintBottom_toTopOf="@+id/updatePrDes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/addPrDes"
+        android:id="@+id/updatePrDes"
         android:layout_width="324dp"
         android:layout_height="100dp"
         android:layout_marginStart="40dp"
@@ -31,12 +30,12 @@
         android:width="100dp"
         android:height="20dp"
         android:hint="PRODUCT DESCRIPTION"
-        app:layout_constraintBottom_toTopOf="@+id/addPrAmount"
+        app:layout_constraintBottom_toTopOf="@+id/updatePrAmount"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrName" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePrName" />
 
     <EditText
-        android:id="@+id/addPrAmount"
+        android:id="@+id/updatePrAmount"
         android:layout_width="329dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -46,12 +45,12 @@
         android:height="20dp"
         android:hint="PRODUCT QUANTITY"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/addPrCode"
+        app:layout_constraintBottom_toTopOf="@+id/updatePrCode"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrDes" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePrDes" />
 
     <EditText
-        android:id="@+id/addPrCode"
+        android:id="@+id/updatePrCode"
         android:layout_width="329dp"
         android:layout_height="50dp"
         android:layout_marginStart="40dp"
@@ -60,16 +59,16 @@
         android:height="20dp"
         android:hint="DELIVERY STATUS"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrAmount" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePrAmount" />
 
     <Button
-        android:id="@+id/addButton"
+        android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="92dp"
-        android:text="ADD"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="120dp"
+        android:text="UPDATE"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrCode" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePrAmount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

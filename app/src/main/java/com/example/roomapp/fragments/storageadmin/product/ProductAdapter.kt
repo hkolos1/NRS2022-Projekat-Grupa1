@@ -12,6 +12,7 @@ import com.example.roomapp.model.Product
 import com.example.roomapp.model.User
 import kotlinx.android.synthetic.main.custom_row.view.*
 import kotlinx.android.synthetic.main.custom_row_product.view.*
+import kotlinx.android.synthetic.main.item_product.view.*
 
 /*class ProductAdapter(
     private var products: List<Product>
@@ -55,6 +56,12 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
         holder.itemView.nameProd.text = currentItem.id.toString()
         holder.itemView.deliveryS.text = currentItem.prodName
         holder.itemView.quantity.text = currentItem.quantity.toString()
+
+       holder.itemView.rowLayout2.setOnClickListener{
+           val action=ProductFragmentDirections.actionProductFragmentToUpdateProductFragment(currentItem)
+
+           holder.itemView.findNavController().navigate(action)
+        }
     }
 
     fun setData(product: List<Product>){

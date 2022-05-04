@@ -134,6 +134,9 @@
         <action
             android:id="@+id/action_productFragment_to_addProduct"
             app:destination="@id/addProduct" />
+        <action
+            android:id="@+id/action_productFragment_to_updateProductFragment"
+            app:destination="@id/updateProductFragment" />
     </fragment>
     <fragment
         android:id="@+id/addProduct"
@@ -155,4 +158,16 @@
         android:name="com.example.roomapp.fragments.storageadmin.branch.BranchFragment"
         android:label="fragment_branch"
         tools:layout="@layout/fragment_branch" />
+    <fragment
+        android:id="@+id/updateProductFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.product.update.UpdateProductFragment"
+        android:label="fragment_update_product"
+        tools:layout="@layout/fragment_update_product" >
+        <action
+            android:id="@+id/action_updateProductFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <argument
+            android:name="currentProduct"
+            app:argType="com.example.roomapp.model.Product" />
+    </fragment>
 </navigation>

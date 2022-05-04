@@ -1,11 +1,11 @@
 package com.example.roomapp.fragments.storageadmin.product
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -43,12 +43,38 @@ class ProductFragment : Fragment() {
         addButton.setOnClickListener {
             addingProduct()
         }
-
+        setHasOptionsMenu(true)
         return view
     }
 
     private fun addingProduct() {
         findNavController().navigate(R.id.action_productFragment_to_addProduct)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_product_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menu_delete_prod){
+            deleteAllProducts()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteAllProducts() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+            mProductViewModel.deleteAllProducts()
+            Toast.makeText(
+                requireContext(),
+                "Successfully removed everything",
+                Toast.LENGTH_SHORT).show()
+        }
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete everything?")
+        builder.setMessage("Are you sure you want to delete everything?")
+        builder.create().show()
     }
 
 }
