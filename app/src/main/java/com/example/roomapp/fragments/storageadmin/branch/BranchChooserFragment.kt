@@ -35,6 +35,11 @@ class BranchChooserFragment: Fragment() {
             findNavController().navigate(action)
         }
 
+        view.btn_branch_addProduct.setOnClickListener{
+            val action = BranchChooserFragmentDirections.actionBranchChooserToAddProducts()
+            findNavController().navigate(action)
+        }
+
         return view
     }
 

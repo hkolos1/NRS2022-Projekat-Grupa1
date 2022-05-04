@@ -45,4 +45,10 @@ class ProductViewModel(application: Application): AndroidViewModel(application) 
         }
     }
 
+    fun getAllProducts(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getAllProducts()
+        }
+    }
+
 }

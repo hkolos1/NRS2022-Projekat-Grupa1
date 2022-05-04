@@ -28,4 +28,7 @@ interface ProductDao {
 
     @Update
     suspend fun updateProduct(product: Product)
+
+    @Query("SELECT * FROM product_table")
+    suspend fun getAllProducts(): List<Product>
 }

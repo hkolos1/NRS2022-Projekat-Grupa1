@@ -191,5 +191,9 @@
         android:id="@+id/addProductsToBranchFragment"
         android:name="com.example.roomapp.fragments.storageadmin.branch.AddProductsFragment"
         android:label="Add Product"
-        tools:layout="@layout/fragment_add_products" />
+        tools:layout="@layout/fragment_add_products" >
+        <action
+            android:id="@+id/action_addProducts_to_Branches"
+            app:destination="@id/branchFragment" />
+    </fragment>
 </navigation>

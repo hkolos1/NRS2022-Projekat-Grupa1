@@ -14,4 +14,8 @@ data class Product(
     val quantity: Int,
     val branchId: Int,
     val deliveryStatus: String
-): Parcelable
+): Parcelable{
+    override fun toString(): String {
+        return prodName
+    }
+}
