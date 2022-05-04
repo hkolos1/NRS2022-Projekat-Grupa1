@@ -1,82 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".fragments.storageadmin.product.AddProductFragment">
 
     <TextView
+        android:id="@+id/nameProdtxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="123dp"
         android:text="PRODUCT NAME"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="123dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/quantitytxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PRODUCT AMOUNT"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="425dp" />
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="45dp"
+        android:text="QUANTITY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addPrCode" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/dStatustxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PRODUCT CODE"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="325dp" />
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="24dp"
+        android:text="DELIVERY STATUS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addPrDes" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="31dp"
         android:text="PRODUCT DESCRIPTION"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="209dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addPrName" />
 
     <EditText
         android:id="@+id/addPrName"
         android:layout_width="329dp"
         android:layout_height="36dp"
+        android:layout_marginStart="40dp"
         android:width="100dp"
         android:height="20dp"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="142dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameProdtxt" />
 
     <EditText
         android:id="@+id/addPrDes"
         android:layout_width="324dp"
         android:layout_height="73dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="1dp"
         android:width="100dp"
         android:height="20dp"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="228dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <EditText
         android:id="@+id/addPrAmount"
+        android:inputType="number"
         android:layout_width="329dp"
         android:layout_height="36dp"
+        android:layout_marginStart="41dp"
         android:width="100dp"
         android:height="20dp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="444dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quantitytxt" />
 
     <EditText
         android:id="@+id/addPrCode"
         android:layout_width="329dp"
         android:layout_height="36dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="1dp"
         android:width="100dp"
         android:height="20dp"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="344dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dStatustxt" />
 
     <Button
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="277dp"
+        android:layout_marginTop="157dp"
         android:text="ADD"
-        tools:layout_editor_absoluteX="277dp"
-        tools:layout_editor_absoluteY="641dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addPrAmount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

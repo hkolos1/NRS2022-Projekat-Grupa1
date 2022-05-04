@@ -139,7 +139,11 @@
         android:id="@+id/addProduct"
         android:name="com.example.roomapp.fragments.storageadmin.product.AddProductFragment"
         android:label="fragment_add_product"
-        tools:layout="@layout/fragment_add_product" />
+        tools:layout="@layout/fragment_add_product" >
+        <action
+            android:id="@+id/action_addProduct_to_fragmentProduct"
+            app:destination="@id/productFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/deliveryFragment"
