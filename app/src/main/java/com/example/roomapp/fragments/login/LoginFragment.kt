@@ -14,9 +14,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.roomapp.R
+import com.example.roomapp.model.Branch
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
+import com.example.roomapp.repository.BranchRepository
 import com.example.roomapp.repository.UserRepository
+import com.example.roomapp.viewmodel.BranchViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_login.view.*
@@ -30,6 +33,7 @@ class LoginFragment : Fragment() {
 
     private lateinit var mUserViewModel: UserViewModel
     private lateinit var mLogViewModel: LogViewModel
+    private lateinit var mBranchViewModel: BranchViewModel
     private lateinit var repository: UserRepository
     private lateinit var username: String
     private lateinit var password: String
@@ -45,6 +49,7 @@ class LoginFragment : Fragment() {
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
+        mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
 
         repository = mUserViewModel.repository
 
@@ -110,6 +115,12 @@ class LoginFragment : Fragment() {
             if (usersNames == null) {
                 repository.addUser(User(0,"Admin","Admin",0,"",""))
             }
+            val branch = mBranchViewModel.readAllData
+            /*if(){
+                mBranchViewModel.addBranch(Branch(0,"Sarajevo"))
+                mBranchViewModel.addBranch(Branch(0,"Mostar"))
+                mBranchViewModel.addBranch(Branch(0,"Banja Luka"))
+            }*/
         }
     }
 

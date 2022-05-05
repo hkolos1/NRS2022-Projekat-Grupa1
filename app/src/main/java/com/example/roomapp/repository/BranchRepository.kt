@@ -8,5 +8,7 @@ class BranchRepository(private val branchDao: BranchDao) {
 
     val readAllData: LiveData<List<Branch>> = branchDao.readAllData()
 
-
+    suspend fun addBranch(branch: Branch){
+        branchDao.addBranch(branch)
+    }
 }

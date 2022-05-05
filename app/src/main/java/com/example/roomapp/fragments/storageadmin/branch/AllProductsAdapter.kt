@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomapp.R
 import com.example.roomapp.model.Product
-import kotlinx.android.synthetic.main.custom_row_product.view.*
+import kotlinx.android.synthetic.main.custom_row_branch_product.view.*
 
 class AllProductsAdapter: RecyclerView.Adapter<AllProductsAdapter.MyViewHolder>()  {
 
@@ -17,13 +17,13 @@ class AllProductsAdapter: RecyclerView.Adapter<AllProductsAdapter.MyViewHolder>(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): AllProductsAdapter.MyViewHolder {
+    ): MyViewHolder {
         return MyViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.custom_row_product, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.custom_row_branch_product, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: AllProductsAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem: Product = productsList[position]
 
         holder.itemView.all_products_quantity.text = currentItem.quantity.toString()

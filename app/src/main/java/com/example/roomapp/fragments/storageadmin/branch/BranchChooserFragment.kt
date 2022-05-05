@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
-import kotlinx.android.synthetic.main.custom_row_product.view.*
+import kotlinx.android.synthetic.main.custom_row_branch_product.view.*
 import kotlinx.android.synthetic.main.fragment_branch_chooser.view.*
 
 
