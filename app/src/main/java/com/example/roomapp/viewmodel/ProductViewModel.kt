@@ -5,11 +5,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.roomapp.data.ProductDatabase
+import com.example.roomapp.model.Branch
+import com.example.roomapp.model.Log
 import com.example.roomapp.model.Product
+import com.example.roomapp.model.User
 import com.example.roomapp.repository.ProductRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
 
 class ProductViewModel(application: Application): AndroidViewModel(application) {
 
@@ -24,6 +26,7 @@ class ProductViewModel(application: Application): AndroidViewModel(application) 
         repository = ProductRepository(productDao)
         readAllData = repository.readAllData
     }
+    
     fun addProduct(product: Product){
         viewModelScope.launch(Dispatchers.IO) {
             repository.addProduct(product)
@@ -48,8 +51,18 @@ class ProductViewModel(application: Application): AndroidViewModel(application) 
         }
     }
 
+    fun getProductsFromBranch(id: Int): LiveData<List<Product>>{
+            return repository.getProductsFromBranch(id)
+    }
 
+    fun getProductsFromStatus(status: String): LiveData<List<Product>>{
+        return repository.getProductsFromStatus(status)
+    }
 
-
+    fun getAllProducts(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getAllProducts()
+        }
+    }
 
 }

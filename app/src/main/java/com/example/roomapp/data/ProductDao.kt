@@ -2,7 +2,6 @@ package com.example.roomapp.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-
 import com.example.roomapp.model.Product
 import com.example.roomapp.model.User
 
@@ -28,5 +27,14 @@ interface ProductDao {
     @Query("SELECT * FROM product_table WHERE prodName LIKE :prodName")
     suspend fun getprodName(prodName: String): Product?
 
+    @Transaction
+    @Query("SELECT * FROM product_table WHERE branchId = :id")
+    fun getProductsFromBranch(id: Int): LiveData<List<Product>>
+
+    @Query("SELECT * FROM product_table WHERE deliveryStatus = :status")
+    fun getProductsFromStatus(status: String): LiveData<List<Product>>
+
+    @Query("SELECT * FROM product_table")
+    suspend fun getAllProducts(): List<Product>
 
 }

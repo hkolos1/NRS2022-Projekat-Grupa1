@@ -4,44 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.user.UserFragment">
+    android:padding="24sp"
+    tools:context=".fragments.admin.AdminFragment">
 
     <TextView
-        android:id="@+id/textViewUser"
+        android:id="@+id/textViewBranchChooser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="24dp"
-        android:text="Welcome User"
+        android:text="placeholder"
         android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_logout2"
+        android:id="@+id/btn_branch_addProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="100dp"
-        android:text="logout"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/add_product_to_branch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_branch_viewProducts" />
 
     <Button
-        android:id="@+id/btn_password"
+        android:id="@+id/btn_branch_viewProducts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:text="change password"
+        android:text="@string/view_all_products_in_branch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUser" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewBranchChooser" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
