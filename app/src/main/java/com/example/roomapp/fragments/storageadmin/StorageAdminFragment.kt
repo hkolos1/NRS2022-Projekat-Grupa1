@@ -3,7 +3,9 @@ package com.example.roomapp.fragments.storageadmin
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -14,6 +16,7 @@ import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_admin.view.*
 import kotlinx.android.synthetic.main.fragment_admin.view.textViewAdmin
+import kotlinx.android.synthetic.main.fragment_admin_storage.*
 import kotlinx.android.synthetic.main.fragment_admin_storage.view.*
 import java.util.*
 
@@ -35,6 +38,10 @@ class StorageAdminFragment : Fragment() {
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
         view.textViewAdmin.text = "Welcome ${args.user.firstName}"
+
+        if(args.user.age==0){
+            view.btn_logout4.visibility = INVISIBLE
+        }
 
         view.btn_product.setOnClickListener {
             findNavController().navigate(R.id.action_storageAdminFragment_to_productFragment)
@@ -58,7 +65,7 @@ class StorageAdminFragment : Fragment() {
     private fun logout(){
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Logged out",cal.time.toString()))
-        findNavController().navigate(R.id.action_adminFragment_to_loginFragment)
+        findNavController().navigate(R.id.action_storageAdminFragment_to_loginFragment)
     }
 
 }

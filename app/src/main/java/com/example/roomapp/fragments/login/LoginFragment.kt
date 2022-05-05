@@ -4,18 +4,16 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.roomapp.R
-import com.example.roomapp.fragments.admin.users.list.ListFragmentDirections
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
 import com.example.roomapp.repository.UserRepository
@@ -54,6 +52,10 @@ class LoginFragment : Fragment() {
             loginButton(view)
         }
 
+        view.forgotPassword.setOnClickListener {
+            forgotTextView()
+        }
+
         view.userNameTextField.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
@@ -64,7 +66,7 @@ class LoginFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence, start: Int,
                                        before: Int, count: Int) {
-                username= s.toString()
+                username = s.toString()
             }
         })
 
@@ -86,12 +88,27 @@ class LoginFragment : Fragment() {
         return view
     }
 
+    private fun forgotTextView() {
+        findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.checkbox.setOnCheckedChangeListener{ _, isChecked ->
+            if (isChecked){
+                view.passwordTextField.transformationMethod = HideReturnsTransformationMethod.getInstance();
+            }else{
+                view.passwordTextField.transformationMethod = PasswordTransformationMethod.getInstance();
+            }
+        }
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         uiScope.launch {
             val usersNames = repository.getUserName("Admin")
             if (usersNames == null) {
-                repository.addUser(User(0,"Admin","Admin",0))
+                repository.addUser(User(0,"Admin","Admin",0,"",""))
             }
         }
     }

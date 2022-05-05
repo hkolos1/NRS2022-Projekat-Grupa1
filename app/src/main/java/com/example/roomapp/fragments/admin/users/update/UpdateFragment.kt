@@ -3,6 +3,8 @@ package com.example.roomapp.fragments.admin.users.update
 import android.app.AlertDialog
 import android.os.Bundle
 import android.text.TextUtils
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
@@ -14,6 +16,7 @@ import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.fragment_add.view.*
 import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
 import java.util.*
@@ -48,6 +51,17 @@ class UpdateFragment : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.checkbox3.setOnCheckedChangeListener{ _, isChecked ->
+            if (isChecked){
+                view.updateLastName_et.transformationMethod = HideReturnsTransformationMethod.getInstance();
+            }else{
+                view.updateLastName_et.transformationMethod = PasswordTransformationMethod.getInstance();
+            }
+        }
+    }
+
     private fun updateItem() {
         val firstName = updateFirstName_et.text.toString()
         val lastName = updateLastName_et.text.toString()
@@ -55,7 +69,7 @@ class UpdateFragment : Fragment() {
 
         if (inputCheck(firstName, lastName)) {
             // Create User Object
-            val updatedUser = User(args.currentUser.id, firstName, lastName, age)
+            val updatedUser = User(args.currentUser.id, firstName, lastName, age,args.currentUser.question,args.currentUser.answer)
             // Update Current User
             mUserViewModel.updateUser(updatedUser)
             Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()
