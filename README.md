@@ -46,6 +46,14 @@ Sve osobe koje rade na ovom projektu moraju pratiti sljedeće korake prilikom ra
 * Kao Admin skladišta trebam imati mogućnost Pregled svih poslovnica
 * Kao Admin skladišta trebam imati mogućnost Pregled proizvoda u poslovnicama
 
+### Sprint 3:
+* Kao Korisnik želim imati mogućnost Kreiranja nove narudžbe
+* Kao Korisnik želim imati mogućnost Dodavanja proizvoda na narudžbu
+* Kao Korisnik želim imati mogućnost Modificiranja narudžbe
+* Kao Admin skladišta trebam imati mogućnost definisanja kategorija i iznosa cijene PDV-a po kategoriji proizvoda
+* Kao Korisnik želim imati mogućnost Izdavanja računa za narudžbu
+
+
 ## Definition of Done
 
 Da bi se određeni user story smatrao završenim, potrebno je da su zadovoljeni sljedeći uslovi:
