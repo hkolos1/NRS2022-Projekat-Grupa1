@@ -26,6 +26,30 @@ class ProductViewModel(application: Application): AndroidViewModel(application) 
         repository = ProductRepository(productDao)
         readAllData = repository.readAllData
     }
+    
+    fun addProduct(product: Product){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addProduct(product)
+        }
+    }
+
+    fun updateProduct(product: Product){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateProduct(product)
+        }
+    }
+
+    fun deleteProduct(product: Product){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteProduct(product)
+        }
+    }
+
+    fun deleteAllProducts(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllProducts()
+        }
+    }
 
     fun getProductsFromBranch(id: Int): LiveData<List<Product>>{
             return repository.getProductsFromBranch(id)
@@ -33,16 +57,6 @@ class ProductViewModel(application: Application): AndroidViewModel(application) 
 
     fun getProductsFromStatus(status: String): LiveData<List<Product>>{
         return repository.getProductsFromStatus(status)
-    }
-
-    fun deleteAllproducts(){
-        repository.deleteAllProducts()
-    }
-
-    fun updateProduct(product: Product){
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.updateProduct(product)
-        }
     }
 
     fun getAllProducts(){
