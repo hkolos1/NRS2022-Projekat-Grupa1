@@ -68,7 +68,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.roomapp.fragments.login.LoginFragment"
-        android:label="RoomApp"
+        android:label="NRS '22 Projekat"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_adminFragment"

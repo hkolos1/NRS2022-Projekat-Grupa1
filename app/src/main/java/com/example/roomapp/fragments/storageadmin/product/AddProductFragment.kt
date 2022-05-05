@@ -25,7 +25,6 @@ class AddProductFragment : Fragment() {
     private  lateinit var mProductViewModel: ProductViewModel
     private lateinit var name:TextView
     private lateinit var quantity:TextView
-    private lateinit var deStatus:String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,11 +36,14 @@ class AddProductFragment : Fragment() {
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
         name = view.findViewById(R.id.addPrName)
         quantity = view.findViewById(R.id.addPrAmount)
-        deStatus = view.findViewById<Spinner>(R.id.addPrCode).selectedItem.toString()
+
+
 
         view.addButton.setOnClickListener {
             insertDataToDatabase()
         }
+
+
 
 
         return view
@@ -51,7 +53,7 @@ class AddProductFragment : Fragment() {
         val value= quantity.text.toString();
         val finalValue=Integer.parseInt(value)
         val product = Product(
-            0,name.text.toString(),finalValue,null,deStatus)
+            0,name.text.toString(),finalValue,null, "Unassigned")
         mProductViewModel.addProduct(product)
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
         findNavController().navigate(R.id.action_addProduct_to_fragmentProduct)

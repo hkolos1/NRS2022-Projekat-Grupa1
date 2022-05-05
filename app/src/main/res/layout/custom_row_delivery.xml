@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/delivery_product_status_txt"
-        android:layout_width="60sp"
+        android:layout_width="70sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -34,7 +34,8 @@
         android:layout_marginBottom="8dp"
         android:text="Delivered"
         android:textAlignment="center"
-        android:textSize="16sp"
+        android:textColor="#000000"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/divider3"
         app:layout_constraintEnd_toStartOf="@+id/divider"
         app:layout_constraintStart_toStartOf="parent"

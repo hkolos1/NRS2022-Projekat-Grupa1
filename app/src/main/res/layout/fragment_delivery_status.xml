@@ -62,7 +62,7 @@
     <Spinner
         android:id="@+id/delivery_status_spinner"
         android:layout_width="match_parent"
-        android:layout_height="42sp"
+        android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
@@ -81,6 +81,8 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="24dp"
         android:text="Update"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#002B73"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

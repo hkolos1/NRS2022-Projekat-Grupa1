@@ -40,7 +40,7 @@ class DeliveryFragment : Fragment() {
 
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
 
-        var listSpinner = listOf("Sent", "Delivered", "Received")
+        var listSpinner = listOf("Unassigned", "Sent", "Delivered", "Received")
 
         spinnerDelivery = view.findViewById(R.id.delivery_spinner)
         spinnerDelivery.adapter = ArrayAdapter<String>(inflater.context, android.R.layout.simple_spinner_dropdown_item, listSpinner);

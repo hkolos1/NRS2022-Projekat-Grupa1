@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_update_product.view.*
 class UpdateProductFragment : Fragment() {
       private val args by navArgs<UpdateProductFragmentArgs>()
 
+
     private lateinit var  mProductViewModel: ProductViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,9 +31,9 @@ class UpdateProductFragment : Fragment() {
 
         mProductViewModel=ViewModelProvider(this).get(ProductViewModel::class.java)
 
+
         view.updatePrName.setText(args.currentProduct.prodName)
-        //prepravit
-        //view.updatePrCode.setSelection(indexOf(args.currentProduct.deliveryStatus))
+
         view.updatePrAmount.setText(args.currentProduct.quantity.toString())
 
         view.updateButton.setOnClickListener {
@@ -45,7 +46,7 @@ class UpdateProductFragment : Fragment() {
 
     private fun updateItem(){
         val prName=updatePrName.text.toString()
-        val prDelStat=updatePrCode.selectedItem.toString()
+        val prDelStat=args.currentProduct.deliveryStatus
         val quan=updatePrAmount.text.toString().toInt()
 
         if(inputCheck(prName, prDelStat, updatePrAmount.text)){

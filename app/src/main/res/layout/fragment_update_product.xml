@@ -17,6 +17,7 @@
         android:height="20dp"
         android:hint="PRODUCT NAME"
         android:inputType="text"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,22 +33,10 @@
         android:height="20dp"
         android:hint="PRODUCT QUANTITY"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updatePrName" />
-
-    <Spinner
-        android:id="@+id/updatePrCode"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updatePrAmount"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePrName" />
 
     <Button
         android:id="@+id/updateButton"
@@ -57,8 +46,10 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="24dp"
         android:text="UPDATE"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#002B73"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updatePrCode" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePrAmount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

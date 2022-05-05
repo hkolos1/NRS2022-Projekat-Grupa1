@@ -11,6 +11,7 @@ import com.example.roomapp.model.Product
 import kotlinx.android.synthetic.main.custom_row_branch.view.*
 import kotlinx.android.synthetic.main.custom_row_delivery.view.*
 import kotlinx.android.synthetic.main.custom_row_delivery.view.rowLayout
+import kotlinx.android.synthetic.main.fragment_product_details.view.*
 
 class DeliveryAdapter: RecyclerView.Adapter<DeliveryAdapter.MyViewHolder>() {
 
@@ -32,6 +33,7 @@ class DeliveryAdapter: RecyclerView.Adapter<DeliveryAdapter.MyViewHolder>() {
 
         holder.itemView.delivery_product_name.text = currentItem.prodName
         holder.itemView.delivery_product_status.text = currentItem.deliveryStatus
+
 
         holder.itemView.rowLayout.setOnClickListener {
             val action = DeliveryFragmentDirections.actionDeliveryFragmentToDeliveryStatusFragment(currentItem)
