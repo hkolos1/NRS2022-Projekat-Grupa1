@@ -186,12 +186,66 @@
     <fragment
         android:id="@+id/deliveryFragment"
         android:name="com.example.roomapp.fragments.storageadmin.delivery.DeliveryFragment"
-        android:label="fragment_delivery"
-        tools:layout="@layout/fragment_delivery" />
+        android:label="Deliveries"
+        tools:layout="@layout/fragment_delivery" >
+        <action
+            android:id="@+id/action_deliveryFragment_to_deliveryStatusFragment"
+            app:destination="@id/deliveryStatusFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deliveryStatusFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.delivery.DeliveryStatusFragment"
+        android:label="Change status"
+        tools:layout="@layout/fragment_delivery_status">
+    <argument
+        android:name="currentProduct"
+        app:argType="com.example.roomapp.model.Product" />
+        <action
+            android:id="@+id/action_deliveryStatusFragment_to_deliveryFragment"
+            app:destination="@id/deliveryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/branchChooserFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.BranchChooserFragment"
+        android:label="Branch Chooser"
+        tools:layout="@layout/fragment_branch_chooser">
+        <argument
+            android:name="currentBranch"
+            app:argType="com.example.roomapp.model.Branch" />
+        <action
+            android:id="@+id/action_branchChooser_to_allProducts"
+            app:destination="@id/allProductsInBranchFragment" />
+        <action
+            android:id="@+id/action_branchChooser_to_addProducts"
+            app:destination="@id/addProductsToBranchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/branchFragment"
         android:name="com.example.roomapp.fragments.storageadmin.branch.BranchFragment"
-        android:label="fragment_branch"
-        tools:layout="@layout/fragment_branch" />
+        android:label="Branches"
+        tools:layout="@layout/fragment_branch" >
+    <action
+        android:id="@+id/action_branchFragment_to_branchChooserFragment"
+        app:destination="@id/branchChooserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allProductsInBranchFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.AllProductsFragment"
+        android:label="All products"
+        tools:layout="@layout/fragment_all_products" >
+    <argument
+        android:name="currentBranch"
+        app:argType="com.example.roomapp.model.Branch" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProductsToBranchFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.AddProductsFragment"
+        android:label="Add Product"
+        tools:layout="@layout/fragment_add_products" >
+        <action
+            android:id="@+id/action_addProducts_to_Branches"
+            app:destination="@id/branchFragment" />
+    </fragment>
 </navigation>
-
