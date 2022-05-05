@@ -48,7 +48,7 @@ class UpdateProductFragment : Fragment() {
         val quan=updatePrAmount.text.toString().toInt()
 
         if(inputCheck(prName, prDelStat, updatePrAmount.text)){
-            val updatedProduct= Product(args.currentProduct.id, prName, quan,prDelStat)
+            val updatedProduct= Product(args.currentProduct.id, prName, quan,args.currentProduct.branchId,prDelStat)
             mProductViewModel.updateProduct(updatedProduct)
             Toast.makeText(requireContext(),"Product updated", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateProductFragment_to_productFragment)

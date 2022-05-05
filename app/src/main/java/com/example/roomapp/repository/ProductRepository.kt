@@ -1,5 +1,6 @@
 package com.example.roomapp.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.roomapp.data.ProductDao
 import com.example.roomapp.model.Product

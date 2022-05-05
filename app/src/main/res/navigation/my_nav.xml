@@ -264,6 +264,7 @@
         <action
             android:id="@+id/action_addProducts_to_Branches"
             app:destination="@id/branchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/updateProductFragment"
         android:name="com.example.roomapp.fragments.storageadmin.product.update.UpdateProductFragment"

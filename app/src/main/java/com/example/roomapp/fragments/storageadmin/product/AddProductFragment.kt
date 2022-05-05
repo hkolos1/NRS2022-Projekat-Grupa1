@@ -49,7 +49,7 @@ class AddProductFragment : Fragment() {
         val value= quantity.text.toString();
         val finalValue=Integer.parseInt(value)
         val product = Product(
-            0,name.text.toString(),finalValue,deStatus.text.toString()
+            0,name.text.toString(),finalValue,null,deStatus.text.toString()
         )
         mProductViewModel.addProduct(product)
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
