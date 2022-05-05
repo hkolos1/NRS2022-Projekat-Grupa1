@@ -181,7 +181,7 @@
     <fragment
         android:id="@+id/productFragment"
         android:name="com.example.roomapp.fragments.storageadmin.product.ProductFragment"
-        android:label="fragment_product"
+        android:label="Product"
         tools:layout="@layout/fragment_product">
         <action
             android:id="@+id/action_productFragment_to_addProduct"
@@ -193,8 +193,8 @@
     <fragment
         android:id="@+id/addProduct"
         android:name="com.example.roomapp.fragments.storageadmin.product.AddProductFragment"
-        android:label="fragment_add_product"
-        tools:layout="@layout/fragment_add_product" >
+        android:label="Add Product"
+        tools:layout="@layout/fragment_add_product">
         <action
             android:id="@+id/action_addProduct_to_fragmentProduct"
             app:destination="@id/productFragment" />
@@ -250,17 +250,17 @@
     <fragment
         android:id="@+id/allProductsInBranchFragment"
         android:name="com.example.roomapp.fragments.storageadmin.branch.AllProductsFragment"
-        android:label="All products"
-        tools:layout="@layout/fragment_all_products" >
-    <argument
-        android:name="currentBranch"
-        app:argType="com.example.roomapp.model.Branch" />
+        android:label="All products in Branch"
+        tools:layout="@layout/fragment_all_products">
+        <argument
+            android:name="currentBranch"
+            app:argType="com.example.roomapp.model.Branch" />
     </fragment>
     <fragment
         android:id="@+id/addProductsToBranchFragment"
         android:name="com.example.roomapp.fragments.storageadmin.branch.AddProductsFragment"
-        android:label="Add Product"
-        tools:layout="@layout/fragment_add_products" >
+        android:label="Add Product To Branch"
+        tools:layout="@layout/fragment_add_products">
         <action
             android:id="@+id/action_addProducts_to_Branches"
             app:destination="@id/branchFragment" />
@@ -268,8 +268,8 @@
     <fragment
         android:id="@+id/updateProductFragment"
         android:name="com.example.roomapp.fragments.storageadmin.product.update.UpdateProductFragment"
-        android:label="fragment_update_product"
-        tools:layout="@layout/fragment_update_product" >
+        android:label="Update Product"
+        tools:layout="@layout/fragment_update_product">
         <action
             android:id="@+id/action_updateProductFragment_to_productFragment"
             app:destination="@id/productFragment" />

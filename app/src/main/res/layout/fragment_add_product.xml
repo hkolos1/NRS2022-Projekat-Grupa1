@@ -24,21 +24,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/addPrDes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:width="100dp"
-        android:height="20dp"
-        android:hint="PRODUCT DESCRIPTION"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrName" />
-
-    <EditText
         android:id="@+id/addPrAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,23 +36,20 @@
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrDes" />
+        app:layout_constraintTop_toBottomOf="@+id/addPrName" />
 
-    <EditText
+    <Spinner
         android:id="@+id/addPrCode"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:width="100dp"
-        android:height="20dp"
-        android:hint="DELIVERY STATUS"
-        android:inputType="text"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrAmount" />
-
+        app:layout_constraintTop_toBottomOf="@+id/addPrAmount"
+        tools:ignore="SpeakableTextPresentCheck" />
     <Button
         android:id="@+id/addButton"
         android:layout_width="match_parent"
