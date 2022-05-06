@@ -68,7 +68,7 @@ class StorageAdminFragment : Fragment() {
     private fun logout(){
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Logged out",cal.time.toString()))
-        findNavController().navigateUp()
+        findNavController().navigate(R.id.action_storageAdminFragment_to_loginFragment)
     }
 
 }

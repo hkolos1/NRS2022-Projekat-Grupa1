@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.user
+package com.example.roomapp.fragments.user.password
 
 import android.os.Bundle
 import android.text.Editable
@@ -15,9 +15,6 @@ import com.example.roomapp.R
 import com.example.roomapp.repository.UserRepository
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_forgot_password_question.view.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 
 class ForgotPasswordQuestionFragment : Fragment() {
 

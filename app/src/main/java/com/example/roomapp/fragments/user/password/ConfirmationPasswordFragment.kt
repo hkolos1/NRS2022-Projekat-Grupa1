@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.user
+package com.example.roomapp.fragments.user.password
 
 import android.annotation.SuppressLint
 import android.os.Bundle

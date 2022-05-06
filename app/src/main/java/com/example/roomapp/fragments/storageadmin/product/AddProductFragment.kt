@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -13,15 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
-import com.example.roomapp.fragments.user.ConfirmationPasswordFragmentArgs
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.Product
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
-import com.example.roomapp.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.fragment_add.*
-import kotlinx.android.synthetic.main.fragment_add.view.*
-import kotlinx.android.synthetic.main.fragment_add_product.*
 import kotlinx.android.synthetic.main.fragment_add_product.view.*
 import java.util.*
 

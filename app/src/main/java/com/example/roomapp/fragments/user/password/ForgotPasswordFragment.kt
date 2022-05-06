@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.user
+package com.example.roomapp.fragments.user.password
 
 import android.os.Bundle
 import android.text.Editable
@@ -6,25 +6,19 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
-import com.example.roomapp.fragments.login.LoginFragmentDirections
-import com.example.roomapp.model.Log
 import com.example.roomapp.repository.UserRepository
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_forgot_password.view.*
-import kotlinx.android.synthetic.main.fragment_login.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.util.*
 
 class ForgotPasswordFragment : Fragment() {
 

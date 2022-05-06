@@ -96,7 +96,7 @@
 
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.example.roomapp.fragments.user.ForgotPasswordFragment"
+        android:name="com.example.roomapp.fragments.user.password.ForgotPasswordFragment"
         android:label="Forgot Password"
         tools:layout="@layout/fragment_forgot_password">
         <action
@@ -106,7 +106,7 @@
 
     <fragment
         android:id="@+id/forgotNewPasswordFragment"
-        android:name="com.example.roomapp.fragments.user.ForgotNewPasswordFragment"
+        android:name="com.example.roomapp.fragments.user.password.ForgotNewPasswordFragment"
         android:label="New Password"
         tools:layout="@layout/fragment_forgot_new_password">
         <action
@@ -137,7 +137,7 @@
     </fragment>
     <fragment
         android:id="@+id/updatePasswordFragment"
-        android:name="com.example.roomapp.fragments.user.UpdatePasswordFragment"
+        android:name="com.example.roomapp.fragments.user.password.UpdatePasswordFragment"
         android:label="Change Password"
         tools:layout="@layout/fragment_update_password" >
         <action
@@ -176,7 +176,7 @@
 
     <fragment
         android:id="@+id/confirmationPasswordFragment"
-        android:name="com.example.roomapp.fragments.user.ConfirmationPasswordFragment"
+        android:name="com.example.roomapp.fragments.user.password.ConfirmationPasswordFragment"
         android:label="User Panel"
         tools:layout="@layout/fragment_confirmation_password" >
     <action
@@ -300,7 +300,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordQuestionFragment"
-        android:name="com.example.roomapp.fragments.user.ForgotPasswordQuestionFragment"
+        android:name="com.example.roomapp.fragments.user.password.ForgotPasswordQuestionFragment"
         android:label="Question">
         <action
             android:id="@+id/action_forgotPasswordQuestionFragment_to_forgotNewPasswordFragment"
