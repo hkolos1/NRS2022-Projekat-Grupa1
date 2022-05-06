@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
 import com.example.roomapp.viewmodel.BranchViewModel
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.fragment_branch.view.*
 class BranchFragment : Fragment() {
 
     private lateinit var mBranchViewModel: BranchViewModel
+    private val args by navArgs<BranchFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,9 +35,8 @@ class BranchFragment : Fragment() {
         // BranchViewModel
         mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
         mBranchViewModel.readAllData.observe(viewLifecycleOwner, Observer{
-            branch -> adapter.setData(branch)
+            branch -> adapter.setData(branch,args.user)
         })
-
 
         mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
 

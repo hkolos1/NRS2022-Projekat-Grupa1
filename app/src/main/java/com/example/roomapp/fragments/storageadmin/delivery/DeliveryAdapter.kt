@@ -6,16 +6,14 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomapp.R
-import com.example.roomapp.fragments.storageadmin.branch.BranchFragmentDirections
 import com.example.roomapp.model.Product
-import kotlinx.android.synthetic.main.custom_row_branch.view.*
+import com.example.roomapp.model.User
 import kotlinx.android.synthetic.main.custom_row_delivery.view.*
-import kotlinx.android.synthetic.main.custom_row_delivery.view.rowLayout
-import kotlinx.android.synthetic.main.fragment_product_details.view.*
 
 class DeliveryAdapter: RecyclerView.Adapter<DeliveryAdapter.MyViewHolder>() {
 
     private var productList = emptyList<Product>()
+    private lateinit var user: User
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){}
 
@@ -34,9 +32,8 @@ class DeliveryAdapter: RecyclerView.Adapter<DeliveryAdapter.MyViewHolder>() {
         holder.itemView.delivery_product_name.text = currentItem.prodName
         holder.itemView.delivery_product_status.text = currentItem.deliveryStatus
 
-
         holder.itemView.rowLayout.setOnClickListener {
-            val action = DeliveryFragmentDirections.actionDeliveryFragmentToDeliveryStatusFragment(currentItem)
+            val action = DeliveryFragmentDirections.actionDeliveryFragmentToDeliveryStatusFragment(currentItem,user)
             holder.itemView.findNavController().navigate(action)
         }
 
@@ -46,8 +43,9 @@ class DeliveryAdapter: RecyclerView.Adapter<DeliveryAdapter.MyViewHolder>() {
         return productList.size
     }
 
-    fun setData(products: List<Product>){
+    fun setData(products: List<Product>, user: User){
         this.productList = products
+        this.user = user
         notifyDataSetChanged()
     }
 

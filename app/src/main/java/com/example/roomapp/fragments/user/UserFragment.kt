@@ -5,13 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
-import com.example.roomapp.fragments.admin.users.update.UpdateFragmentArgs
 import com.example.roomapp.model.Log
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
@@ -66,7 +64,7 @@ class UserFragment : Fragment() {
     private fun logout() {
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Logged out",cal.time.toString()))
-        findNavController().navigate(R.id.action_userFragment_to_loginFragment)
+        findNavController().navigateUp()
     }
 
     @SuppressLint("SetTextI18n")

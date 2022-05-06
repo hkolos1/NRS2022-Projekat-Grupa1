@@ -7,12 +7,14 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomapp.R
 import com.example.roomapp.model.Branch
+import com.example.roomapp.model.User
 import kotlinx.android.synthetic.main.custom_row_branch.view.*
 import kotlinx.android.synthetic.main.custom_row_branch.view.rowLayout
 
 class BranchAdapter: RecyclerView.Adapter<BranchAdapter.MyViewHolder>()  {
 
     private var branchList = emptyList<Branch>()
+    private lateinit var user: User
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
@@ -28,9 +30,8 @@ class BranchAdapter: RecyclerView.Adapter<BranchAdapter.MyViewHolder>()  {
         holder.itemView.branch_id_txt.text = currentItem.id.toString()
         holder.itemView.branch_name_txt.text = currentItem.name
 
-
         holder.itemView.rowLayout.setOnClickListener {
-            val action = BranchFragmentDirections.actionBranchFragmentToBranchChooserFragment(currentItem)
+            val action = BranchFragmentDirections.actionBranchFragmentToAllProductsInBranchFragment(currentItem,user)
             holder.itemView.findNavController().navigate(action)
         }
 
@@ -40,8 +41,9 @@ class BranchAdapter: RecyclerView.Adapter<BranchAdapter.MyViewHolder>()  {
         return branchList.size
     }
 
-    fun setData(branches: List<Branch>){
+    fun setData(branches: List<Branch>, user: User){
         this.branchList = branches
+        this.user = user
         notifyDataSetChanged()
     }
 }

@@ -10,8 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
+import com.example.roomapp.model.Log
 import com.example.roomapp.model.Product
 import com.example.roomapp.model.User
+import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_delivery_status.*
@@ -19,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_delivery_status.view.*
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
+import java.util.*
 
 class DeliveryStatusFragment: Fragment() {
     private val args by navArgs<DeliveryStatusFragmentArgs>()
@@ -28,6 +31,7 @@ class DeliveryStatusFragment: Fragment() {
     private lateinit var spinnerStatus: Spinner
 
     private lateinit var mProductViewModel: ProductViewModel
+    private lateinit var mLogViewModel: LogViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +41,7 @@ class DeliveryStatusFragment: Fragment() {
         val view = inflater.inflate(R.layout.fragment_delivery_status, container, false)
 
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
         textViewProd = view.findViewById(R.id.delivery_status_name)
         textViewProd.text = args.currentProduct.prodName
@@ -73,12 +78,16 @@ class DeliveryStatusFragment: Fragment() {
         val status = delivery_status_spinner.selectedItem.toString()
 
         // Create
-        val updatedProduct = Product(args.currentProduct.id, args.currentProduct.prodName, args.currentProduct.quantity, args.currentProduct.branchId, status)
+        val updatedProduct = Product(args.currentProduct.id, args.currentProduct.prodName,
+            args.currentProduct.quantity, args.currentProduct.unit, args.currentProduct.branchId, status)
         // Update
         mProductViewModel.updateProduct(updatedProduct)
+        val cal: Calendar = Calendar.getInstance()
+        mLogViewModel.addLog(Log(0,args.user.firstName,"Updated ${args.currentProduct.prodName} status to $status",cal.time.toString()))
+
         Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()
         // Navigate Back
-        findNavController().navigate(R.id.action_deliveryStatusFragment_to_deliveryFragment)
+        findNavController().navigateUp()
 
     }
 }

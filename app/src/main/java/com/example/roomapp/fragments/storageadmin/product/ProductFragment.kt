@@ -12,16 +12,18 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
-import com.example.roomapp.fragments.admin.AdminFragmentArgs
+import com.example.roomapp.model.Log
+import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
-import com.example.roomapp.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.fragment_list.view.*
 import kotlinx.android.synthetic.main.fragment_product.view.*
+import java.util.*
 
 class ProductFragment : Fragment() {
 
     private lateinit var addButton : Button
     private lateinit var mProductViewModel: ProductViewModel
+    private lateinit var mLogViewModel: LogViewModel
+    private val args by navArgs<ProductFragmentArgs>()
 
 
     override fun onCreateView(
@@ -35,8 +37,10 @@ class ProductFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
+
         mProductViewModel.readAllData.observe(viewLifecycleOwner, Observer {product ->
-            adapter.setData(product)
+            adapter.setData(product,args.user)
         })
         addButton = view.findViewById(R.id.addProdButton)
 
@@ -48,7 +52,8 @@ class ProductFragment : Fragment() {
     }
 
     private fun addingProduct() {
-        findNavController().navigate(R.id.action_productFragment_to_addProduct)
+        val action = ProductFragmentDirections.actionProductFragmentToAddProduct(args.user)
+        findNavController().navigate(action)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -66,6 +71,9 @@ class ProductFragment : Fragment() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->
             mProductViewModel.deleteAllProducts()
+            val cal: Calendar = Calendar.getInstance()
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Deleted all products",cal.time.toString()))
+
             Toast.makeText(
                 requireContext(),
                 "Successfully removed everything",

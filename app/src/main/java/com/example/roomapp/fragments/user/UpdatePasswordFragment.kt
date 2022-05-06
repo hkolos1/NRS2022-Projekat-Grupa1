@@ -3,19 +3,21 @@ package com.example.roomapp.fragments.user
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
+import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
+import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.fragment_confirmation_password.view.*
 import kotlinx.android.synthetic.main.fragment_update_password.view.*
+import java.util.*
 
 class UpdatePasswordFragment : Fragment() {
 
@@ -24,6 +26,7 @@ class UpdatePasswordFragment : Fragment() {
     private lateinit var newPassword: String
     private lateinit var confPassword: String
     private val args by navArgs<UpdatePasswordFragmentArgs>()
+    private lateinit var mLogViewModel: LogViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +36,7 @@ class UpdatePasswordFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_update_password, container, false)
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
         view.oldPassword.addTextChangedListener(object : TextWatcher {
 
@@ -87,8 +91,10 @@ class UpdatePasswordFragment : Fragment() {
         if (view.oldPassword.text.isEmpty() || view.newPassword.text.isEmpty() || view.confirmPassword.text.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
         } else if (oldPassword == args.user.lastName && newPassword == confPassword){
-            var updatedUser = User(args.user.id , args.user.firstName , newPassword , args.user.age ,args.user.question,args.user.answer)
+            val updatedUser = User(args.user.id , args.user.firstName , newPassword , args.user.age ,args.user.question,args.user.answer)
             mUserViewModel.updateUser(updatedUser)
+            val cal: Calendar = Calendar.getInstance()
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Password changed",cal.time.toString()))
 
             val action = UpdatePasswordFragmentDirections.actionUpdateFragmentToUserFragment(args.user)
             findNavController().navigate(action)

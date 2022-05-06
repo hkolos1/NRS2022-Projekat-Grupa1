@@ -13,19 +13,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
+import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
+import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_confirmation_password.view.*
-import kotlinx.android.synthetic.main.fragment_user.view.*
+import java.util.*
 
 class ConfirmationPasswordFragment : Fragment() {
     private val args by navArgs<ConfirmationPasswordFragmentArgs>()
-    private lateinit var spinerQuestion: Spinner
+    private lateinit var question: EditText
     private lateinit var answer: String
     private lateinit var mUserViewModel: UserViewModel
-
-
-
+    private lateinit var mLogViewModel: LogViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,9 +34,9 @@ class ConfirmationPasswordFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_confirmation_password, container, false)
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
-
-        spinerQuestion = view.findViewById(R.id.spinnerQuestion)
+        question = view.findViewById(R.id.questionEditView)
 
         view.btn_con_pass.setOnClickListener {
             conPassButton(view)
@@ -56,11 +56,6 @@ class ConfirmationPasswordFragment : Fragment() {
             }
         })
 
-        ArrayAdapter.createFromResource(view.context, R.array.SpinerQuestionItems,android.R.layout.simple_spinner_dropdown_item).also {
-                adap -> adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinerQuestion.adapter = adap
-        }
-
         return view
 
     }
@@ -70,8 +65,12 @@ class ConfirmationPasswordFragment : Fragment() {
         if (view.answerTextField.text.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill field", Toast.LENGTH_SHORT).show()
         } else {
-            val updatedUser = User(args.user.id , args.user.firstName , args.user.lastName , args.user.age ,spinerQuestion.selectedItem.toString(),answer)
+            val updatedUser = User(args.user.id , args.user.firstName , args.user.lastName , args.user.age ,
+                question.text.toString(),answer)
             mUserViewModel.updateUser(updatedUser)
+            val cal: Calendar = Calendar.getInstance()
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Added security question",cal.time.toString()))
+
             val action = ConfirmationPasswordFragmentDirections.actionConfirmationPasswordFragmentToUserFragment(updatedUser)
             findNavController().navigate(action)
 

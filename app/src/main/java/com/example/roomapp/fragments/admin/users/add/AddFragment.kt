@@ -11,7 +11,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
+import com.example.roomapp.fragments.admin.users.update.UpdateFragmentArgs
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
 import com.example.roomapp.viewmodel.LogViewModel
@@ -22,6 +24,8 @@ import kotlinx.android.synthetic.main.fragment_login.view.*
 import java.util.*
 
 class AddFragment : Fragment() {
+
+    private val args by navArgs<AddFragmentArgs>()
 
     private lateinit var mUserViewModel: UserViewModel
     private lateinit var mLogViewModel: LogViewModel
@@ -34,6 +38,7 @@ class AddFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_add, container, false)
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
         view.add_btn.setOnClickListener {
             insertDataToDatabase()
@@ -74,9 +79,12 @@ class AddFragment : Fragment() {
                 )
                 // Add Data to Database
                 mUserViewModel.addUser(user)
+                val cal: Calendar = Calendar.getInstance()
+                mLogViewModel.addLog(Log(0,args.user.firstName,"Added user $firstName",cal.time.toString()))
+
                 Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
                 // Navigate Back
-                findNavController().navigate(R.id.action_addFragment_to_listFragment)
+                findNavController().navigateUp()
             }else{
                 Toast.makeText(requireContext(), "Password do not match", Toast.LENGTH_LONG).show()
             }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_all_products.view.*
 
 class AllProductsFragment: Fragment() {
     private lateinit var mProductViewModel: ProductViewModel
-    private val args by navArgs<BranchChooserFragmentArgs>()
+    private val args by navArgs<AllProductsFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,18 +30,19 @@ class AllProductsFragment: Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
 
 
         mProductViewModel.getProductsFromBranch(args.currentBranch.id).observe(viewLifecycleOwner, Observer{
-                product -> adapter.setData(product)
+                product -> adapter.setData(product,args.user)
         })
-
-
 
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
 
+        view.floatingActionButtonProduct.setOnClickListener{
+            val action = AllProductsFragmentDirections.actionAllProductsInBranchFragmentToAddProductsToBranchFragment(args.user,args.currentBranch)
+            findNavController().navigate(action)
+        }
 
         return view
     }

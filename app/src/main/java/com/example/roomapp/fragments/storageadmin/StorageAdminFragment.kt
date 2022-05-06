@@ -44,15 +44,18 @@ class StorageAdminFragment : Fragment() {
         }
 
         view.btn_product.setOnClickListener {
-            findNavController().navigate(R.id.action_storageAdminFragment_to_productFragment)
+            val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToProductFragment(args.user)
+            findNavController().navigate(action)
         }
 
         view.btn_delivery.setOnClickListener {
-            findNavController().navigate(R.id.action_storageAdminFragment_to_deliveryFragment)
+            val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToDeliveryFragment(args.user)
+            findNavController().navigate(action)
         }
 
         view.btn_branch.setOnClickListener {
-            findNavController().navigate(R.id.action_storageAdminFragment_to_branchFragment)
+            val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToBranchFragment(args.user)
+            findNavController().navigate(action)
         }
 
         view.btn_logout4.setOnClickListener{
@@ -65,7 +68,7 @@ class StorageAdminFragment : Fragment() {
     private fun logout(){
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Logged out",cal.time.toString()))
-        findNavController().navigate(R.id.action_storageAdminFragment_to_loginFragment)
+        findNavController().navigateUp()
     }
 
 }

@@ -40,6 +40,7 @@ import kotlinx.android.synthetic.main.item_product.view.*
 class ProductAdapter: RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
     private var list = emptyList<Product>()
+    private lateinit var user : User
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
@@ -53,19 +54,20 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem: Product = list[position]
-        holder.itemView.nameProd.text = currentItem.id.toString()
+        holder.itemView.nameProd.text = (position+1).toString()
         holder.itemView.deliveryS.text = currentItem.prodName
         holder.itemView.quantity.text = currentItem.quantity.toString()
+        holder.itemView.unit.text = currentItem.unit
 
        holder.itemView.rowLayout2.setOnClickListener{
-           val action=ProductFragmentDirections.actionProductFragmentToUpdateProductFragment(currentItem)
-
+           val action=ProductFragmentDirections.actionProductFragmentToUpdateProductFragment(currentItem,user)
            holder.itemView.findNavController().navigate(action)
         }
     }
 
-    fun setData(product: List<Product>){
+    fun setData(product: List<Product>, user: User){
         this.list = product
+        this.user = user
         notifyDataSetChanged()
     }
 }

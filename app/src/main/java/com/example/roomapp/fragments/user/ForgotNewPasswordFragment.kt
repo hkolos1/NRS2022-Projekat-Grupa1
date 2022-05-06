@@ -12,10 +12,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
+import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
+import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_forgot_new_password.view.*
-import kotlinx.android.synthetic.main.fragment_update_password.view.*
+import java.util.*
 
 class ForgotNewPasswordFragment : Fragment() {
 
@@ -23,6 +25,7 @@ class ForgotNewPasswordFragment : Fragment() {
     private lateinit var newPasswordForgot: String
     private lateinit var confPasswordForgot: String
     private val args by navArgs<ForgotNewPasswordFragmentArgs>()
+    private lateinit var mLogViewModel: LogViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +35,7 @@ class ForgotNewPasswordFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_forgot_new_password, container, false)
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
         view.newPasswordForgot.addTextChangedListener(object : TextWatcher {
 
@@ -72,8 +76,10 @@ class ForgotNewPasswordFragment : Fragment() {
         if (view.newPasswordForgot.text.isEmpty() || view.confirmPasswordForgot.text.isEmpty() ) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
         }else if (newPasswordForgot == confPasswordForgot){
-            var updatedUser = User(args.user.id , args.user.firstName , newPasswordForgot , args.user.age ,args.user.question,args.user.answer)
+            val updatedUser = User(args.user.id , args.user.firstName , newPasswordForgot , args.user.age ,args.user.question,args.user.answer)
             mUserViewModel.updateUser(updatedUser)
+            val cal: Calendar = Calendar.getInstance()
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Password changed",cal.time.toString()))
 
             val action = ForgotNewPasswordFragmentDirections.actionForgotNewPasswordFragmentToLoggingFragment()
             findNavController().navigate(action)

@@ -12,6 +12,7 @@ data class Product(
     val id: Int,
     val prodName: String,
     val quantity: Int,
+    val unit: String,
     val branchId: Int?,
     val deliveryStatus: String
 ): Parcelable{

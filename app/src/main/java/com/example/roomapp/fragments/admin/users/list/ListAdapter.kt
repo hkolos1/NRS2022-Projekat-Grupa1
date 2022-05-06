@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.custom_row.view.*
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     private var userList = emptyList<User>()
+    private lateinit var user: User
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
@@ -39,13 +40,14 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         holder.itemView.age_txt.text = "($role)"
 
         holder.itemView.rowLayout.setOnClickListener {
-            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem,user)
             holder.itemView.findNavController().navigate(action)
         }
     }
 
-    fun setData(user: List<User>){
+    fun setData(user: List<User>, user1: User){
         this.userList = user
+        this.user = user1
         notifyDataSetChanged()
     }
 }

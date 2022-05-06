@@ -36,6 +36,7 @@ class UpdateFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_update, container, false)
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
         view.updateFirstName_et.setText(args.currentUser.firstName)
         view.updateLastName_et.setText(args.currentUser.lastName)
@@ -72,9 +73,12 @@ class UpdateFragment : Fragment() {
             val updatedUser = User(args.currentUser.id, firstName, lastName, age,args.currentUser.question,args.currentUser.answer)
             // Update Current User
             mUserViewModel.updateUser(updatedUser)
+            val cal: Calendar = Calendar.getInstance()
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Updated user ${args.currentUser.firstName}",cal.time.toString()))
+
             Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()
             // Navigate Back
-            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+            findNavController().navigateUp()
         } else {
             Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT)
                 .show()
@@ -100,11 +104,14 @@ class UpdateFragment : Fragment() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->
             mUserViewModel.deleteUser(args.currentUser)
+            val cal: Calendar = Calendar.getInstance()
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Deleted user ${args.currentUser.firstName}",cal.time.toString()))
+
             Toast.makeText(
                 requireContext(),
                 "Successfully removed: ${args.currentUser.firstName}",
                 Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+            findNavController().navigateUp()
         }
         builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete ${args.currentUser.firstName}?")

@@ -10,17 +10,24 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
 import com.example.roomapp.model.Branch
+import com.example.roomapp.model.Log
 import com.example.roomapp.model.Product
 import com.example.roomapp.viewmodel.BranchViewModel
+import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
+import kotlinx.android.synthetic.main.fragment_add_products.*
 import kotlinx.android.synthetic.main.fragment_add_products.view.*
+import java.util.*
 
 class AddProductsFragment: Fragment() {
 
     private lateinit var mProductViewModel: ProductViewModel
     private lateinit var mBranchViewModel: BranchViewModel
+    private lateinit var mLogViewModel: LogViewModel
+    private val args by navArgs<AddProductsFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,14 +38,12 @@ class AddProductsFragment: Fragment() {
 
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
         mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
         val spinnerProducts = view.spinner_assign_product_product
-        val spinnerBranches = view.spinner_assign_product_branch
-
+        view.textViewBranch.text = "Branch "+args.branch.name
 
         val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
-        val spinnerBranchesAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
-
 
         mProductViewModel.readAllData.observe(viewLifecycleOwner, Observer{
             product -> product.forEach {
@@ -46,33 +51,36 @@ class AddProductsFragment: Fragment() {
         }
         })
 
-        mBranchViewModel.readAllData.observe(viewLifecycleOwner, Observer{
-            product -> product.forEach{
-                spinnerBranchesAdapter.add(it)
-        }
-        })
-
         spinnerProducts.adapter = spinnerProdAdapter
-        spinnerBranches.adapter = spinnerBranchesAdapter
 
 
         view.btn_assign_product.setOnClickListener{
             val chosenProduct: Product = spinnerProducts.selectedItem as Product
-            val chosenBranch: Branch = spinnerBranches.selectedItem as Branch
+            val chosenBranch: Branch = args.branch
+            /*
+            Ovu vrijednost ispod bi trebalo spremiti negdje
+            jer predstavlja kolicinu proizvoda proslijedjenog poslovnici
+             */ val quantity = edit_assign_product_quantity.text.toString().toInt()
 
-            val newProduct = Product(chosenProduct.id, chosenProduct.prodName, chosenProduct.quantity, chosenBranch.id, chosenProduct.deliveryStatus)
-
-            if(chosenProduct.branchId == chosenBranch.id){
+            if(quantity>chosenProduct.quantity){
+                Toast.makeText(requireContext(), "Not valid quantity for "+chosenProduct.prodName, Toast.LENGTH_SHORT).show()
+            }else if(chosenProduct.branchId == chosenBranch.id){
                 Toast.makeText(requireContext(), chosenProduct.prodName + " is already assigned to " + chosenBranch.name, Toast.LENGTH_SHORT).show()
             }else{
+
+                val newProduct = Product(chosenProduct.id, chosenProduct.prodName,
+                    chosenProduct.quantity-quantity,// <-- Oduzima dio kolicine iz skladista
+                    chosenProduct.unit,chosenBranch.id, chosenProduct.deliveryStatus)
+
                 mProductViewModel.updateProduct(newProduct)
+
+                val cal: Calendar = Calendar.getInstance()
+                mLogViewModel.addLog(Log(0,args.user.firstName,"Assigned ${chosenProduct.prodName} to ${chosenBranch.name}",cal.time.toString()))
                 Toast.makeText(requireContext(), "Assigned " + chosenProduct.prodName + " to " + chosenBranch.name + " successfully!", Toast.LENGTH_SHORT).show()
 
-                val action = AddProductsFragmentDirections.actionAddProductsToBranches()
-                findNavController().navigate(action)
+                findNavController().navigateUp()
             }
         }
-
 
         return view
     }

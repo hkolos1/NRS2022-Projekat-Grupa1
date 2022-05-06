@@ -62,7 +62,7 @@ class AdminFragment : Fragment() {
     private fun logout(){
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Logged out",cal.time.toString()))
-        findNavController().navigate(R.id.action_adminFragment_to_loginFragment)
+        findNavController().navigateUp()
     }
 
     private fun storage(){
@@ -71,7 +71,8 @@ class AdminFragment : Fragment() {
     }
 
     private fun goToUsers() {
-        findNavController().navigate(R.id.action_adminFragment_to_listFragment)
+        val action = AdminFragmentDirections.actionAdminFragmentToListFragment(args.user)
+        findNavController().navigate(action)
     }
 
 }

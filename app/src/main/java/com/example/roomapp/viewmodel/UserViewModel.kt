@@ -37,28 +37,24 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
     fun addUser(user: User){
         viewModelScope.launch(Dispatchers.IO) {
             repository.addUser(user)
-            logRep.addLog(Log(0,user.firstName,"Added",cal.time.toString()))
         }
     }
 
     fun updateUser(user: User){
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateUser(user)
-            logRep.addLog(Log(0,user.firstName,"Updated",cal.time.toString()))
         }
     }
 
     fun deleteUser(user: User){
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteUser(user)
-            logRep.addLog(Log(0,user.firstName,"Removed",cal.time.toString()))
         }
     }
 
     fun deleteAllUsers(){
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteAllUsers()
-            logRep.addLog(Log(0,"All users","Removed",cal.time.toString()))
         }
     }
 

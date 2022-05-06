@@ -6,11 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomapp.R
 import com.example.roomapp.model.Product
+import com.example.roomapp.model.User
 import kotlinx.android.synthetic.main.custom_row_branch_product.view.*
 
 class AllProductsAdapter: RecyclerView.Adapter<AllProductsAdapter.MyViewHolder>()  {
 
     private var productsList = emptyList<Product>()
+    private lateinit var user: User
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
@@ -34,8 +36,9 @@ class AllProductsAdapter: RecyclerView.Adapter<AllProductsAdapter.MyViewHolder>(
         return productsList.size
     }
 
-    fun setData(products: List<Product>){
+    fun setData(products: List<Product>, user: User){
         this.productsList = products
+        this.user = user
         notifyDataSetChanged()
     }
 

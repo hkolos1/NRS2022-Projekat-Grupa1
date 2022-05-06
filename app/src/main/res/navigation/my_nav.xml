@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_listFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -28,6 +31,9 @@
         <action
             android:id="@+id/action_addFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
@@ -39,6 +45,9 @@
             app:destination="@id/listFragment" />
         <argument
             android:name="currentUser"
+            app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="user"
             app:argType="com.example.roomapp.model.User" />
     </fragment>
     <fragment
@@ -68,7 +77,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.roomapp.fragments.login.LoginFragment"
-        android:label="NRS '22 Projekat"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_adminFragment"
@@ -91,8 +100,8 @@
         android:label="Forgot Password"
         tools:layout="@layout/fragment_forgot_password">
         <action
-            android:id="@+id/action_forgotPasswordFragment_to_forgotNewPasswordFragment"
-            app:destination="@id/forgotNewPasswordFragment" />
+            android:id="@+id/action_forgotPasswordFragment_to_forgotPasswordQuestionFragment"
+            app:destination="@id/forgotPasswordQuestionFragment" />
     </fragment>
 
     <fragment
@@ -181,7 +190,7 @@
     <fragment
         android:id="@+id/productFragment"
         android:name="com.example.roomapp.fragments.storageadmin.product.ProductFragment"
-        android:label="Product"
+        android:label="Product Storage"
         tools:layout="@layout/fragment_product">
         <action
             android:id="@+id/action_productFragment_to_addProduct"
@@ -189,6 +198,9 @@
         <action
             android:id="@+id/action_productFragment_to_updateProductFragment"
             app:destination="@id/updateProductFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
     </fragment>
     <fragment
         android:id="@+id/addProduct"
@@ -198,6 +210,9 @@
         <action
             android:id="@+id/action_addProduct_to_fragmentProduct"
             app:destination="@id/productFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
     </fragment>
 
     <fragment
@@ -208,6 +223,9 @@
         <action
             android:id="@+id/action_deliveryFragment_to_deliveryStatusFragment"
             app:destination="@id/deliveryStatusFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
     </fragment>
 
     <fragment
@@ -221,31 +239,22 @@
         <action
             android:id="@+id/action_deliveryStatusFragment_to_deliveryFragment"
             app:destination="@id/deliveryFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
     </fragment>
 
-    <fragment
-        android:id="@+id/branchChooserFragment"
-        android:name="com.example.roomapp.fragments.storageadmin.branch.BranchChooserFragment"
-        android:label="Branch Chooser"
-        tools:layout="@layout/fragment_branch_chooser">
-        <argument
-            android:name="currentBranch"
-            app:argType="com.example.roomapp.model.Branch" />
-        <action
-            android:id="@+id/action_branchChooser_to_allProducts"
-            app:destination="@id/allProductsInBranchFragment" />
-        <action
-            android:id="@+id/action_branchChooser_to_addProducts"
-            app:destination="@id/addProductsToBranchFragment" />
-    </fragment>
     <fragment
         android:id="@+id/branchFragment"
         android:name="com.example.roomapp.fragments.storageadmin.branch.BranchFragment"
         android:label="Branches"
         tools:layout="@layout/fragment_branch" >
-    <action
-        android:id="@+id/action_branchFragment_to_branchChooserFragment"
-        app:destination="@id/branchChooserFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_branchFragment_to_allProductsInBranchFragment"
+            app:destination="@id/allProductsInBranchFragment" />
     </fragment>
     <fragment
         android:id="@+id/allProductsInBranchFragment"
@@ -255,15 +264,24 @@
         <argument
             android:name="currentBranch"
             app:argType="com.example.roomapp.model.Branch" />
+        <action
+            android:id="@+id/action_allProductsInBranchFragment_to_addProductsToBranchFragment"
+            app:destination="@id/addProductsToBranchFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
     </fragment>
     <fragment
         android:id="@+id/addProductsToBranchFragment"
         android:name="com.example.roomapp.fragments.storageadmin.branch.AddProductsFragment"
         android:label="Add Product To Branch"
         tools:layout="@layout/fragment_add_products">
-        <action
-            android:id="@+id/action_addProducts_to_Branches"
-            app:destination="@id/branchFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="branch"
+            app:argType="com.example.roomapp.model.Branch" />
     </fragment>
     <fragment
         android:id="@+id/updateProductFragment"
@@ -276,5 +294,19 @@
         <argument
             android:name="currentProduct"
             app:argType="com.example.roomapp.model.Product" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordQuestionFragment"
+        android:name="com.example.roomapp.fragments.user.ForgotPasswordQuestionFragment"
+        android:label="Question">
+        <action
+            android:id="@+id/action_forgotPasswordQuestionFragment_to_forgotNewPasswordFragment"
+            app:destination="@id/forgotNewPasswordFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
     </fragment>
 </navigation>
