@@ -37,7 +37,7 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
             role = "Storage Admin"
         }
 
-        holder.itemView.age_txt.text = "($role)"
+        holder.itemView.age_txt.text = "$role"
 
         holder.itemView.rowLayout.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem,user)

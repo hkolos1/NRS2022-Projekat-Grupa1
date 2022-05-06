@@ -5,9 +5,14 @@
       <map>
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2535" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2535" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row.xml" value="0.286231884057971" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/activity_main.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch_product.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_delivery.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_log.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_product.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_product.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_products.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_admin.xml" value="0.286231884057971" />
@@ -18,13 +23,20 @@
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_branch_chooser.xml" value="0.2346014492753623" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_confirmation_password.xml" value="0.3483204134366925" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_delivery.xml" value="0.286231884057971" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_delivery_status.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_forgot_new_password.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_forgot_password.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_forgot_password_question.xml" value="0.3483204134366925" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_list.xml" value="0.286231884057971" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_logging.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_login.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_product.xml" value="0.286231884057971" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_product_details.xml" value="0.17760416666666667" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_password.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_product.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_user.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/item_product.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2535" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2535" />
         <entry key="..\:/Users/Administrator/Desktop/test/app/src/main/res/layout/custom_row.xml" value="0.245018115942029" />
