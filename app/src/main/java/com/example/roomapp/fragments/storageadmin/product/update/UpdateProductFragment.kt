@@ -56,7 +56,7 @@ class UpdateProductFragment : Fragment() {
         val unit=updatePrUnit.text.toString()
 
         if(inputCheck(prName, prDelStat, updatePrAmount.text)){
-            val updatedProduct= Product(args.currentProduct.id, prName, quan,unit,args.currentProduct.branchId,prDelStat)
+            val updatedProduct= Product(args.currentProduct.id, prName, quan,unit,args.currentProduct.branchId,prDelStat, null)
             mProductViewModel.updateProduct(updatedProduct)
             val cal: Calendar = Calendar.getInstance()
             mLogViewModel.addLog(Log(0,args.user.firstName,"Updated product",cal.time.toString()))

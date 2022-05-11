@@ -58,6 +58,11 @@ class StorageAdminFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        view.btn_category.setOnClickListener {
+            val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToCategoryFragment(args.user)
+            findNavController().navigate(action)
+        }
+
         view.btn_logout4.setOnClickListener{
             logout()
         }
