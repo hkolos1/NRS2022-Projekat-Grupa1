@@ -3,8 +3,10 @@ package com.example.roomapp.fragments.storageadmin.product
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -21,6 +23,7 @@ import java.util.*
 class ProductFragment : Fragment() {
 
     private lateinit var addButton : Button
+    //private lateinit var categorySpinner : Spinner
     private lateinit var mProductViewModel: ProductViewModel
     private lateinit var mLogViewModel: LogViewModel
     private val args by navArgs<ProductFragmentArgs>()
@@ -43,6 +46,7 @@ class ProductFragment : Fragment() {
             adapter.setData(product,args.user)
         })
         addButton = view.findViewById(R.id.addProdButton)
+        //categorySpinner = view.findViewById(R.id.categorySpinner)
 
         addButton.setOnClickListener {
             addingProduct()

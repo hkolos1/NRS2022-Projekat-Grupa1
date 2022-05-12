@@ -175,6 +175,9 @@
         <action
             android:id="@+id/action_storageAdminFragment_to_deliveryFragment"
             app:destination="@id/deliveryFragment" />
+        <action
+            android:id="@+id/action_storageAdminFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
     </fragment>
 
     <fragment
@@ -313,6 +316,33 @@
             app:argType="com.example.roomapp.model.User" />
     </fragment>
     <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.category.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" >
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_categoryFragment_to_addCategoryFragment"
+            app:destination="@id/addCategoryFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_updateCategoryFragment"
+            app:destination="@id/updateCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCategoryFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.category.AddCategoryFragment"
+        android:label="AddCategoryFragment" />
+    <fragment
+        android:id="@+id/updateCategoryFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.category.UpdateCategoryFragment"
+        android:label="UpdateCategoryFragment" >
+        <argument
+            android:name="category"
+            app:argType="com.example.roomapp.model.Category" />
+      </fragment>
+      <fragment
         android:id="@+id/orderFragment"
         android:name="com.example.roomapp.fragments.user.orders.OrderFragment"
         android:label="fragment_order"
