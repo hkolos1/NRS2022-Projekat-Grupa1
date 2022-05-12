@@ -73,7 +73,8 @@ class AddOrderFragment : Fragment() {
         mLogViewModel.addLog(Log(0,args.user.firstName,"Added order",cal.time.toString()))
 
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
-        findNavController().navigateUp()
+        val action = AddOrderFragmentDirections.actionAddOrderFragmentToBillFragment(order)
+        findNavController().navigate(action)
     }
 
 

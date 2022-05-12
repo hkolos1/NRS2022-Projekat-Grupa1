@@ -334,6 +334,9 @@
         <argument
             android:name="user"
             app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_addOrderFragment_to_billFragment"
+            app:destination="@id/billFragment" />
     </fragment>
     <fragment
         android:id="@+id/addProductToOrderFragment"
@@ -344,6 +347,15 @@
             app:argType="com.example.roomapp.model.User" />
         <argument
             android:name="order"
+            app:argType="com.example.roomapp.model.Order" />
+    </fragment>
+    <fragment
+        android:id="@+id/billFragment"
+        android:name="com.example.roomapp.fragments.user.bill.BillFragment"
+        android:label="fragment_bill"
+        tools:layout="@layout/fragment_bill" >
+        <argument
+            android:name="currentOrder"
             app:argType="com.example.roomapp.model.Order" />
     </fragment>
 </navigation>
