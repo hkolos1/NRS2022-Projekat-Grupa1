@@ -1,13 +1,11 @@
-package com.example.roomapp.fragments.storageadmin.product
+package com.example.roomapp.fragments.storageadmin.category
 
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
-import android.widget.ArrayAdapter
-import androidx.fragment.app.Fragment
 import android.widget.Button
-import android.widget.Spinner
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,18 +13,17 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
 import com.example.roomapp.model.Log
+import com.example.roomapp.viewmodel.CategoryViewModel
 import com.example.roomapp.viewmodel.LogViewModel
-import com.example.roomapp.viewmodel.ProductViewModel
-import kotlinx.android.synthetic.main.fragment_product.view.*
+import kotlinx.android.synthetic.main.fragment_category.view.*
 import java.util.*
 
-class ProductFragment : Fragment() {
+class CategoryFragment : Fragment() {
 
-    private lateinit var addButton : Button
-    //private lateinit var categorySpinner : Spinner
-    private lateinit var mProductViewModel: ProductViewModel
+    private lateinit var addCatButton : Button
+    private lateinit var mCategoryViewModel: CategoryViewModel
     private lateinit var mLogViewModel: LogViewModel
-    private val args by navArgs<ProductFragmentArgs>()
+    private val args by navArgs<CategoryFragmentArgs>()
 
 
     override fun onCreateView(
@@ -34,29 +31,29 @@ class ProductFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_product, container, false)
-        val adapter = ProductAdapter()
-        val recyclerView = view.recyclerViewProd
+        val view = inflater.inflate(R.layout.fragment_category, container, false)
+        val adapter = CategoryAdapter()
+        val recyclerView = view.recyclerViewCat
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+        mCategoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
-        mProductViewModel.readAllData.observe(viewLifecycleOwner, Observer {product ->
-            adapter.setData(product,args.user)
+        mCategoryViewModel.readAllData.observe(viewLifecycleOwner, Observer { category ->
+            adapter.setData(category,args.user)
         })
-        addButton = view.findViewById(R.id.addProdButton)
-        //categorySpinner = view.findViewById(R.id.categorySpinner)
+        addCatButton = view.findViewById(R.id.addCatButton)
 
-        addButton.setOnClickListener {
-            addingProduct()
+        addCatButton.setOnClickListener {
+            addingCategory()
         }
         setHasOptionsMenu(true)
+
         return view
     }
 
-    private fun addingProduct() {
-        val action = ProductFragmentDirections.actionProductFragmentToAddProduct(args.user)
+    private fun addingCategory() {
+        val action = CategoryFragmentDirections.actionCategoryFragmentToAddCategoryFragment(args.user)
         findNavController().navigate(action)
     }
 
@@ -66,17 +63,17 @@ class ProductFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.menu_delete_prod){
-            deleteAllProducts()
+            deleteAllCategories()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun deleteAllProducts() {
+    private fun deleteAllCategories() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->
-            mProductViewModel.deleteAllProducts()
+            mCategoryViewModel.deleteAllCategories()
             val cal: Calendar = Calendar.getInstance()
-            mLogViewModel.addLog(Log(0,args.user.firstName,"Deleted all products",cal.time.toString()))
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Deleted all categories",cal.time.toString()))
 
             Toast.makeText(
                 requireContext(),
@@ -88,5 +85,4 @@ class ProductFragment : Fragment() {
         builder.setMessage("Are you sure you want to delete everything?")
         builder.create().show()
     }
-
 }

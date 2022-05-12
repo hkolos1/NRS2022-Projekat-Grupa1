@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -26,6 +24,7 @@ class AddProductFragment : Fragment() {
     private lateinit var name:TextView
     private lateinit var quantity:TextView
     private lateinit var unit:EditText
+    private lateinit var category : Spinner
     private lateinit var mLogViewModel: LogViewModel
     private val args by navArgs<AddProductFragmentArgs>()
 
@@ -54,10 +53,10 @@ class AddProductFragment : Fragment() {
         val value= quantity.text.toString();
         val finalValue=Integer.parseInt(value)
         val product = Product(
-            0,name.text.toString(),finalValue,unit.text.toString(),null, "Unassigned")
+            0,name.text.toString(),finalValue,unit.text.toString(),null, "Unassigned", null)
         mProductViewModel.addProduct(product)
         val cal: Calendar = Calendar.getInstance()
-        mLogViewModel.addLog(Log(0,args.user.firstName,"Added product",cal.time.toString()))
+        mLogViewModel.addLog(Log(0,args.user.firstName,"Added product ${product.prodName}",cal.time.toString()))
 
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
         findNavController().navigateUp()

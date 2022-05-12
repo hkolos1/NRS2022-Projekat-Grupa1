@@ -6,14 +6,11 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-@Entity(tableName = "branch_table")
-data class Branch(
+@Entity(tableName = "category_table")
+data class Category(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val name: String,
-    val products: MutableList<Product>
-): Parcelable{
-    override fun toString(): String {
-        return name
-    }
-}
+    val nameCategory: String,
+    val pdvName: String,
+    val pdv: Int
+): Parcelable

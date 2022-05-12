@@ -38,8 +38,6 @@ class BranchFragment : Fragment() {
             branch -> adapter.setData(branch,args.user)
         })
 
-        mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
-
         return view
     }
 

@@ -4,21 +4,18 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.example.roomapp.DataConverter
-import com.example.roomapp.model.Branch
+import com.example.roomapp.model.Category
 
-@Database(entities = [Branch::class], version = 1, exportSchema = false)
-@TypeConverters(DataConverter::class)
-abstract class BranchDatabase : RoomDatabase() {
+@Database(entities = [Category::class], version = 1, exportSchema = false)
+abstract class CategoryDatabase : RoomDatabase() {
 
-    abstract fun branchDao(): BranchDao
+    abstract fun categoryDao(): CategoryDAO
 
     companion object {
         @Volatile
-        private var INSTANCE: BranchDatabase? = null
+        private var INSTANCE: CategoryDatabase? = null
 
-        fun getDatabase(context: Context): BranchDatabase{
+        fun getDatabase(context: Context): CategoryDatabase{
             val tempInstance = INSTANCE
             if(tempInstance != null){
                 return tempInstance
@@ -26,8 +23,8 @@ abstract class BranchDatabase : RoomDatabase() {
             synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    BranchDatabase::class.java,
-                    "branch_database"
+                    CategoryDatabase::class.java,
+                    "category_database"
                 ).build()
                 INSTANCE = instance
                 return instance

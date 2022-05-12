@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -57,20 +58,21 @@ class AddProductsFragment: Fragment() {
         view.btn_assign_product.setOnClickListener{
             val chosenProduct: Product = spinnerProducts.selectedItem as Product
             val chosenBranch: Branch = args.branch
-            /*
-            Ovu vrijednost ispod bi trebalo spremiti negdje
-            jer predstavlja kolicinu proizvoda proslijedjenog poslovnici
-             */ val quantity = edit_assign_product_quantity.text.toString().toInt()
+            val quantity = edit_assign_product_quantity.text.toString().toInt()
 
             if(quantity>chosenProduct.quantity){
                 Toast.makeText(requireContext(), "Not valid quantity for "+chosenProduct.prodName, Toast.LENGTH_SHORT).show()
-            }else if(chosenProduct.branchId == chosenBranch.id){
+            }else if(args.branch.products.contains(chosenProduct)){
                 Toast.makeText(requireContext(), chosenProduct.prodName + " is already assigned to " + chosenBranch.name, Toast.LENGTH_SHORT).show()
             }else{
 
                 val newProduct = Product(chosenProduct.id, chosenProduct.prodName,
                     chosenProduct.quantity-quantity,// <-- Oduzima dio kolicine iz skladista
-                    chosenProduct.unit,chosenBranch.id, chosenProduct.deliveryStatus)
+                    chosenProduct.unit,chosenBranch.id, chosenProduct.deliveryStatus, null)
+
+                args.branch.products.add(Product(chosenProduct.id,chosenProduct.prodName,quantity,
+                    chosenProduct.unit,chosenBranch.id,chosenProduct.deliveryStatus,chosenProduct.category))
+                mBranchViewModel.updateBranch(args.branch)
 
                 mProductViewModel.updateProduct(newProduct)
 

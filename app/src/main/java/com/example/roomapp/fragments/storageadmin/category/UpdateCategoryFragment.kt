@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.storageadmin.product.update
+package com.example.roomapp.fragments.storageadmin.category
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -11,38 +11,40 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
+import com.example.roomapp.model.Category
 import com.example.roomapp.model.Log
-import com.example.roomapp.model.Product
+import com.example.roomapp.viewmodel.CategoryViewModel
 import com.example.roomapp.viewmodel.LogViewModel
-import com.example.roomapp.viewmodel.ProductViewModel
+import kotlinx.android.synthetic.main.fragment_update_category.*
+import kotlinx.android.synthetic.main.fragment_update_category.view.*
 import kotlinx.android.synthetic.main.fragment_update_product.*
 import kotlinx.android.synthetic.main.fragment_update_product.view.*
 import java.util.*
 
 
-class UpdateProductFragment : Fragment() {
-    private val args by navArgs<UpdateProductFragmentArgs>()
+class UpdateCategoryFragment : Fragment() {
+    private val args by navArgs<UpdateCategoryFragmentArgs>()
     private lateinit var mLogViewModel: LogViewModel
-    private lateinit var  mProductViewModel: ProductViewModel
+    private lateinit var  mCategoryViewModel: CategoryViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_update_product, container, false)
+        val view= inflater.inflate(R.layout.fragment_update_category, container, false)
 
-        mProductViewModel=ViewModelProvider(this).get(ProductViewModel::class.java)
+        mCategoryViewModel=ViewModelProvider(this).get(CategoryViewModel::class.java)
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
-        view.updatePrName.setText(args.currentProduct.prodName)
+        view.updateCatName.setText(args.category.nameCategory)
 
-        view.updatePrAmount.setText(args.currentProduct.quantity.toString())
+        view.updatePdv.setText(args.category.pdv.toString())
 
-        view.updatePrUnit.setText(args.currentProduct.unit)
+        view.updatePdvName.setText(args.category.pdvName)
 
-        view.updateButton.setOnClickListener {
-            updateItem()
+        view.updateCategoryButton.setOnClickListener {
+           updateItem()
         }
         setHasOptionsMenu(true)
 
@@ -50,18 +52,18 @@ class UpdateProductFragment : Fragment() {
     }
 
     private fun updateItem(){
-        val prName=updatePrName.text.toString()
-        val prDelStat=args.currentProduct.deliveryStatus
-        val quan=updatePrAmount.text.toString().toInt()
-        val unit=updatePrUnit.text.toString()
+        val catName=updateCatName.text.toString()
+        //val prDelStat=args.currentProduct.deliveryStatus
+        val pdv=updatePdv.text.toString().toInt()
+        val pdvName=updatePdvName.text.toString()
 
-        if(inputCheck(prName, prDelStat, updatePrAmount.text)){
-            val updatedProduct= Product(args.currentProduct.id, prName, quan,unit,args.currentProduct.branchId,prDelStat, null)
-            mProductViewModel.updateProduct(updatedProduct)
+        if(inputCheck(catName, pdvName, updatePdv.text)){
+            val updatedCategory= Category(args.category.id, catName, pdvName, pdv)
+            mCategoryViewModel.updateCategory(updatedCategory)
             val cal: Calendar = Calendar.getInstance()
-            mLogViewModel.addLog(Log(0,args.user.firstName,"Updated product ${args.currentProduct.prodName}",cal.time.toString()))
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Updated category ${args.category.nameCategory}",cal.time.toString()))
 
-            Toast.makeText(requireContext(),"Product updated", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(),"Category updated", Toast.LENGTH_LONG).show()
             findNavController().navigateUp()
         }else{
             Toast.makeText(requireContext(),"Please fill out all fields! ", Toast.LENGTH_LONG).show()
@@ -86,19 +88,19 @@ class UpdateProductFragment : Fragment() {
     private fun deleteProduct() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->
-            mProductViewModel.deleteProduct(args.currentProduct)
+            mCategoryViewModel.deleteCategory(args.category)
             val cal: Calendar = Calendar.getInstance()
-            mLogViewModel.addLog(Log(0,args.user.firstName,"Deleted product ${args.currentProduct.prodName}",cal.time.toString()))
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Deleted category ${args.category.nameCategory}",cal.time.toString()))
 
             Toast.makeText(
                 requireContext(),
-                "Successfully removed: ${args.currentProduct.prodName}",
+                "Successfully removed: ${args.category.nameCategory}",
                 Toast.LENGTH_SHORT).show()
             findNavController().navigateUp()
         }
         builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${args.currentProduct.prodName}?")
-        builder.setMessage("Are you sure you want to delete ${args.currentProduct.prodName}?")
+        builder.setTitle("Delete ${args.category.nameCategory}?")
+        builder.setMessage("Are you sure you want to delete ${args.category.nameCategory}?")
         builder.create().show()
     }
 }

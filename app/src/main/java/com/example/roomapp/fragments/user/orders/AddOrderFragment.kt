@@ -50,8 +50,7 @@ class AddOrderFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         val cal = Calendar.getInstance()
-        order = Order(0,args.user.id,cal.time.toString(), mutableListOf(
-            Product(0,"Test",11,"Kesa",0,"status")),0)
+        order = Order(0,args.user.id,cal.time.toString(), mutableListOf(),0)
 
         order.products?.let { adapter.setData(it) }
 
