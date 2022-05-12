@@ -43,6 +43,10 @@ class UserFragment : Fragment() {
             changePassword()
         }
 
+        view.btn_orders.setOnClickListener {
+            orders()
+        }
+
         view.btn_logout2.setOnClickListener{
             logout()
         }
@@ -59,6 +63,11 @@ class UserFragment : Fragment() {
             val action = UserFragmentDirections.actionUserFragmentToUpdatePasswordFragment(args.user)
             findNavController().navigate(action)
         }
+    }
+
+    private fun orders(){
+        val action = UserFragmentDirections.actionUserFragmentToOrderFragment(args.user)
+        findNavController().navigate(action)
     }
 
     private fun logout() {
