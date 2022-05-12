@@ -49,13 +49,21 @@ class AddOrderFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val cal = Calendar.getInstance()
-        order = Order(0,args.user.id,cal.time.toString(), mutableListOf(),0)
+        order = args.order
 
-        order.products?.let { adapter.setData(it) }
+        mOrderViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            adapter.setData(order.products)
+        })
+
+        adapter.setData(order.products)
 
         view.btn_add_order2.setOnClickListener {
             val action = AddOrderFragmentDirections.actionAddOrderFragmentToAddProductToOrderFragment(args.user,order)
+            findNavController().navigate(action)
+        }
+
+        view.btnShowBill.setOnClickListener {
+            val action = AddOrderFragmentDirections.actionAddOrderFragmentToBillFragment(order)
             findNavController().navigate(action)
         }
 

@@ -14,29 +14,6 @@ import kotlinx.android.synthetic.main.custom_row.view.*
 import kotlinx.android.synthetic.main.custom_row_product.view.*
 import kotlinx.android.synthetic.main.item_product.view.*
 
-/*class ProductAdapter(
-    private var products: List<Product>
-) : RecyclerView.Adapter<ProductAdapter.ProdViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdViewHolder {
-        val view = LayoutInflater
-            .from(parent.context)
-            .inflate(R.layout.item_product, parent, false)
-        return ProdViewHolder(view)
-    }
-    override fun getItemCount(): Int = products.size
-    override fun onBindViewHolder(holder: ProdViewHolder, position: Int) {
-        holder.prodTitle.text = products[position].prodName;
-    }
-    fun updateProducts(prod: List<Product>) {
-        this.products = prod
-        notifyDataSetChanged()
-    }
-    inner class ProdViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val prodTitle: TextView = itemView.findViewById(R.id.prName)
-    }
-}*/
-
-
 class ProductAdapter: RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
     private var list = emptyList<Product>()

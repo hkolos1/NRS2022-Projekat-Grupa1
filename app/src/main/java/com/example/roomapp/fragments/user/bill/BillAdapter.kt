@@ -5,15 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomapp.R
-import com.example.roomapp.model.Order
+import com.example.roomapp.model.Product
 import com.example.roomapp.model.User
 import kotlinx.android.synthetic.main.custom_row_bill.view.*
-import kotlinx.android.synthetic.main.custom_row_product.view.*
 
 class BillAdapter: RecyclerView.Adapter<BillAdapter.MyViewHolder>() {
 
-    private var list = emptyList<Order>()
-    private lateinit var user : User
+    private var list = emptyList<Product>()
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
@@ -26,21 +24,16 @@ class BillAdapter: RecyclerView.Adapter<BillAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem: Order = list[position]
-        holder.itemView.prNameBill.text = currentItem.products[position].prodName
+        val currentItem: Product = list[position]
+        holder.itemView.prNameBill.text = currentItem.prodName
         holder.itemView.prQuanBill.text = currentItem.id.toString()
-        holder.itemView.prPrice.text = currentItem.products[position].quantity.toString()
-        holder.itemView.prTotal.text = currentItem.total.toString()
+        holder.itemView.prPrice.text = currentItem.quantity.toString()
+        holder.itemView.prTotal.text = currentItem.quantity.toString()
 
-        holder.itemView.rowLayout2.setOnClickListener{
-            //val action=OrderFragmentDirections.actionOrderFragmentToUpdateOrderFragment(user,currentItem)
-            //holder.itemView.findNavController().navigate(action)
-        }
     }
 
-    fun setData(order: List<Order>, user: User){
+    fun setData(order: List<Product>){
         this.list = order
-        this.user = user
         notifyDataSetChanged()
     }
 }

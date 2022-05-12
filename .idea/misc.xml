@@ -3,17 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_bill.xml" value="0.15520833333333334" />
-        <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_branch.xml" value="0.15520833333333334" />
-        <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_order_product.xml" value="0.15520833333333334" />
-        <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_bill.xml" value="0.15520833333333334" />
-        <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_order_add.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_bill.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch_product.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_category.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_category.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_product.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_products.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_bill.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_branch.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_category.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_order_add.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_order_add_product.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_product.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_category.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_product.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_products.xml" value="0.2726449275362319" />
@@ -25,10 +26,15 @@
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_product.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_update_category.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/item_product.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_bill.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_branch.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_order_product.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_bill.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_order_add.xml" value="0.15520833333333334" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

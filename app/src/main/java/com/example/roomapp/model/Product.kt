@@ -15,7 +15,8 @@ data class Product(
     val unit: String,
     val branchId: Int?,
     val deliveryStatus: String,
-    val category: String?
+    val category: String?,
+    val price: Long
 ): Parcelable{
     override fun toString(): String {
         return prodName

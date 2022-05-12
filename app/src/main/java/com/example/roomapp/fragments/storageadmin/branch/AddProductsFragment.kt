@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -68,10 +67,12 @@ class AddProductsFragment: Fragment() {
 
                 val newProduct = Product(chosenProduct.id, chosenProduct.prodName,
                     chosenProduct.quantity-quantity,// <-- Oduzima dio kolicine iz skladista
-                    chosenProduct.unit,chosenBranch.id, chosenProduct.deliveryStatus, null)
+                    chosenProduct.unit,chosenBranch.id, chosenProduct.deliveryStatus,
+                    chosenProduct.category, chosenProduct.price)
 
                 args.branch.products.add(Product(chosenProduct.id,chosenProduct.prodName,quantity,
-                    chosenProduct.unit,chosenBranch.id,chosenProduct.deliveryStatus,chosenProduct.category))
+                    chosenProduct.unit,chosenBranch.id,chosenProduct.deliveryStatus,
+                    chosenProduct.category,chosenProduct.price))
                 mBranchViewModel.updateBranch(args.branch)
 
                 mProductViewModel.updateProduct(newProduct)

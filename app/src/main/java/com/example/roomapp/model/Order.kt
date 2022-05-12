@@ -13,5 +13,5 @@ data class Order(
     val userId: Int,
     val time: String,
     val products: MutableList<Product>,
-    val total: Int
+    val total: Long
 ): Parcelable

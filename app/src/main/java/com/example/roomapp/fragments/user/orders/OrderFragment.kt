@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
 import com.example.roomapp.model.Log
+import com.example.roomapp.model.Order
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.OrderViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
@@ -58,7 +59,10 @@ class OrderFragment : Fragment() {
     }
 
     private fun addingOrder() {
-        val action = OrderFragmentDirections.actionOrderFragmentToAddOrderFragment(args.user)
+        val cal = Calendar.getInstance()
+        val order = Order(0,args.user.id,cal.time.toString(), mutableListOf(),0)
+        mOrderViewModel.addOrder(order)
+        val action = OrderFragmentDirections.actionOrderFragmentToAddOrderFragment(args.user,order)
         findNavController().navigate(action)
     }
 
