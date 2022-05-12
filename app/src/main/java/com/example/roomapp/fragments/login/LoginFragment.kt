@@ -114,9 +114,9 @@ class LoginFragment : Fragment() {
             val usersNames = repository.getUserName("Admin")
             if (usersNames == null) {
                 repository.addUser(User(0,"admin","admin",0,"",""))
-                mBranchViewModel.addBranch(Branch(1,"Sarajevo"))
-                mBranchViewModel.addBranch(Branch(2,"Mostar"))
-                mBranchViewModel.addBranch(Branch(3,"Banja Luka"))
+                mBranchViewModel.addBranch(Branch(1,"Sarajevo", mutableListOf()))
+                mBranchViewModel.addBranch(Branch(2,"Mostar", mutableListOf()))
+                mBranchViewModel.addBranch(Branch(3,"Banja Luka", mutableListOf()))
             }
         }
     }

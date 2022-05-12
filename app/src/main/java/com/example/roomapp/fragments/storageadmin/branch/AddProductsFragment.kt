@@ -27,7 +27,6 @@ class AddProductsFragment: Fragment() {
 
     private lateinit var mProductViewModel: ProductViewModel
     private lateinit var mBranchViewModel: BranchViewModel
-    //private lateinit var categorySpinner : Spinner
     private lateinit var mLogViewModel: LogViewModel
     private val args by navArgs<AddProductsFragmentArgs>()
 
@@ -59,20 +58,21 @@ class AddProductsFragment: Fragment() {
         view.btn_assign_product.setOnClickListener{
             val chosenProduct: Product = spinnerProducts.selectedItem as Product
             val chosenBranch: Branch = args.branch
-            /*
-            Ovu vrijednost ispod bi trebalo spremiti negdje
-            jer predstavlja kolicinu proizvoda proslijedjenog poslovnici
-             */ val quantity = edit_assign_product_quantity.text.toString().toInt()
+            val quantity = edit_assign_product_quantity.text.toString().toInt()
 
             if(quantity>chosenProduct.quantity){
                 Toast.makeText(requireContext(), "Not valid quantity for "+chosenProduct.prodName, Toast.LENGTH_SHORT).show()
-            }else if(chosenProduct.branchId == chosenBranch.id){
+            }else if(args.branch.products.contains(chosenProduct)){
                 Toast.makeText(requireContext(), chosenProduct.prodName + " is already assigned to " + chosenBranch.name, Toast.LENGTH_SHORT).show()
             }else{
 
                 val newProduct = Product(chosenProduct.id, chosenProduct.prodName,
                     chosenProduct.quantity-quantity,// <-- Oduzima dio kolicine iz skladista
                     chosenProduct.unit,chosenBranch.id, chosenProduct.deliveryStatus, null)
+
+                args.branch.products.add(Product(chosenProduct.id,chosenProduct.prodName,quantity,
+                    chosenProduct.unit,chosenBranch.id,chosenProduct.deliveryStatus,chosenProduct.category))
+                mBranchViewModel.updateBranch(args.branch)
 
                 mProductViewModel.updateProduct(newProduct)
 

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.roomapp.data.BranchDatabase
 import com.example.roomapp.logging.LogDatabase
 import com.example.roomapp.model.Branch
+import com.example.roomapp.model.Category
 import com.example.roomapp.model.Log
 import com.example.roomapp.repository.BranchRepository
 import com.example.roomapp.repository.LogRepository
@@ -29,6 +30,25 @@ class BranchViewModel(application: Application): AndroidViewModel(application) {
     fun addBranch(branch: Branch){
         viewModelScope.launch(Dispatchers.IO) {
             repository.addBranch(branch)
+        }
+    }
+
+    fun updateBranch(branch: Branch){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateBranch(branch)
+        }
+    }
+
+    fun deleteBranch(branch: Branch){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteBranch(branch)
+        }
+    }
+
+
+    fun deleteAllBranches(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllBranches()
         }
     }
 }

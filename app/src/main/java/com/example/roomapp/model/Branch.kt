@@ -10,7 +10,8 @@ import kotlinx.android.parcel.Parcelize
 data class Branch(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val name: String
+    val name: String,
+    val products: MutableList<Product>
 ): Parcelable{
     override fun toString(): String {
         return name

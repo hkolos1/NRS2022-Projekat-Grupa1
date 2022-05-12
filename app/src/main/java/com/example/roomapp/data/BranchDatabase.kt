@@ -4,9 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.roomapp.DataConverter
 import com.example.roomapp.model.Branch
 
 @Database(entities = [Branch::class], version = 1, exportSchema = false)
+@TypeConverters(DataConverter::class)
 abstract class BranchDatabase : RoomDatabase() {
 
     abstract fun branchDao(): BranchDao

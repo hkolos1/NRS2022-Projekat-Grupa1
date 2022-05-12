@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch_product.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_category.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_category.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_product.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_branch.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_category.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_category.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_product.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_products.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_category.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_add_category.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_add_product.xml" value="0.22826086956521738" />
