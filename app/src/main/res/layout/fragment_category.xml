@@ -88,12 +88,10 @@
         android:id="@+id/addCatButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginBottom="32dp"
+        android:backgroundTint="#002B73"
         android:text="ADD CATEGORY"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

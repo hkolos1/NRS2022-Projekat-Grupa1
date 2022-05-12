@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.roomapp.data.CategoryDatabase
 import com.example.roomapp.model.Category
+import com.example.roomapp.model.Product
 import com.example.roomapp.repository.CategoryRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,6 +33,19 @@ class CategoryViewModel(application: Application): AndroidViewModel(application)
     fun updateCategory(category: Category){
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateCategory(category)
+        }
+    }
+
+    fun deleteCategory(category: Category){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteCategory(category)
+        }
+    }
+
+
+    fun deleteAllCategories(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllCategories()
         }
     }
 }

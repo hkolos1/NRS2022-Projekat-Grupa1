@@ -3,6 +3,7 @@ package com.example.roomapp.repository
 import androidx.lifecycle.LiveData
 import com.example.roomapp.data.CategoryDAO
 import com.example.roomapp.model.Category
+import com.example.roomapp.model.Product
 
 class CategoryRepository(private val categoryDao: CategoryDAO) {
 
@@ -14,6 +15,14 @@ class CategoryRepository(private val categoryDao: CategoryDAO) {
 
     suspend fun updateCategory(category: Category){
         categoryDao.updateCategory(category)
+    }
+
+    suspend fun deleteCategory(category: Category){
+        categoryDao.deleteCategory(category)
+    }
+
+    suspend fun deleteAllCategories(){
+        categoryDao.deleteAllCategories()
     }
 
 }

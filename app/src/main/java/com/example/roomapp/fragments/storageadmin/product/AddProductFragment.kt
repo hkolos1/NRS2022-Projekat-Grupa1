@@ -56,7 +56,7 @@ class AddProductFragment : Fragment() {
             0,name.text.toString(),finalValue,unit.text.toString(),null, "Unassigned", null)
         mProductViewModel.addProduct(product)
         val cal: Calendar = Calendar.getInstance()
-        mLogViewModel.addLog(Log(0,args.user.firstName,"Added product",cal.time.toString()))
+        mLogViewModel.addLog(Log(0,args.user.firstName,"Added product ${product.prodName}",cal.time.toString()))
 
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
         findNavController().navigateUp()

@@ -1,5 +1,6 @@
 package com.example.roomapp.fragments.storageadmin.category
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
 import com.example.roomapp.model.Category
+import com.example.roomapp.model.Log
 import com.example.roomapp.viewmodel.CategoryViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import kotlinx.android.synthetic.main.fragment_update_category.*
@@ -44,6 +46,7 @@ class UpdateCategoryFragment : Fragment() {
         view.updateCategoryButton.setOnClickListener {
            updateItem()
         }
+        setHasOptionsMenu(true)
 
         return view
     }
@@ -58,7 +61,7 @@ class UpdateCategoryFragment : Fragment() {
             val updatedCategory= Category(args.category.id, catName, pdvName, pdv)
             mCategoryViewModel.updateCategory(updatedCategory)
             val cal: Calendar = Calendar.getInstance()
-//            mLogViewModel.addLog(Log(0,args.user.firstName,"Updated product",cal.time.toString()))
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Updated category ${args.category.nameCategory}",cal.time.toString()))
 
             Toast.makeText(requireContext(),"Category updated", Toast.LENGTH_LONG).show()
             findNavController().navigateUp()
@@ -71,4 +74,33 @@ class UpdateCategoryFragment : Fragment() {
         return !(TextUtils.isEmpty(prName) && TextUtils.isEmpty(prDevStat) && quan.isEmpty() )
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_product_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_delete_prod) {
+            deleteProduct()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteProduct() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+            mCategoryViewModel.deleteCategory(args.category)
+            val cal: Calendar = Calendar.getInstance()
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Deleted category ${args.category.nameCategory}",cal.time.toString()))
+
+            Toast.makeText(
+                requireContext(),
+                "Successfully removed: ${args.category.nameCategory}",
+                Toast.LENGTH_SHORT).show()
+            findNavController().navigateUp()
+        }
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete ${args.category.nameCategory}?")
+        builder.setMessage("Are you sure you want to delete ${args.category.nameCategory}?")
+        builder.create().show()
+    }
 }

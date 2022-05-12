@@ -10,8 +10,6 @@ import com.example.roomapp.model.Category
 import com.example.roomapp.model.User
 import kotlinx.android.synthetic.main.custom_row_category.view.*
 import kotlinx.android.synthetic.main.custom_row_product.view.rowLayout2
-import kotlinx.android.synthetic.main.fragment_category.view.*
-import kotlinx.android.synthetic.main.fragment_category.view.idCategoryCat
 
 class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.MyViewHolder>() {
 
@@ -36,7 +34,7 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.MyViewHolder>() {
         holder.itemView.pdvX.text = currentItem.pdv.toString()
 
        holder.itemView.rowLayout2.setOnClickListener{
-           val action=CategoryFragmentDirections.actionCategoryFragmentToUpdateCategoryFragment(currentItem)
+           val action=CategoryFragmentDirections.actionCategoryFragmentToUpdateCategoryFragment(currentItem,user)
            holder.itemView.findNavController().navigate(action)
         }
     }

@@ -59,7 +59,7 @@ class UpdateProductFragment : Fragment() {
             val updatedProduct= Product(args.currentProduct.id, prName, quan,unit,args.currentProduct.branchId,prDelStat, null)
             mProductViewModel.updateProduct(updatedProduct)
             val cal: Calendar = Calendar.getInstance()
-            mLogViewModel.addLog(Log(0,args.user.firstName,"Updated product",cal.time.toString()))
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Updated product ${args.currentProduct.prodName}",cal.time.toString()))
 
             Toast.makeText(requireContext(),"Product updated", Toast.LENGTH_LONG).show()
             findNavController().navigateUp()
@@ -88,7 +88,7 @@ class UpdateProductFragment : Fragment() {
         builder.setPositiveButton("Yes") { _, _ ->
             mProductViewModel.deleteProduct(args.currentProduct)
             val cal: Calendar = Calendar.getInstance()
-            mLogViewModel.addLog(Log(0,args.user.firstName,"Deleted product",cal.time.toString()))
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Deleted product ${args.currentProduct.prodName}",cal.time.toString()))
 
             Toast.makeText(
                 requireContext(),

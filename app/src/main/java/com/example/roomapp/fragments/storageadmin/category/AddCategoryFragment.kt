@@ -8,8 +8,10 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
 import com.example.roomapp.model.Category
+import com.example.roomapp.model.Log
 import com.example.roomapp.viewmodel.CategoryViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import kotlinx.android.synthetic.main.fragment_add_category.view.*
@@ -23,7 +25,7 @@ class AddCategoryFragment : Fragment() {
     private lateinit var addPdv:EditText
     private lateinit var pdvInt:EditText
     private lateinit var mLogViewModel: LogViewModel
-//    private val args by navArgs<AddCategoryFragmentArgs>()
+    private val args by navArgs<AddCategoryFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +52,7 @@ class AddCategoryFragment : Fragment() {
         val category = Category(0, catName.text.toString(),addPdv.text.toString(), pdvInt.text.toString().toInt() )
         mCategoryViewModel.addCategory(category)
         val cal: Calendar = Calendar.getInstance()
-//        mLogViewModel.addLog(Log(0,args.user.firstName,"Added product",cal.time.toString()))
+        mLogViewModel.addLog(Log(0,args.user.firstName,"Added category ${category.nameCategory}",cal.time.toString()))
 
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
         findNavController().navigateUp()
