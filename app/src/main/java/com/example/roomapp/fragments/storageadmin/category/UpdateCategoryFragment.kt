@@ -60,7 +60,7 @@ class UpdateCategoryFragment : Fragment() {
             val cal: Calendar = Calendar.getInstance()
 //            mLogViewModel.addLog(Log(0,args.user.firstName,"Updated product",cal.time.toString()))
 
-            Toast.makeText(requireContext(),"Product updated", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(),"Category updated", Toast.LENGTH_LONG).show()
             findNavController().navigateUp()
         }else{
             Toast.makeText(requireContext(),"Please fill out all fields! ", Toast.LENGTH_LONG).show()
