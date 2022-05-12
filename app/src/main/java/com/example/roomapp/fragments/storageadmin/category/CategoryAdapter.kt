@@ -32,7 +32,7 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.MyViewHolder>() {
         val currentItem: Category = list[position]
         holder.itemView.idCategory.text = (position+1).toString()
         holder.itemView.categoryName.text = currentItem.nameCategory
-        holder.itemView.pdvName.text = currentItem.pdvName
+        holder.itemView.pdv_tax.text = currentItem.pdvName
         holder.itemView.pdvX.text = currentItem.pdv.toString()
 
        holder.itemView.rowLayout2.setOnClickListener{

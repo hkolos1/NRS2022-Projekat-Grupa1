@@ -55,7 +55,7 @@ class UpdateCategoryFragment : Fragment() {
         val pdvName=updatePdvName.text.toString()
 
         if(inputCheck(catName, pdvName, updatePdv.text)){
-            val updatedCategory= Category(0, catName, pdvName, pdv)
+            val updatedCategory= Category(args.category.id, catName, pdvName, pdv)
             mCategoryViewModel.updateCategory(updatedCategory)
             val cal: Calendar = Calendar.getInstance()
 //            mLogViewModel.addLog(Log(0,args.user.firstName,"Updated product",cal.time.toString()))

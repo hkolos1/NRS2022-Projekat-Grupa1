@@ -47,7 +47,7 @@ class AddCategoryFragment : Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val category = Category(0, catName.text.toString(),pdvInt.text.toString(), addPdv.text.toString().toInt() )
+        val category = Category(0, catName.text.toString(),addPdv.text.toString(), pdvInt.text.toString().toInt() )
         mCategoryViewModel.addCategory(category)
         val cal: Calendar = Calendar.getInstance()
 //        mLogViewModel.addLog(Log(0,args.user.firstName,"Added product",cal.time.toString()))
