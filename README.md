@@ -53,6 +53,10 @@ Sve osobe koje rade na ovom projektu moraju pratiti sljedeće korake prilikom ra
 * Kao Admin skladišta trebam imati mogućnost definisanja kategorija i iznosa cijene PDV-a po kategoriji proizvoda
 * Kao Korisnik želim imati mogućnost Izdavanja računa za narudžbu
 
+### Sprint 4:
+* Kao Korisnik poslovnice, želim imati mogućnost kreiranja narudžbi po stolu u kafiću ili po random mjestu
+* Kao Korisnik želim imati mogućnost Izdavanja računa za narudžbu po stolu u kafiću ili po random mjestu
+
 
 ## Definition of Done
 
