@@ -99,13 +99,13 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.checkbox.setOnCheckedChangeListener{ _, isChecked ->
+        /*view.checkbox.setOnCheckedChangeListener{ _, isChecked ->
             if (isChecked){
                 view.passwordTextField.transformationMethod = HideReturnsTransformationMethod.getInstance();
             }else{
                 view.passwordTextField.transformationMethod = PasswordTransformationMethod.getInstance();
             }
-        }
+        }*/
     }
 
     override fun onAttach(context: Context) {
@@ -122,7 +122,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginButton(view: View) {
-        if (view.userNameTextField.text.isEmpty() || view.passwordTextField.text.isEmpty()) {
+        if (view.userNameTextField.text?.isEmpty() == true || view.passwordTextField.text?.isEmpty() == true) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
         } else {
             uiScope.launch {
