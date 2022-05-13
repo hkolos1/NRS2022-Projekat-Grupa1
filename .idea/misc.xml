@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3525" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/drawable/superkasa.xml" value="0.2535" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_bill.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch_product.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_category.xml" value="0.2726449275362319" />
@@ -12,6 +14,7 @@
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_bill.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_branch.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_category.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_login.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_order_add.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_order_add_product.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_product.xml" value="0.245018115942029" />
