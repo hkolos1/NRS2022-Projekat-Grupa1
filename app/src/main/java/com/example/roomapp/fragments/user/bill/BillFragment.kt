@@ -37,7 +37,7 @@ class BillFragment : Fragment() {
         mBillViewModel = ViewModelProvider(this).get(BillViewModel::class.java)
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
 
-        adapter.setData(args.currentOrder.products)
+        adapter.setData(args.order.products)
 
         return view
     }

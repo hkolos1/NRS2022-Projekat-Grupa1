@@ -3,19 +3,13 @@ package com.example.roomapp.fragments.user.orders
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomapp.R
-import com.example.roomapp.model.Order
 import com.example.roomapp.model.Product
-import com.example.roomapp.model.User
-import kotlinx.android.synthetic.main.custom_row.view.*
 import kotlinx.android.synthetic.main.custom_row_order_product.view.*
-import kotlinx.android.synthetic.main.custom_row_product.view.*
-import kotlinx.android.synthetic.main.item_product.view.*
 import kotlinx.android.synthetic.main.item_product.view.prName
 
-class AddOrderAdapter: RecyclerView.Adapter<AddOrderAdapter.MyViewHolder>() {
+class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>() {
 
     private var list = emptyList<Product>()
 

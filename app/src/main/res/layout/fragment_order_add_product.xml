@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24sp"
-    tools:context=".fragments.user.orders.OrderFragment">
+    tools:context=".fragments.user.orders.AddProductToOrderFragment">
 
     <Spinner
         android:id="@+id/spinner_assign_product_product_order"
