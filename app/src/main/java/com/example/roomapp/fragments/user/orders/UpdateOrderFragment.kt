@@ -1,6 +1,8 @@
 package com.example.roomapp.fragments.user.orders
 
 import android.app.AlertDialog
+import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.Order
+import com.example.roomapp.model.Product
+import com.example.roomapp.viewmodel.BranchViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.OrderViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
@@ -21,10 +25,12 @@ import java.util.*
 
 class UpdateOrderFragment : Fragment() {
 
+    private lateinit var mBranchViewModel: BranchViewModel
     private lateinit var mProductViewModel: ProductViewModel
     private lateinit var mOrderViewModel: OrderViewModel
     private lateinit var mLogViewModel: LogViewModel
     private lateinit var order: Order
+    private var lista: MutableList<Product> = mutableListOf()
     private val args by navArgs<UpdateOrderFragmentArgs>()
 
     override fun onCreateView(
@@ -34,6 +40,7 @@ class UpdateOrderFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_order_update, container, false)
 
+        mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
         mOrderViewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
@@ -46,11 +53,23 @@ class UpdateOrderFragment : Fragment() {
         view.textViewUser2.text = "Products of ${args.order.name}"
         order = args.order
 
-        mOrderViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            adapter.setData(order.products)
+        mBranchViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                branch -> branch.forEach{ branch1 ->
+            if(branch1.name == args.order.branch) {
+                (branch1.products).forEach {
+                    args.order.products.forEach { orPro ->
+                        if(orPro.prodName == it.prodName){
+                            lista.add(it)
+                        }
+                    }
+                }
+            }
+        }
         })
 
-        adapter.setData(order.products)
+        mOrderViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            adapter.setData(order.products, lista, order, view.total)
+        })
 
         view.btn_add_order2.setOnClickListener {
             val action = UpdateOrderFragmentDirections.actionUpdateOrderFragmentToAddProductToOrderFragment(args.user,order)
