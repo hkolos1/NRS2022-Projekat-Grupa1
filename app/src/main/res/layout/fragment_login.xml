@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.roomapp.fragments.login.LoginFragment"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    tools:context="com.example.roomapp.fragments.login.LoginFragment">
 
         <!--<TextView
             android:id="@+id/textView"
@@ -64,15 +64,18 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/userNameTextFieldLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
-            android:ems="10"
             android:hint="@string/UsernameTextField"
             android:inputType="textPersonName"
             android:textSize="14sp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             tools:ignore="MissingConstraints">
@@ -104,21 +107,22 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordTextFieldLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="53dp"
             android:layout_marginEnd="24dp"
-            android:ems="10"
             android:hint="@string/PasswordTextFiels"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:textSize="14sp"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userNameTextFieldLayout"
-            app:endIconMode="password_toggle"
             tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -143,16 +147,17 @@
 
         <Button
             android:id="@+id/submitButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="88dp"
+            android:layout_marginTop="48dp"
             android:layout_marginEnd="24dp"
             android:backgroundTint="#002B73"
             android:text="@string/Login_button"
             android:textColor="#FFFFFF"
+            app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordTextFieldLayout" />
 
@@ -167,6 +172,7 @@
             android:textAlignment="center"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/submitButton" />
 
@@ -178,7 +184,9 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:src="@drawable/superkasa"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/userNameTextFieldLayout"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

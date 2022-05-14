@@ -17,9 +17,9 @@
     <string name="List_of_Users_text">List Of Registered Users</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="PasswordText">Password:</string>
-    <string name="PasswordTextFiels">Enter Password</string>
+    <string name="PasswordTextFiels">Password</string>
     <string name="UserNameTextView">User Name:</string>
-    <string name="UsernameTextField">Enter User Name</string>
+    <string name="UsernameTextField">Username</string>
     <string name="backButton">Back</string>
     <string name="Login_text">Login</string>
     <string name="Login_button">Login</string>

@@ -22,6 +22,8 @@ import com.example.roomapp.repository.UserRepository
 import com.example.roomapp.viewmodel.BranchViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
+import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -37,6 +39,8 @@ class LoginFragment : Fragment() {
     private lateinit var repository: UserRepository
     private lateinit var username: String
     private lateinit var password: String
+    private lateinit var layout: TextInputLayout
+    private lateinit var layoutPass: TextInputLayout
     private val viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
@@ -50,6 +54,9 @@ class LoginFragment : Fragment() {
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
         mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
+
+        layout = view.findViewById(R.id.userNameTextFieldLayout)
+        layoutPass = view.findViewById(R.id.passwordTextFieldLayout)
 
         repository = mUserViewModel.repository
 
@@ -124,6 +131,10 @@ class LoginFragment : Fragment() {
     private fun loginButton(view: View) {
         if (view.userNameTextField.text?.isEmpty() == true || view.passwordTextField.text?.isEmpty() == true) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
+            layout.isErrorEnabled = true
+            layout.error = "Please fill username field"
+            layoutPass.isErrorEnabled = true
+            layoutPass.error = "Please fill password field"
         } else {
             uiScope.launch {
                 val usersNames = repository.getUserName(username)
@@ -147,6 +158,8 @@ class LoginFragment : Fragment() {
                         }
                     }else{
                         Toast.makeText(requireContext(), "Please check your Password", Toast.LENGTH_SHORT).show()
+                        layoutPass.isErrorEnabled = true
+                        layoutPass.error = "Please check your Password"
                     }
                 } else {
                     Toast.makeText(requireContext(), "User doesnt exist!", Toast.LENGTH_SHORT).show()
