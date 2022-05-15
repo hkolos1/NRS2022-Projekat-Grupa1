@@ -2,7 +2,6 @@ package com.example.roomapp.fragments.storageadmin.product.update
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextUtils
 import android.view.*
 import android.widget.ArrayAdapter
@@ -17,7 +16,6 @@ import com.example.roomapp.model.Product
 import com.example.roomapp.viewmodel.CategoryViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
-import kotlinx.android.synthetic.main.fragment_update.view.*
 import kotlinx.android.synthetic.main.fragment_update_product.*
 import kotlinx.android.synthetic.main.fragment_update_product.view.*
 import java.util.*
@@ -78,7 +76,7 @@ class UpdateProductFragment : Fragment() {
 
         val price=updatePrPrice.text.toString().toLong()
 
-        if(inputCheck(prName, prDelStat, updatePrAmount.text)){
+        if(inputCheck(prName, prDelStat, updatePrAmount.text.toString())){
             val updatedProduct= Product(args.currentProduct.id, prName, quan,unit,args.currentProduct.branchId,prDelStat,
                 cat.toString(),price)
             mProductViewModel.updateProduct(updatedProduct)
@@ -92,7 +90,7 @@ class UpdateProductFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(prName: String, prDevStat: String, quan: Editable): Boolean{
+    private fun inputCheck(prName: String, prDevStat: String, quan: String): Boolean{
         return !(TextUtils.isEmpty(prName) && TextUtils.isEmpty(prDevStat) && quan.isEmpty() )
     }
 

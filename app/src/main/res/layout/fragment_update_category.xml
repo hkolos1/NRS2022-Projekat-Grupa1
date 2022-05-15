@@ -5,8 +5,11 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <EditText
-        android:id="@+id/updateCatName"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_category_24"
+        android:id="@+id/LayoutUpdateCatName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -17,13 +20,21 @@
         android:hint="Category name"
         android:inputType="text"
         android:minHeight="48dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateCatName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/updatePdvName"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_category_24"
+        android:id="@+id/LayoutUpdatePdvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -32,15 +43,23 @@
         android:width="100dp"
         android:height="20dp"
         android:hint="Tax name"
-        android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateCatName" />
+        app:layout_constraintTop_toBottomOf="@+id/LayoutUpdateCatName">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updatePdvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/updatePdv"
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_category_24"
+        android:id="@+id/LayoutUpdateaddPdv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -54,7 +73,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updatePdvName" />
+        app:layout_constraintTop_toBottomOf="@+id/LayoutUpdatePdvName">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updatePdv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/updateCategoryButton"
@@ -64,11 +89,11 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="#002B73"
-        android:text="UPDATE"
+        android:text="ADD"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updatePdv" />
+        app:layout_constraintTop_toBottomOf="@+id/LayoutUpdateaddPdv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

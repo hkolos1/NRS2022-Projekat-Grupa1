@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <EditText
-        android:id="@+id/addCatName"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_category_24"
+        android:id="@+id/LayoutCatName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -21,10 +23,18 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/addCatName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/addPdvName"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_category_24"
+        android:id="@+id/LayoutPdvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -36,10 +46,20 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCatName" />
+        app:layout_constraintTop_toBottomOf="@+id/LayoutCatName">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/addPdvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/addPdv"
+</com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_category_24"
+        android:id="@+id/LayoutaddPdv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -53,7 +73,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPdvName" />
+        app:layout_constraintTop_toBottomOf="@+id/LayoutPdvName">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/addPdv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/addCategoryButton"
@@ -68,6 +94,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPdv" />
+        app:layout_constraintTop_toBottomOf="@+id/LayoutaddPdv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

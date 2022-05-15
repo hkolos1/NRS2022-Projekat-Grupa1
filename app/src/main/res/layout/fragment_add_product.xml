@@ -7,8 +7,11 @@
     tools:context=".fragments.storageadmin.product.AddProductFragment">
 
 
-    <EditText
-        android:id="@+id/addPrName"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_baseline_article_24"
+        android:id="@+id/LayoutPrName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -22,10 +25,19 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/addPrName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/addPrAmount"
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_baseline_article_24"
+        android:id="@+id/LayoutPrAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -38,10 +50,18 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrName" />
+        app:layout_constraintTop_toBottomOf="@+id/LayoutPrName">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/addPrAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/addPrUnit"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_baseline_article_24"
+        android:id="@+id/LayoutPrUnit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -55,10 +75,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrAmount" />
+        app:layout_constraintTop_toBottomOf="@+id/LayoutPrAmount"
+        >
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addPrUnit" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/addPrPrice"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_money_24"
+        android:id="@+id/LayoutPrPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -72,7 +101,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrUnit" />
+        app:layout_constraintTop_toBottomOf="@+id/LayoutPrUnit"
+        >
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/addPrPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/addButton"
@@ -98,7 +133,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrPrice"
+        app:layout_constraintTop_toBottomOf="@+id/LayoutPrPrice"
         tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

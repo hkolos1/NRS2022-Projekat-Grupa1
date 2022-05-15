@@ -2,7 +2,6 @@ package com.example.roomapp.fragments.storageadmin.category
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextUtils
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -17,8 +16,6 @@ import com.example.roomapp.viewmodel.CategoryViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import kotlinx.android.synthetic.main.fragment_update_category.*
 import kotlinx.android.synthetic.main.fragment_update_category.view.*
-import kotlinx.android.synthetic.main.fragment_update_product.*
-import kotlinx.android.synthetic.main.fragment_update_product.view.*
 import java.util.*
 
 
@@ -57,7 +54,7 @@ class UpdateCategoryFragment : Fragment() {
         val pdv=updatePdv.text.toString().toInt()
         val pdvName=updatePdvName.text.toString()
 
-        if(inputCheck(catName, pdvName, updatePdv.text)){
+        if(inputCheck(catName, pdvName, updatePdv.text.toString())){
             val updatedCategory= Category(args.category.id, catName, pdvName, pdv)
             mCategoryViewModel.updateCategory(updatedCategory)
             val cal: Calendar = Calendar.getInstance()
@@ -70,7 +67,7 @@ class UpdateCategoryFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(prName: String, prDevStat: String, quan: Editable): Boolean{
+    private fun inputCheck(prName: String, prDevStat: String, quan: String): Boolean{
         return !(TextUtils.isEmpty(prName) && TextUtils.isEmpty(prDevStat) && quan.isEmpty() )
     }
 
