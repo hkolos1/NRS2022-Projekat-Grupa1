@@ -32,6 +32,7 @@ class AllProductsAdapter: RecyclerView.Adapter<AllProductsAdapter.MyViewHolder>(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
+
         val currentItem: Product = productsList[position]
 
         holder.itemView.all_products_name.text = currentItem.prodName
@@ -41,6 +42,7 @@ class AllProductsAdapter: RecyclerView.Adapter<AllProductsAdapter.MyViewHolder>(
             val action= AllProductsFragmentDirections.actionAllProductsInBranchFragmentToAddProductsToUpdateProductsFragment(branch, currentItem)
             holder.itemView.findNavController().navigate(action)
         }
+
     }
 
     override fun getItemCount(): Int {
