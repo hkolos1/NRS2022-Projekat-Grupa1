@@ -26,7 +26,6 @@ class ProductViewModel(application: Application): AndroidViewModel(application) 
         repository = ProductRepository(productDao)
         readAllData = repository.readAllData
     }
-    
     fun addProduct(product: Product){
         viewModelScope.launch(Dispatchers.IO) {
             repository.addProduct(product)
@@ -52,7 +51,7 @@ class ProductViewModel(application: Application): AndroidViewModel(application) 
     }
 
     fun getProductsFromBranch(id: Int): LiveData<List<Product>>{
-            return repository.getProductsFromBranch(id)
+        return repository.getProductsFromBranch(id)
     }
 
     fun getProductsFromStatus(status: String): LiveData<List<Product>>{
@@ -65,4 +64,7 @@ class ProductViewModel(application: Application): AndroidViewModel(application) 
         }
     }
 
+    fun getProductById(id: Int): Product{
+        return repository.getProductById(id)
+    }
 }
