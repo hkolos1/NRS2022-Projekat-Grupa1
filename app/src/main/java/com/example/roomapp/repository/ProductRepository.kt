@@ -11,7 +11,7 @@ class ProductRepository(private val productDao: ProductDao) {
     val readAllData: LiveData<List<Product>> = productDao.readAllData()
 
     suspend fun addProduct(product: Product){
-            productDao.addProduct(product)
+        productDao.addProduct(product)
     }
 
     suspend fun updateProduct(product: Product){
@@ -19,18 +19,18 @@ class ProductRepository(private val productDao: ProductDao) {
     }
 
     suspend fun deleteProduct(product: Product){
-            productDao.deleteProduct(product)
+        productDao.deleteProduct(product)
     }
 
     suspend fun deleteAllProducts(){
-       productDao.deleteAllProducts()
+        productDao.deleteAllProducts()
     }
 
     suspend fun getprodName(prodName: String): Product?{
         Log.i("MYTAG", "inside Repository Getusers fun ")
         return productDao.getprodName(prodName)
     }
-    
+
     fun getProductsFromBranch(id: Int): LiveData<List<Product>>{
         return productDao.getProductsFromBranch(id)
     }
@@ -41,6 +41,10 @@ class ProductRepository(private val productDao: ProductDao) {
 
     suspend fun getAllProducts(): List<Product>{
         return productDao.getAllProducts()
+    }
+
+    fun getProductById(id: Int): Product{
+        return productDao.getProductById(id)
     }
 
 }
