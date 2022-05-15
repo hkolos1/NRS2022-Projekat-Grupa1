@@ -1,5 +1,6 @@
 package com.example.roomapp.fragments.admin
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,7 @@ class AdminFragment : Fragment() {
     private lateinit var mLogViewModel: LogViewModel
     private val args by navArgs<AdminFragmentArgs>()
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,21 +38,37 @@ class AdminFragment : Fragment() {
 
         view.textViewAdmin.text = "Welcome ${args.user.firstName}"
 
-        view.btn_users.setOnClickListener {
+        /*view.btn_users.setOnClickListener {
             goToUsers()
         }
 
         view.btn_storage.setOnClickListener {
             storage()
-        }
+        }*/
 
-        view.btn_logout3.setOnClickListener{
+        /*view.btn_logout3.setOnClickListener{
             logout()
-        }
+        }*/
 
-        view.btn_logging.setOnClickListener {
+        /*view.btn_logging.setOnClickListener {
             logging()
-        }
+        }*/
+
+        view.bottom_navigation.setOnNavigationItemReselectedListener { item ->
+            when(item.itemId) {
+                R.id.users -> {
+                    goToUsers()
+                }
+                R.id.storage -> {
+                    storage()
+                }
+                R.id.logging -> {
+                    logging()
+                }
+                R.id.logout -> {
+                    logout()
+                }
+            } }
 
         return view
     }

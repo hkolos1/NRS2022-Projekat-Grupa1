@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/users"
+        android:enabled="true"
+        android:icon="@drawable/group"
+        android:title="@string/users"/>
+    <item
+        android:id="@+id/storage"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_storage_24"
+        android:title="@string/storage"/>
+    <item
+        android:id="@+id/logging"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_checklist_rtl_24"
+        android:title="@string/logging"/>
+    <item
+        android:id="@+id/logout"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_login_24"
+        android:title="@string/logout"/>
+
+</menu>

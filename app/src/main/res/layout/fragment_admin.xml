@@ -11,70 +11,81 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="24dp"
         android:text="Welcome Admin"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <Button
-        android:id="@+id/btn_users"
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:src="@drawable/superkasa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <!--<Button
+        android:id="@+id/btn_users"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#002B73"
         android:text="users"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAdmin" />
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="128dp" />
 
     <Button
         android:id="@+id/btn_storage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
+        android:backgroundTint="#002B73"
         android:text="storage"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.854"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_users" />
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="208dp" />
 
     <Button
         android:id="@+id/btn_logging"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
+        android:backgroundTint="#002B73"
         android:text="Logging"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_storage" />
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="288dp" />-->
 
-    <Button
+    <!--<Button
         android:id="@+id/btn_logout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="100dp"
+        android:backgroundTint="#002B73"
         android:text="logout"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="583dp" />-->
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu_admin"
+        tools:ignore="MissingConstraints" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

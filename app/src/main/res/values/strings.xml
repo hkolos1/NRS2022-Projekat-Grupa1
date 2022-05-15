@@ -28,6 +28,10 @@
     <string name="add_product_to_branch">Add product to branch</string>
     <string name="welcome_admin">Welcome Admin</string>
     <string name="delivery_status">Delivery status</string>
+    <string name="users">USERS</string>
+    <string name="storage">STORAGE</string>
+    <string name="logging">LOGGING</string>
+    <string name="logout">LOGOUT</string>
     <string-array name="SpinerQuestionItems">
         <item>What is your favorite food ?</item>
         <item>What is your best friend ?</item>
