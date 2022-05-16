@@ -2,6 +2,7 @@ package com.example.roomapp.fragments.storageadmin
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.ViewGroup
@@ -14,6 +15,9 @@ import com.example.roomapp.R
 import com.example.roomapp.model.Log
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.custom_row_branch.view.*
 import kotlinx.android.synthetic.main.fragment_admin.view.*
 import kotlinx.android.synthetic.main.fragment_admin.view.textViewAdmin
 import kotlinx.android.synthetic.main.fragment_admin_storage.*
@@ -37,35 +41,95 @@ class StorageAdminFragment : Fragment() {
 
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
-        view.textViewAdmin.text = "Welcome ${args.user.firstName}"
+       // view.textViewAdmin.text = "Welcome ${args.user.firstName}"
+        view.textViewAdmin.text = "STORAGE"
+
 
         if(args.user.age==0){
-            view.btn_logout4.visibility = INVISIBLE
+            view.textViewAdmin.text = "STORAGE"
+            view.imageViewAdmin.visibility = INVISIBLE
+        }else {
+            view.textViewAdmin.text = "Welcome ${args.user.firstName}"
         }
 
-        view.btn_product.setOnClickListener {
+        /*view.btn_product.setOnClickListener {
             val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToProductFragment(args.user)
             findNavController().navigate(action)
-        }
+        }*/
 
-        view.btn_delivery.setOnClickListener {
+        /*view.btn_delivery.setOnClickListener {
             val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToDeliveryFragment(args.user)
             findNavController().navigate(action)
-        }
+        }*/
 
-        view.btn_branch.setOnClickListener {
+        /*view.btn_branch.setOnClickListener {
             val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToBranchFragment(args.user)
             findNavController().navigate(action)
-        }
+        }*/
 
-        view.btn_category.setOnClickListener {
+        /*view.btn_category.setOnClickListener {
             val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToCategoryFragment(args.user)
             findNavController().navigate(action)
+        }*/
+
+        /*view.btn_logout4.setOnClickListener{
+            logout()
+        }*/
+        val navigationView: BottomNavigationView = view.findViewById(R.id.bottom_navigation_storage)
+        val menu: Menu = navigationView.menu
+        //val menuItem: MenuItem = menu.findItem(R.id.logout)
+
+        if(args.user.age == 0){
+            menu.getItem(4).isVisible = false
+            println("uslo")
+            view.bottom_navigation_storage.setOnNavigationItemReselectedListener { item ->
+                when(item.itemId) {
+                    R.id.products -> {
+                        val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToProductFragment(args.user)
+                        findNavController().navigate(action)
+                    }
+                    R.id.storage -> {
+                        val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToDeliveryFragment(args.user)
+                        findNavController().navigate(action)
+                    }
+                    R.id.branch -> {
+                        val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToBranchFragment(args.user)
+                        findNavController().navigate(action)
+                    }
+                    R.id.category -> {
+                        val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToCategoryFragment(args.user)
+                        findNavController().navigate(action)
+                    }
+                    /*R.id.logout -> {
+                        logout()
+                    }*/
+                } }
+        }else{
+            view.bottom_navigation_storage.setOnNavigationItemReselectedListener { item ->
+                when(item.itemId) {
+                    R.id.products -> {
+                        val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToProductFragment(args.user)
+                        findNavController().navigate(action)
+                    }
+                    R.id.storage -> {
+                        val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToDeliveryFragment(args.user)
+                        findNavController().navigate(action)
+                    }
+                    R.id.branch -> {
+                        val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToBranchFragment(args.user)
+                        findNavController().navigate(action)
+                    }
+                    R.id.category -> {
+                        val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToCategoryFragment(args.user)
+                        findNavController().navigate(action)
+                    }
+                    R.id.logout -> {
+                        logout()
+                    }
+                } }
         }
 
-        view.btn_logout4.setOnClickListener{
-            logout()
-        }
+
 
         return view
     }

@@ -32,6 +32,10 @@
     <string name="storage">STORAGE</string>
     <string name="logging">LOGGING</string>
     <string name="logout">LOGOUT</string>
+    <string name="category">CATEGORY</string>
+    <string name="products">PRODUCTS</string>
+    <string name="branch">BRANCH</string>
+    <string name="orders">ORDERS</string>
     <string-array name="SpinerQuestionItems">
         <item>What is your favorite food ?</item>
         <item>What is your best friend ?</item>

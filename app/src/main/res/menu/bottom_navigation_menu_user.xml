@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/orders"
+        android:enabled="true"
+        android:icon="@drawable/redeem"
+        android:title="@string/orders"/>
+    <item
+        android:id="@+id/conf_chan_password"
+        android:enabled="true"
+        android:icon="@drawable/question_mark"
+        android:title="CONFIRM PASSWORD" />
+    <item
+        android:id="@+id/logout"
+        android:enabled="true"
+        android:icon="@drawable/logout"
+        android:title="@string/logout"/>
+
+</menu>

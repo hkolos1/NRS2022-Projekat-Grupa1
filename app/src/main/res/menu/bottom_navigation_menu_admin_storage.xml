@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/users"
+        android:id="@+id/products"
         android:enabled="true"
-        android:icon="@drawable/group"
-        android:title="@string/users"/>
+        android:icon="@drawable/inventory"
+        android:title="@string/products"/>
     <item
         android:id="@+id/storage"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_storage_24"
+        android:icon="@drawable/local_shipping"
         android:title="@string/storage"/>
     <item
-        android:id="@+id/logging"
+        android:id="@+id/branch"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_checklist_rtl_24"
-        android:title="@string/logging"/>
+        android:icon="@drawable/apartment"
+        android:title="@string/branch"/>
+    <item
+        android:id="@+id/category"
+        android:enabled="true"
+        android:icon="@drawable/category"
+        android:title="@string/category"/>
     <item
         android:id="@+id/logout"
         android:enabled="true"
