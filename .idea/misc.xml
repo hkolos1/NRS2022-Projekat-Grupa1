@@ -28,15 +28,28 @@
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.2265" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.2265" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_category.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_add.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_add_category.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_add_product.xml" value="0.2" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_admin.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_admin_storage.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_branch.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_category.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_confirmation_password.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_delivery.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_forgot_new_password.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_forgot_password_question.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_list.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_logging.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_login.xml" value="0.264" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_order.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_order_add_product.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_product.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_update.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_update_category.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_update_password.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_update_product.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_user.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HARUN/RMAProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/item_product.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_bill.xml" value="0.15520833333333334" />
         <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_branch.xml" value="0.15520833333333334" />

@@ -54,13 +54,13 @@ class UpdateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.checkbox3.setOnCheckedChangeListener{ _, isChecked ->
-            if (isChecked){
-                view.updateLastName_et.transformationMethod = HideReturnsTransformationMethod.getInstance();
-            }else{
-                view.updateLastName_et.transformationMethod = PasswordTransformationMethod.getInstance();
-            }
-        }
+//        view.checkbox3.setOnCheckedChangeListener{ _, isChecked ->
+//            if (isChecked){
+//                view.updateLastName_et.transformationMethod = HideReturnsTransformationMethod.getInstance();
+//            }else{
+//                view.updateLastName_et.transformationMethod = PasswordTransformationMethod.getInstance();
+//            }
+//        }
     }
 
     private fun updateItem() {

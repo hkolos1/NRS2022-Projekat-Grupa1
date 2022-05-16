@@ -49,15 +49,15 @@ class AddFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.checkbox2.setOnCheckedChangeListener{ _, isChecked ->
-            if (isChecked){
-                view.addLastName_et.transformationMethod = HideReturnsTransformationMethod.getInstance();
-                view.addLastName_et2.transformationMethod = HideReturnsTransformationMethod.getInstance();
-            }else{
-                view.addLastName_et.transformationMethod = PasswordTransformationMethod.getInstance();
-                view.addLastName_et2.transformationMethod = PasswordTransformationMethod.getInstance();
-            }
-        }
+//        view.checkbox2.setOnCheckedChangeListener{ _, isChecked ->
+//            if (isChecked){
+//                view.addLastName_et.transformationMethod = HideReturnsTransformationMethod.getInstance();
+//                view.addLastName_et2.transformationMethod = HideReturnsTransformationMethod.getInstance();
+//            }else{
+//                view.addLastName_et.transformationMethod = PasswordTransformationMethod.getInstance();
+//                view.addLastName_et2.transformationMethod = PasswordTransformationMethod.getInstance();
+//            }
+//        }
     }
 
     private fun insertDataToDatabase() {
