@@ -62,7 +62,7 @@ class ConfirmationPasswordFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun conPassButton(view: View) {
-        if (view.answerTextField.text.isEmpty()) {
+        if (view.answerTextField.text!!.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill field", Toast.LENGTH_SHORT).show()
         } else {
             val updatedUser = User(args.user.id , args.user.firstName , args.user.lastName , args.user.age ,

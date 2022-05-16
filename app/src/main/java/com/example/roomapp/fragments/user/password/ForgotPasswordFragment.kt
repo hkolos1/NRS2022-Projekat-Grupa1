@@ -65,7 +65,7 @@ class ForgotPasswordFragment : Fragment() {
 
     private fun forgotPasswordButton(view: View) {
 
-        if (view.userNameForgotPassword.text.isEmpty()) {
+        if (view.userNameForgotPassword.text!!.isEmpty()) {
             Toast.makeText(requireContext(), "Please enter username", Toast.LENGTH_SHORT).show()
         } else {
             uiScope.launch {

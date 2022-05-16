@@ -15,10 +15,10 @@
     <list default="true" id="69a4a099-8825-4655-abf9-543d89dbcef8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/admin/users/add/AddFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/admin/users/add/AddFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/admin/users/update/UpdateFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/admin/users/update/UpdateFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_update.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_update.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/user/password/ConfirmationPasswordFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/user/password/ConfirmationPasswordFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_confirmation_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_confirmation_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_forgot_new_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_forgot_new_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

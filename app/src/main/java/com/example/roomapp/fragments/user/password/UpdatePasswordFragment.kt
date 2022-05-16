@@ -88,7 +88,7 @@ class UpdatePasswordFragment : Fragment() {
     }
 
     private fun changPasswordButton(view: View) {
-        if (view.oldPassword.text.isEmpty() || view.newPassword.text.isEmpty() || view.confirmPassword.text.isEmpty()) {
+        if (view.oldPassword.text!!.isEmpty() || view.newPassword.text!!.isEmpty() || view.confirmPassword.text!!.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
         } else if (oldPassword == args.user.lastName && newPassword == confPassword){
             val updatedUser = User(args.user.id , args.user.firstName , newPassword , args.user.age ,args.user.question,args.user.answer)

@@ -73,7 +73,7 @@ class ForgotNewPasswordFragment : Fragment() {
     }
 
     private fun changPasswordForgotButton(view: View) {
-        if (view.newPasswordForgot.text.isEmpty() || view.confirmPasswordForgot.text.isEmpty() ) {
+        if (view.newPasswordForgot.text!!.isEmpty() || view.confirmPasswordForgot.text!!.isEmpty() ) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
         }else if (newPasswordForgot == confPasswordForgot){
             val updatedUser = User(args.user.id , args.user.firstName , newPasswordForgot , args.user.age ,args.user.question,args.user.answer)

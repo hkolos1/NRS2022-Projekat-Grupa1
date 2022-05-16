@@ -6,62 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.roomapp.fragments.login.LoginFragment">
 
-        <!--<TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Login_text"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="64dp" />-->
-
-        <!--<TextView
-            android:id="@+id/userNameTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:text="@string/UserNameTextView"
-            android:textAlignment="viewStart"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="123dp" />-->
-
-        <!--<TextView
-            android:id="@+id/passwordTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:text="@string/PasswordText"
-            android:textAlignment="viewStart"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="233dp" />-->
-
-        <!--android:id="@+id/userNameTextField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="@string/UsernameTextField"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameTextView" />-->
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/userNameTextFieldLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -88,22 +32,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <!--<EditText
-            android:id="@+id/passwordTextField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            android:ems="10"
-            android:hint="@string/PasswordTextFiels"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordTextFieldLayout"
@@ -133,17 +61,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--<CheckBox
-            android:id="@+id/checkbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:minHeight="48dp"
-            android:text="Show Password"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="329dp" />-->
 
         <Button
             android:id="@+id/submitButton"

@@ -64,7 +64,7 @@ class ForgotPasswordQuestionFragment : Fragment() {
 
     private fun forgotPasswordButton(view: View) {
 
-        if (view.answerForgetPassword.text.isEmpty()) {
+        if (view.answerForgetPassword.text!!.isEmpty()) {
             Toast.makeText(requireContext(), "Please enter the answer", Toast.LENGTH_SHORT).show()
         } else {
                 val usersNames = args.user
