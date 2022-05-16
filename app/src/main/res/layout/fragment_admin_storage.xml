@@ -11,86 +11,89 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="24dp"
         android:text="Welcome Admin"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAdmin" />
 
-    <Button
-        android:id="@+id/btn_delivery"
+    <ImageView
+        android:id="@+id/imageViewAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:src="@drawable/superkasa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--<Button
+        android:id="@+id/btn_delivery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#002B73"
         android:text="delivery"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_product" />
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="208dp" />
 
     <Button
         android:id="@+id/btn_product"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
+        android:backgroundTint="#002B73"
         android:text="products"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAdmin" />
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="128dp" />
 
     <Button
         android:id="@+id/btn_branch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
+        android:backgroundTint="#002B73"
         android:text="branch"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_delivery" />
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="288dp" />
 
     <Button
         android:id="@+id/btn_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="24dp"
         android:backgroundTint="#002B73"
         android:text="category"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_delivery" />
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="368dp" />
 
     <Button
         android:id="@+id/btn_logout4"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginTop="67dp"
+        android:backgroundTint="#002B73"
         android:text="logout"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />-->
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_storage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu_admin_storage"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
