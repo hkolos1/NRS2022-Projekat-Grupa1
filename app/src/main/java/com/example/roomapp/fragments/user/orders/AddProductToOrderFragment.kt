@@ -28,6 +28,7 @@ class AddProductToOrderFragment : Fragment() {
     private lateinit var mBranchViewModel: BranchViewModel
     private lateinit var mOrderViewModel: OrderViewModel
     private lateinit var mLogViewModel: LogViewModel
+    private lateinit var mProductViewModel: ProductViewModel
     private lateinit var mainBranch: Branch
     private val args by navArgs<AddProductToOrderFragmentArgs>()
 
@@ -41,6 +42,7 @@ class AddProductToOrderFragment : Fragment() {
         mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
         mOrderViewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
+        mProductViewModel=ViewModelProvider(this).get(ProductViewModel::class.java)
 
         val spinnerProducts = view.spinner_assign_product_product_order
 

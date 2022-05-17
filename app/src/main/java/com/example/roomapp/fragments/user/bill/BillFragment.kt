@@ -44,10 +44,21 @@ class BillFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        val adapter2 = BillPdvAdapter()
+        val recyclerView2 = view.pdvView
+
+        recyclerView2.adapter = adapter2
+        recyclerView2.layoutManager = LinearLayoutManager(requireContext())
+
+
+
         mBillViewModel = ViewModelProvider(this).get(BillViewModel::class.java)
         mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
         mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
         mCategoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
+
+        view.billID.text=args.order.id.toString()
+
         mBranchViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
                 branch -> branch.forEach{ branch1 ->
             if(branch1.name == args.order.branch) {
@@ -61,25 +72,49 @@ class BillFragment : Fragment() {
             }
         }
         })
-        for (p in args.order.products){
-           mProductViewModel.readAllData.observe(viewLifecycleOwner, Observer {
-               products -> products.forEach {
-                   if (p.prodName == it.prodName) {
-                       val a = it.category
-                      mCategoryViewModel.readAllData.observe(viewLifecycleOwner, Observer {
-                          categories -> categories.forEach {
-                              if (a == it.nameCategory){
-                                  listaOfTaxes.add(it.pdv)
-                              }
-                      }
-                      })
-                   }
-           }
-           })
+
+      mBranchViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                branch -> branch.forEach{ branch1 ->
+            if(branch1.name == args.order.branch) {
+                (branch1.products).forEach {
+                    args.order.products.forEach { orPro ->
+                        if(orPro.prodName == it.prodName){
+                            mCategoryViewModel.readAllData.observe(viewLifecycleOwner, Observer {
+                                    categories -> categories.forEach {
+                                if(orPro.category==it.nameCategory){
+                                    var k=0;
+                                    for( j in listaOfCategories){
+                                        if(j==it){
+                                            k=1;
+                                        }
+                                    }
+                                    if(k==0){
+                                        listaOfCategories.add(it)
+                                    }
+                                }
+                            }
+                            })
+                        }
+                    }
+                }
+            }
         }
-        mBillViewModel.readAllData.observe(viewLifecycleOwner, Observer {
+        })
+
+
+
+
+
+
+
+           mBillViewModel.readAllData.observe(viewLifecycleOwner, Observer {
             adapter.setData(args.order.products,listaOfTaxes)
         })
+        mBillViewModel.readAllData.observe(viewLifecycleOwner, Observer {
+            adapter2.setData(args.order.products,listaOfCategories)
+        })
+
+        view.orderTotal.text = args.order.total.toString()
 
         return view
     }
