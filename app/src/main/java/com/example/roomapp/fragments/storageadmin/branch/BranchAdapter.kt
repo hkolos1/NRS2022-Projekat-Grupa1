@@ -9,7 +9,6 @@ import com.example.roomapp.R
 import com.example.roomapp.model.Branch
 import com.example.roomapp.model.User
 import kotlinx.android.synthetic.main.custom_row_branch.view.*
-import kotlinx.android.synthetic.main.custom_row_branch.view.rowLayout
 
 class BranchAdapter: RecyclerView.Adapter<BranchAdapter.MyViewHolder>()  {
 
@@ -27,14 +26,17 @@ class BranchAdapter: RecyclerView.Adapter<BranchAdapter.MyViewHolder>()  {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem: Branch = branchList[position]
 
-        holder.itemView.branch_id_txt.text = currentItem.id.toString()
-        holder.itemView.branch_name_txt.text = currentItem.name
+
+        holder.itemView.mat3_custom_row_branch_name.text = currentItem.name
+        if(currentItem.products.size == 1)
+            holder.itemView.mat3_custom_row_product_amount_in_branch.text = currentItem.products.size.toString() + " Product"
+        else
+            holder.itemView.mat3_custom_row_product_amount_in_branch.text = currentItem.products.size.toString() + " Products"
 
         holder.itemView.rowLayout.setOnClickListener {
             val action = BranchFragmentDirections.actionBranchFragmentToAllProductsInBranchFragment(currentItem,user)
             holder.itemView.findNavController().navigate(action)
         }
-
     }
 
     override fun getItemCount(): Int {
