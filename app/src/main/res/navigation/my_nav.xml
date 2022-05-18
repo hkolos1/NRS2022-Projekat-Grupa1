@@ -390,6 +390,9 @@
         <argument
             android:name="user"
             app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="number"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/updateOrderFragment"
@@ -432,5 +435,8 @@
         <argument
             android:name="order"
             app:argType="com.example.roomapp.model.Order" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
     </fragment>
 </navigation>

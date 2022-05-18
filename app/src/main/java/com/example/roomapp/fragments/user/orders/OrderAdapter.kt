@@ -37,8 +37,8 @@ class OrderAdapter: RecyclerView.Adapter<OrderAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem: Order = list[position]
-        holder.itemView.idOrder.text = (position+1).toString()
-        holder.itemView.nameOrder.text = currentItem.name
+        holder.itemView.idOrder.text = currentItem.name
+        holder.itemView.nameOrder.text = currentItem.table
         holder.itemView.quantityProd.text = currentItem.productsQuantity.toString()
         holder.itemView.totalOrder.text = currentItem.total.toString()
 

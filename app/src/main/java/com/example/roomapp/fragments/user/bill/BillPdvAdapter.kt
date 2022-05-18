@@ -14,11 +14,8 @@ import java.text.DecimalFormat
 
 class BillPdvAdapter: RecyclerView.Adapter<BillPdvAdapter.MyViewHolder>() {
 
-    private var list = emptyList<Product>() //lista svih proizvoda iz narudzbe
+    private var list = emptyList<Product>()
     private var list2 = emptyList<Category>()
-    private var list1 = emptyList<Int>() //lista svih pdv-a
-
-    //tako da prvi u list je prvi proizvod a prvi element list1 je pdv za taj proizvod
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
