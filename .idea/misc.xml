@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_bill.xml" value="0.15896739130434784" />
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_branch.xml" value="0.15896739130434784" />
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_pdv.xml" value="0.33" />
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_bill.xml" value="0.33" />
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_order.xml" value="0.15896739130434784" />
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_order_add_product.xml" value="0.15896739130434784" />
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_order_update.xml" value="0.15896739130434784" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2535" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2535" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/activity_main.xml" value="0.245018115942029" />

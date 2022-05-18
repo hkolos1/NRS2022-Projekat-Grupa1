@@ -183,8 +183,9 @@
     <fragment
         android:id="@+id/confirmationPasswordFragment"
         android:name="com.example.roomapp.fragments.user.password.ConfirmationPasswordFragment"
-        android:label="User Panel"
-        tools:layout="@layout/fragment_confirmation_password" >
+        android:label="Security question"
+        tools:layout="@layout/fragment_confirmation_password">
+
         <action
             android:id="@+id/action_confirmationPasswordFragment_to_userFragment"
             app:destination="@id/userFragment" />
@@ -371,34 +372,51 @@
         android:name="com.example.roomapp.fragments.user.orders.OrderFragment"
         android:label="Orders"
         tools:layout="@layout/fragment_order">
-        <action
-            android:id="@+id/action_orderFragment_to_addOrderFragment"
-            app:destination="@id/addOrderFragment" />
         <argument
             android:name="user"
             app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_orderFragment_to_addOrderFragment"
+            app:destination="@id/addOrderFragment" />
+        <action
+            android:id="@+id/action_orderFragment_to_updateOrderFragment"
+            app:destination="@id/updateOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/addOrderFragment"
         android:name="com.example.roomapp.fragments.user.orders.AddOrderFragment"
-        android:label="Add Order">
-        <action
-            android:id="@+id/action_addOrderFragment_to_addProductToOrderFragment"
-            app:destination="@id/addProductToOrderFragment" />
+        android:label="Create order"
+        tools:layout="@layout/fragment_add_order">
         <argument
             android:name="user"
             app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateOrderFragment"
+        android:name="com.example.roomapp.fragments.user.orders.UpdateOrderFragment"
+        android:label="Order preview"
+        tools:layout="@layout/fragment_order_update">
         <action
-            android:id="@+id/action_addOrderFragment_to_billFragment"
+            android:id="@+id/action_updateOrderFragment_to_addProductToOrderFragment"
+            app:destination="@id/addProductToOrderFragment" />
+        <action
+            android:id="@+id/action_updateOrderFragment_to_billFragment"
             app:destination="@id/billFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
         <argument
             android:name="order"
             app:argType="com.example.roomapp.model.Order" />
+        <action
+            android:id="@+id/action_updateOrderFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
     </fragment>
     <fragment
         android:id="@+id/addProductToOrderFragment"
         android:name="com.example.roomapp.fragments.user.orders.AddProductToOrderFragment"
-        android:label="Add Product To Order">
+        android:label="Add product to order"
+        tools:layout="@layout/fragment_order_add_product">
         <argument
             android:name="user"
             app:argType="com.example.roomapp.model.User" />
@@ -412,7 +430,7 @@
         android:label="Bill"
         tools:layout="@layout/fragment_bill">
         <argument
-            android:name="currentOrder"
+            android:name="order"
             app:argType="com.example.roomapp.model.Order" />
     </fragment>
 </navigation>

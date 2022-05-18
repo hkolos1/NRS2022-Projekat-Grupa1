@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.75"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView2" />
+            app:layout_constraintTop_toBottomOf="@+id/pdvView" />
 
         <TextView
             android:id="@+id/textView21"
@@ -212,10 +212,10 @@
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
+            android:layout_marginStart="52dp"
             android:layout_marginTop="20dp"
-            android:text="OPIS"
             android:fontFamily="monospace"
+            android:text="OPIS"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -232,11 +232,11 @@
 
         <TextView
             android:id="@+id/textView19"
-            android:fontFamily="monospace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="monospace"
             android:text="IZNOS"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -255,13 +255,12 @@
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView2"
-            android:layout_width="292dp"
+            android:id="@+id/pdvView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="monospace"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
 

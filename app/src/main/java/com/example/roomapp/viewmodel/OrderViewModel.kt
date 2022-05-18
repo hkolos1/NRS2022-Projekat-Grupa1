@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.roomapp.data.OrderDatabase
 import com.example.roomapp.model.Order
 import com.example.roomapp.model.Product
+import com.example.roomapp.model.User
 import com.example.roomapp.repository.OrderRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,6 +34,12 @@ class OrderViewModel(application: Application): AndroidViewModel(application) {
     fun updateOrder(order: Order){
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateOrder(order)
+        }
+    }
+
+    fun deleteOrder(order: Order){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteOrder(order)
         }
     }
 

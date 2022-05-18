@@ -3,9 +3,9 @@ package com.example.roomapp.fragments.user.orders
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import android.widget.Button
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -13,12 +13,9 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
 import com.example.roomapp.model.Log
-import com.example.roomapp.model.Order
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.OrderViewModel
-import com.example.roomapp.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_order.view.*
-import kotlinx.android.synthetic.main.fragment_product.view.*
 import java.util.*
 
 class OrderFragment : Fragment() {
@@ -59,10 +56,7 @@ class OrderFragment : Fragment() {
     }
 
     private fun addingOrder() {
-        val cal = Calendar.getInstance()
-        val order = Order(0,args.user.id,cal.time.toString(), mutableListOf(),0)
-        mOrderViewModel.addOrder(order)
-        val action = OrderFragmentDirections.actionOrderFragmentToAddOrderFragment(args.user,order)
+        val action = OrderFragmentDirections.actionOrderFragmentToAddOrderFragment(args.user)
         findNavController().navigate(action)
     }
 
