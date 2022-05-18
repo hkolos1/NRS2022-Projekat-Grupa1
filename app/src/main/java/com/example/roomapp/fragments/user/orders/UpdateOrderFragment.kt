@@ -1,10 +1,12 @@
 package com.example.roomapp.fragments.user.orders
 
 import android.app.AlertDialog
+import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.os.Bundle
 import android.view.*
+import android.view.View.INVISIBLE
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -52,6 +54,10 @@ class UpdateOrderFragment : Fragment() {
         view.total.text = args.order.total.toString()
         view.textViewUser2.text = "Products of ${args.order.name}"
         order = args.order
+        if(order.bill){
+            view.btn_add_order2.visibility = INVISIBLE
+            view.btnFinishOrder.visibility = INVISIBLE
+        }
 
         mBranchViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
                 branch -> branch.forEach{ branch1 ->
@@ -77,7 +83,7 @@ class UpdateOrderFragment : Fragment() {
         }
 
         view.btnShowBill.setOnClickListener {
-            val action = UpdateOrderFragmentDirections.actionUpdateOrderFragmentToBillFragment(order)
+            val action = UpdateOrderFragmentDirections.actionUpdateOrderFragmentToBillFragment(order,args.user)
             findNavController().navigate(action)
         }
 

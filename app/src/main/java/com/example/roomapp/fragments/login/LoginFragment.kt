@@ -15,11 +15,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.roomapp.R
 import com.example.roomapp.model.Branch
+import com.example.roomapp.model.Category
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
 import com.example.roomapp.repository.BranchRepository
 import com.example.roomapp.repository.UserRepository
 import com.example.roomapp.viewmodel.BranchViewModel
+import com.example.roomapp.viewmodel.CategoryViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_login.view.*
@@ -34,6 +36,7 @@ class LoginFragment : Fragment() {
     private lateinit var mUserViewModel: UserViewModel
     private lateinit var mLogViewModel: LogViewModel
     private lateinit var mBranchViewModel: BranchViewModel
+    private lateinit var mCategoryViewModel: CategoryViewModel
     private lateinit var repository: UserRepository
     private lateinit var username: String
     private lateinit var password: String
@@ -50,6 +53,7 @@ class LoginFragment : Fragment() {
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
         mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
+        mCategoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
 
         repository = mUserViewModel.repository
 
@@ -114,9 +118,11 @@ class LoginFragment : Fragment() {
             val usersNames = repository.getUserName("Admin")
             if (usersNames == null) {
                 repository.addUser(User(0,"admin","admin",0,"",""))
+                repository.addUser(User(0,"user","user",2,"",""))
                 mBranchViewModel.addBranch(Branch(1,"Sarajevo", mutableListOf()))
                 mBranchViewModel.addBranch(Branch(2,"Mostar", mutableListOf()))
                 mBranchViewModel.addBranch(Branch(3,"Banja Luka", mutableListOf()))
+                mCategoryViewModel.addCategory(Category(0,"PDV","PDV",17))
             }
         }
     }

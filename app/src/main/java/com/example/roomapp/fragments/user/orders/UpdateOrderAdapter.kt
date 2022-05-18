@@ -1,8 +1,11 @@
 package com.example.roomapp.fragments.user.orders
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +13,7 @@ import com.example.roomapp.R
 import com.example.roomapp.model.Order
 import com.example.roomapp.model.Product
 import kotlinx.android.synthetic.main.custom_row_order_product.view.*
+import kotlinx.android.synthetic.main.fragment_order_update.view.*
 import kotlinx.android.synthetic.main.item_product.view.prName
 
 class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>() {
@@ -38,7 +42,11 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
         holder.itemView.kolicina.text = currentItem.quantity.toString()
         holder.itemView.perunit.text = "Per ${currentItem.unit}: ${currentItem.price}"
         holder.itemView.totalProd.text = "Total: ${currentItem.price*currentItem.quantity}"
-
+        if(order.bill){
+            holder.itemView.buttonX.visibility = INVISIBLE
+            holder.itemView.buttonplus.visibility = INVISIBLE
+            holder.itemView.buttonminus.visibility = INVISIBLE
+        }
         holder.itemView.buttonminus.setOnClickListener {
             quantity = Integer.parseInt(holder.itemView.kolicina.text.toString())
             if(quantity<=0){

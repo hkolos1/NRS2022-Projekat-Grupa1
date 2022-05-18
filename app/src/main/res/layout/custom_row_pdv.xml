@@ -4,53 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10sp"
     android:id="@+id/rowLayoutPDV">
 
 
     <TextView
         android:id="@+id/taxName"
-        android:layout_width="34dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="monospace"
         android:text="opis"
         android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/taxPercent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/taxPercent"
-        android:layout_width="43dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="monospace"
         android:text="Stopa"
         android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/taxBase"
         app:layout_constraintStart_toEndOf="@+id/taxName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/taxBase"
-        android:layout_width="71dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="monospace"
         android:text="OSNOVICA"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/taxTotal"
         app:layout_constraintStart_toEndOf="@+id/taxPercent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/taxTotal"
-        android:layout_width="45dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="35dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="monospace"
         android:text="Iznos"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/taxBase"
         app:layout_constraintTop_toTopOf="parent" />
 

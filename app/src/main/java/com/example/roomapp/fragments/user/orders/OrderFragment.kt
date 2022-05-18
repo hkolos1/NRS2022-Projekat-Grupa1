@@ -23,6 +23,7 @@ class OrderFragment : Fragment() {
     private lateinit var addButton : Button
     private lateinit var mOrderViewModel: OrderViewModel
     private lateinit var mLogViewModel: LogViewModel
+    private var numb=0
     private val args by navArgs<OrderFragmentArgs>()
 
 
@@ -44,6 +45,7 @@ class OrderFragment : Fragment() {
 
         mOrderViewModel.readAllData.observe(viewLifecycleOwner, Observer {order ->
             adapter.setData(order,args.user)
+            numb=adapter.itemCount
         })
 
         addButton = view.findViewById(R.id.addOrderButton)
@@ -56,7 +58,7 @@ class OrderFragment : Fragment() {
     }
 
     private fun addingOrder() {
-        val action = OrderFragmentDirections.actionOrderFragmentToAddOrderFragment(args.user)
+        val action = OrderFragmentDirections.actionOrderFragmentToAddOrderFragment(args.user,numb)
         findNavController().navigate(action)
     }
 

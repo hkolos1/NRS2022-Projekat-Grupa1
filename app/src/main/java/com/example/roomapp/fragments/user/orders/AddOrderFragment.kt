@@ -15,9 +15,7 @@ import com.example.roomapp.model.Order
 import com.example.roomapp.viewmodel.BranchViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.OrderViewModel
-import com.example.roomapp.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_add_order.view.*
-import kotlinx.android.synthetic.main.fragment_add_product.view.*
 import java.util.*
 
 
@@ -25,8 +23,9 @@ class AddOrderFragment : Fragment() {
 
     private  lateinit var mOrderViewModel: OrderViewModel
     private lateinit var mBranchViewModel: BranchViewModel
-    private lateinit var name: EditText
-    private lateinit var category : Spinner
+    private lateinit var name: TextView
+    private lateinit var branch : Spinner
+    private lateinit var table : Spinner
     private lateinit var mLogViewModel: LogViewModel
     private val args by navArgs<AddOrderFragmentArgs>()
 
@@ -41,8 +40,10 @@ class AddOrderFragment : Fragment() {
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
         mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
 
-        name = view.findViewById(R.id.addOrName)
-        category = view.findViewById(R.id.spinnerBranch)
+        view.addOrName.text = "Order #${args.number+1}"
+        name = view.addOrName
+        branch = view.findViewById(R.id.spinnerBranch)
+        table = view.spinnerTable
 
         val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
 
@@ -52,7 +53,7 @@ class AddOrderFragment : Fragment() {
         }
         })
 
-        category.adapter = spinnerProdAdapter
+        branch.adapter = spinnerProdAdapter
 
         view.addOrder.setOnClickListener {
             insertDataToDatabase()
@@ -62,9 +63,11 @@ class AddOrderFragment : Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val cat = category.selectedItem
+        val bran = branch.selectedItem
+        val tab = table.selectedItem
 
-        val order = Order(0,name.text.toString(),cat.toString(),0, mutableListOf(),0)
+        val order = Order(0,name.text.toString(),bran.toString(),tab.toString(),
+            0, mutableListOf(),0,false,null)
         mOrderViewModel.addOrder(order)
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Added order ${order.name}",cal.time.toString()))

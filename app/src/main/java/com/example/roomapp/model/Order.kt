@@ -12,7 +12,10 @@ data class Order(
     val id: Int,
     val name: String,
     val branch: String,
+    val table: String,
     var productsQuantity: Int,
     val products: MutableList<Product>,
-    var total: Long
+    var total: Long,
+    var bill: Boolean,
+    var billDate: String?
 ): Parcelable
