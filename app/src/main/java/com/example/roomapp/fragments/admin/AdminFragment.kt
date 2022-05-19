@@ -54,20 +54,25 @@ class AdminFragment : Fragment() {
             logging()
         }*/
 
-        view.bottom_navigation.setOnNavigationItemReselectedListener { item ->
+        view.bottom_navigation.setOnNavigationItemSelectedListener  { item ->
             when(item.itemId) {
                 R.id.users -> {
                     goToUsers()
+                    true
                 }
                 R.id.storage -> {
                     storage()
+                    true
                 }
                 R.id.logging -> {
                     logging()
+                    true
                 }
                 R.id.logout -> {
                     logout()
+                    true
                 }
+                else -> false
             } }
 
         return view

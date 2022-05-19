@@ -55,17 +55,21 @@ class UserFragment : Fragment() {
             logout()
         }*/
 
-        view.bottom_navigation_user.setOnNavigationItemReselectedListener { item ->
+        view.bottom_navigation_user.setOnNavigationItemSelectedListener  { item ->
             when(item.itemId) {
                 R.id.orders -> {
                     orders()
+                    true
                 }
                 R.id.conf_chan_password -> {
                     changePassword()
+                    true
                 }
                 R.id.logout -> {
                     logout()
+                    true
                 }
+                else -> false
             } }
 
         return view

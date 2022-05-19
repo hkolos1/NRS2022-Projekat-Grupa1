@@ -81,51 +81,61 @@ class StorageAdminFragment : Fragment() {
 
         if(args.user.age == 0){
             menu.getItem(4).isVisible = false
-            println("uslo")
-            view.bottom_navigation_storage.setOnNavigationItemReselectedListener { item ->
+            view.bottom_navigation_storage.setOnNavigationItemSelectedListener  { item ->
                 when(item.itemId) {
                     R.id.products -> {
                         val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToProductFragment(args.user)
                         findNavController().navigate(action)
+                        true
                     }
                     R.id.storage -> {
                         val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToDeliveryFragment(args.user)
                         findNavController().navigate(action)
+                        true
                     }
                     R.id.branch -> {
                         val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToBranchFragment(args.user)
                         findNavController().navigate(action)
+                        true
                     }
                     R.id.category -> {
                         val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToCategoryFragment(args.user)
                         findNavController().navigate(action)
+                        true
                     }
                     /*R.id.logout -> {
                         logout()
                     }*/
+                    else -> false
                 } }
         }else{
-            view.bottom_navigation_storage.setOnNavigationItemReselectedListener { item ->
+            view.bottom_navigation_storage.setOnNavigationItemSelectedListener  { item ->
                 when(item.itemId) {
                     R.id.products -> {
                         val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToProductFragment(args.user)
                         findNavController().navigate(action)
+                        true
                     }
                     R.id.storage -> {
                         val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToDeliveryFragment(args.user)
                         findNavController().navigate(action)
+                        true
                     }
                     R.id.branch -> {
                         val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToBranchFragment(args.user)
                         findNavController().navigate(action)
+                        true
                     }
                     R.id.category -> {
                         val action = StorageAdminFragmentDirections.actionStorageAdminFragmentToCategoryFragment(args.user)
                         findNavController().navigate(action)
+                        true
                     }
                     R.id.logout -> {
                         logout()
+                        true
                     }
+                    else -> false
                 } }
         }
 
