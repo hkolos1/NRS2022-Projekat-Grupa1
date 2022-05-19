@@ -81,6 +81,7 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
 
         holder.itemView.buttonX.setOnClickListener {
             order.products.remove(currentItem)
+            order.productsQuantity--
             order.total -= currentItem.price*currentItem.quantity
             total.text = order.total.toString()
             setData(order.products, products, order, total)

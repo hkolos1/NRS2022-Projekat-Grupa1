@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
+import com.example.roomapp.model.Branch
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.Order
 import com.example.roomapp.model.Product
@@ -32,6 +33,7 @@ class UpdateOrderFragment : Fragment() {
     private lateinit var mOrderViewModel: OrderViewModel
     private lateinit var mLogViewModel: LogViewModel
     private lateinit var order: Order
+    private lateinit var mainBranch: Branch
     private var lista: MutableList<Product> = mutableListOf()
     private val args by navArgs<UpdateOrderFragmentArgs>()
 
@@ -62,9 +64,11 @@ class UpdateOrderFragment : Fragment() {
         mBranchViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
                 branch -> branch.forEach{ branch1 ->
             if(branch1.name == args.order.branch) {
+                    mainBranch = branch1
                 (branch1.products).forEach {
                     args.order.products.forEach { orPro ->
                         if(orPro.prodName == it.prodName){
+                            //it.quantity-=orPro.quantity
                             lista.add(it)
                         }
                     }
@@ -96,6 +100,13 @@ class UpdateOrderFragment : Fragment() {
     }
 
     private fun insertDataToDatabase() {
+        order.products.forEach {
+            mainBranch.products.forEach { branchProd ->
+                if(it.prodName == branchProd.prodName)
+                    branchProd.quantity -= it.quantity
+            }
+        }
+        mBranchViewModel.updateBranch(mainBranch)
         mOrderViewModel.updateOrder(order)
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Updated order",cal.time.toString()))

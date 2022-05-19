@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,9 +13,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
+import com.example.roomapp.model.Branch
 import com.example.roomapp.model.Log
 import com.example.roomapp.viewmodel.*
 import kotlinx.android.synthetic.main.fragment_bill.view.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import java.util.*
 
 class BillFragment : Fragment() {
@@ -24,6 +30,7 @@ class BillFragment : Fragment() {
     private lateinit var mCategoryViewModel: CategoryViewModel
     private lateinit var mOrderViewModel: OrderViewModel
     private lateinit var mLogViewModel: LogViewModel
+    private lateinit var mainBranch: Branch
     private val cal = Calendar.getInstance()
     private val args by navArgs<BillFragmentArgs>()
 
@@ -40,6 +47,14 @@ class BillFragment : Fragment() {
         mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
         mCategoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
+
+        mBranchViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                branch -> branch.forEach{ branch1 ->
+                    if(branch1.name == args.order.branch) {
+                        mainBranch = branch1
+                    }
+                }
+        })
 
         val adapter = BillAdapter()
         val recyclerView = view.prodView
@@ -66,6 +81,13 @@ class BillFragment : Fragment() {
         view.buttonPrintBill.setOnClickListener {
             args.order.bill = true
             args.order.billDate = view.billDate.text.toString()
+            args.order.products.forEach {
+                mainBranch.products.forEach { branchProd ->
+                    if(it.prodName == branchProd.prodName)
+                        branchProd.quantity -= it.quantity
+                }
+            }
+            mBranchViewModel.updateBranch(mainBranch)
             mOrderViewModel.updateOrder(args.order)
             mLogViewModel.addLog(Log(0,args.user.firstName,"Issue invoice",cal.time.toString()))
             findNavController().navigateUp()

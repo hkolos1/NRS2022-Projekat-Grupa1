@@ -1,13 +1,16 @@
 package com.example.roomapp.fragments.user.orders
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
@@ -67,6 +70,18 @@ class AddProductToOrderFragment : Fragment() {
 
         spinnerProducts.adapter = spinnerProdAdapter
 
+        spinnerProducts.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+
+            @SuppressLint("SetTextI18n")
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                view.textViewQuantityInBranch.text ="/"+mainBranch.products[
+                        mainBranch.products.indexOf(spinnerProducts.selectedItem)].quantity.toString()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                view.textViewQuantityInBranch.text = "/0"
+            }
+        }
+
         view.btn_assign_product_order.setOnClickListener{
             val chosenProduct: Product = spinnerProducts.selectedItem as Product
             val chosenOrder: Order = args.order
@@ -84,8 +99,8 @@ class AddProductToOrderFragment : Fragment() {
                 )
                 mOrderViewModel.updateOrder(args.order)
 
-                mainBranch.products[mainBranch.products.indexOf(chosenProduct)].quantity-= quantity
-                mBranchViewModel.updateBranch(mainBranch)
+                //mainBranch.products[mainBranch.products.indexOf(chosenProduct)].quantity-= quantity
+                //mBranchViewModel.updateBranch(mainBranch)
 
                 val cal: Calendar = Calendar.getInstance()
                 mLogViewModel.addLog(Log(0,args.user.firstName,"Assigned ${chosenProduct.prodName} to ${chosenOrder.name}",cal.time.toString()))
