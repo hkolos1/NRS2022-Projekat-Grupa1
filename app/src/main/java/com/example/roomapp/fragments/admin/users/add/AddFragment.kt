@@ -2,8 +2,6 @@ package com.example.roomapp.fragments.admin.users.add
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,14 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
-import com.example.roomapp.fragments.admin.users.update.UpdateFragmentArgs
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.User
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
-import kotlinx.android.synthetic.main.fragment_login.view.*
 import java.util.*
 
 class AddFragment : Fragment() {
@@ -29,6 +25,8 @@ class AddFragment : Fragment() {
 
     private lateinit var mUserViewModel: UserViewModel
     private lateinit var mLogViewModel: LogViewModel
+
+    private var age :Int = -1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +41,9 @@ class AddFragment : Fragment() {
         view.add_btn.setOnClickListener {
             insertDataToDatabase()
         }
+
+        val spinnerAdapter = SpinnerAddAdapter(view.context, listOf("Admin", "Storage Admin", "User"))
+        view.addAge_et.setAdapter(spinnerAdapter)
 
         return view
     }
@@ -64,9 +65,11 @@ class AddFragment : Fragment() {
         val firstName = addFirstName_et.text.toString()
         val lastName = addLastName_et.text.toString()
         val lastName2 = addLastName_et2.text.toString()
-        val age = addAge_et.selectedItemPosition
+            addAge_et.setOnItemClickListener { parent, v, position, id ->
+            age =  position
+        }
 
-        if(inputCheck(firstName, lastName, lastName2)){
+        if(inputCheck(firstName, lastName, lastName2) && age != -1){
             if(lastName==lastName2) {
                 // Create User Object
                 val user = User(

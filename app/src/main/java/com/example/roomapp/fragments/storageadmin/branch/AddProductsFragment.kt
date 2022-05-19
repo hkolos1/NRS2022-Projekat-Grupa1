@@ -46,8 +46,8 @@ class AddProductsFragment: Fragment() {
         val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
 
         mProductViewModel.readAllData.observe(viewLifecycleOwner, Observer{
-            product -> product.forEach {
-                spinnerProdAdapter.add(it)
+                product -> product.forEach {
+            spinnerProdAdapter.add(it)
         }
         })
 

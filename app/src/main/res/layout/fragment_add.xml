@@ -80,7 +80,7 @@
         android:inputType="textPassword"/>
 </com.google.android.material.textfield.TextInputLayout>
 
-    <Spinner
+    <!--<Spinner
         android:id="@+id/addAge_et"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -94,7 +94,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RepeatTextFieldLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/RepeatTextFieldLayout" />-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/addAge_et_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
+        android:clipChildren="false"
+        android:ems="10"
+        android:entries="@array/Role"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RepeatTextFieldLayout"
+        android:hint="Role">
+
+        <AutoCompleteTextView
+            android:id="@+id/addAge_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Role"
+            android:inputType="none"
+            android:labelFor="@id/addAge_et" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/add_btn"
@@ -109,5 +137,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addAge_et" />
+        app:layout_constraintTop_toBottomOf="@+id/addAge_et_layout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
