@@ -3,21 +3,35 @@ package com.example.roomapp.fragments.user.bill
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
-import com.example.roomapp.viewmodel.BillViewModel
-import com.example.roomapp.viewmodel.ProductViewModel
+import com.example.roomapp.model.Branch
+import com.example.roomapp.model.Log
+import com.example.roomapp.viewmodel.*
 import kotlinx.android.synthetic.main.fragment_bill.view.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import java.util.*
 
 class BillFragment : Fragment() {
 
-
-    private lateinit var mBillViewModel: BillViewModel
     private lateinit var mProductViewModel: ProductViewModel
+    private lateinit var mBranchViewModel: BranchViewModel
+    private lateinit var mCategoryViewModel: CategoryViewModel
+    private lateinit var mOrderViewModel: OrderViewModel
+    private lateinit var mLogViewModel: LogViewModel
+    private lateinit var mainBranch: Branch
+    private val cal = Calendar.getInstance()
     private val args by navArgs<BillFragmentArgs>()
 
 
@@ -28,16 +42,63 @@ class BillFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_bill, container, false)
 
+        mOrderViewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
+        mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+        mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
+        mCategoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
+
+        mBranchViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                branch -> branch.forEach{ branch1 ->
+                    if(branch1.name == args.order.branch) {
+                        mainBranch = branch1
+                    }
+                }
+        })
+
         val adapter = BillAdapter()
         val recyclerView = view.prodView
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        mBillViewModel = ViewModelProvider(this).get(BillViewModel::class.java)
-        mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+        adapter.setData(args.order.products)
 
-        adapter.setData(args.currentOrder.products)
+        val adapter2 = BillPdvAdapter()
+        val recyclerView2 = view.pdvView
+
+        recyclerView2.adapter = adapter2
+        recyclerView2.layoutManager = LinearLayoutManager(requireContext())
+
+        view.billDate.text = cal.time.toString()
+        view.branchName.text = args.order.branch
+
+        if(args.order.bill){
+            view.buttonPrintBill.visibility = INVISIBLE
+            view.billDate.text = args.order.billDate
+        }
+
+        view.buttonPrintBill.setOnClickListener {
+            args.order.bill = true
+            args.order.billDate = view.billDate.text.toString()
+            args.order.products.forEach {
+                mainBranch.products.forEach { branchProd ->
+                    if(it.prodName == branchProd.prodName)
+                        branchProd.quantity -= it.quantity
+                }
+            }
+            mBranchViewModel.updateBranch(mainBranch)
+            mOrderViewModel.updateOrder(args.order)
+            mLogViewModel.addLog(Log(0,args.user.firstName,"Issue invoice",cal.time.toString()))
+            findNavController().navigateUp()
+        }
+        view.billID.text=args.order.table
+
+        mCategoryViewModel.readAllData.observe(viewLifecycleOwner, Observer {
+            adapter2.setData(args.order.products,it)
+        })
+
+        view.orderTotal.text = args.order.total.toString()
 
         return view
     }

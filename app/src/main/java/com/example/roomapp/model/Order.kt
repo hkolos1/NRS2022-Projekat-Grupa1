@@ -10,8 +10,12 @@ import kotlinx.android.parcel.Parcelize
 data class Order(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val userId: Int,
-    val time: String,
+    val name: String,
+    val branch: String,
+    val table: String,
+    var productsQuantity: Int,
     val products: MutableList<Product>,
-    val total: Long
+    var total: Long,
+    var bill: Boolean,
+    var billDate: String?
 ): Parcelable

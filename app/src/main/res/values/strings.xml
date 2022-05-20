@@ -36,11 +36,20 @@
     <string name="products">PRODUCTS</string>
     <string name="branch">BRANCH</string>
     <string name="orders">ORDERS</string>
+    <string name="branch_name_placeholder">branch_name_placeholder</string>
+    <string name="product_amount_placeholder">product_amount_placeholder</string>
     <string-array name="SpinerQuestionItems">
         <item>What is your favorite food ?</item>
         <item>What is your best friend ?</item>
         <item>What is your favorite club ?</item>
         <item>What is your pet name ?</item>
         <item>What is your favorite place ?</item>
+    </string-array>
+    <string-array name="SpinerTables">
+        <item>Table #1</item>
+        <item>Table #2</item>
+        <item>Table #3</item>
+        <item>Table #4</item>
+        <item>Table #5</item>
     </string-array>
 </resources>

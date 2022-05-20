@@ -4,33 +4,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.Order
-import com.example.roomapp.model.Product
+import com.example.roomapp.viewmodel.BranchViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.OrderViewModel
-import com.example.roomapp.viewmodel.ProductViewModel
-import kotlinx.android.synthetic.main.fragment_add_product.view.*
-import kotlinx.android.synthetic.main.fragment_order_add.view.*
+import kotlinx.android.synthetic.main.fragment_add_order.view.*
 import java.util.*
 
 
 class AddOrderFragment : Fragment() {
 
-    private lateinit var mProductViewModel: ProductViewModel
-    private lateinit var mOrderViewModel: OrderViewModel
+    private  lateinit var mOrderViewModel: OrderViewModel
+    private lateinit var mBranchViewModel: BranchViewModel
+    private lateinit var name: TextView
+    private lateinit var branch : Spinner
+    private lateinit var table : Spinner
     private lateinit var mLogViewModel: LogViewModel
-    private lateinit var order: Order
     private val args by navArgs<AddOrderFragmentArgs>()
 
     override fun onCreateView(
@@ -38,36 +34,28 @@ class AddOrderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_order_add, container, false)
+        val view = inflater.inflate(R.layout.fragment_add_order, container, false)
 
-        mProductViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
-        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
         mOrderViewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
+        mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
+        mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
 
-        val adapter = AddOrderAdapter()
-        val recyclerView = view.listOrder
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        view.addOrName.text = "Order #${args.number+1}"
+        name = view.addOrName
+        branch = view.findViewById(R.id.spinnerBranch)
+        table = view.spinnerTable
 
-        order = args.order
+        val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
 
-        mOrderViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            adapter.setData(order.products)
+        mBranchViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                branch -> branch.forEach {
+            spinnerProdAdapter.add(it)
+        }
         })
 
-        adapter.setData(order.products)
+        branch.adapter = spinnerProdAdapter
 
-        view.btn_add_order2.setOnClickListener {
-            val action = AddOrderFragmentDirections.actionAddOrderFragmentToAddProductToOrderFragment(args.user,order)
-            findNavController().navigate(action)
-        }
-
-        view.btnShowBill.setOnClickListener {
-            val action = AddOrderFragmentDirections.actionAddOrderFragmentToBillFragment(order)
-            findNavController().navigate(action)
-        }
-
-        view.btnFinishOrder.setOnClickListener {
+        view.addOrder.setOnClickListener {
             insertDataToDatabase()
         }
 
@@ -75,13 +63,17 @@ class AddOrderFragment : Fragment() {
     }
 
     private fun insertDataToDatabase() {
+        val bran = branch.selectedItem
+        val tab = table.selectedItem
+
+        val order = Order(0,name.text.toString(),bran.toString(),tab.toString(),
+            0, mutableListOf(),0,false,null)
         mOrderViewModel.addOrder(order)
         val cal: Calendar = Calendar.getInstance()
-        mLogViewModel.addLog(Log(0,args.user.firstName,"Added order",cal.time.toString()))
+        mLogViewModel.addLog(Log(0,args.user.firstName,"Added order ${order.name}",cal.time.toString()))
 
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
-        val action = AddOrderFragmentDirections.actionAddOrderFragmentToBillFragment(order)
-        findNavController().navigate(action)
+        findNavController().navigateUp()
     }
 
 
