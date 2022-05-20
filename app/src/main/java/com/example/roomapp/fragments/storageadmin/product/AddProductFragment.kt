@@ -10,12 +10,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
+import com.example.roomapp.model.Category
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.Product
 import com.example.roomapp.viewmodel.CategoryViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
+import kotlinx.android.synthetic.main.fragment_add_product.*
 import kotlinx.android.synthetic.main.fragment_add_product.view.*
+import kotlinx.android.synthetic.main.fragment_add_products.view.*
 import java.util.*
 
 
@@ -27,7 +30,6 @@ class AddProductFragment : Fragment() {
     private lateinit var quantity:TextView
     private lateinit var unit:EditText
     private lateinit var price: EditText
-    private lateinit var category : Spinner
     private lateinit var mLogViewModel: LogViewModel
     private val args by navArgs<AddProductFragmentArgs>()
 
@@ -42,11 +44,14 @@ class AddProductFragment : Fragment() {
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
         mCategoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
 
+
+
+
         name = view.findViewById(R.id.addPrName)
         quantity = view.findViewById(R.id.addPrAmount)
         unit = view.findViewById(R.id.addPrUnit)
         price = view.findViewById(R.id.addPrPrice)
-        category = view.findViewById(R.id.spinnerCategory)
+
 
         val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
 
@@ -56,17 +61,28 @@ class AddProductFragment : Fragment() {
         }
         })
 
-        category.adapter = spinnerProdAdapter
+        view.spinnerCategory_mat3.setAdapter(spinnerProdAdapter)
+
+
+        var chosenCat = ""
+
+        view.spinnerCategory_mat3.setOnItemClickListener{
+                parent, view, position, id ->
+            chosenCat = parent.getItemAtPosition(position) as String
+        }
 
         view.addButton.setOnClickListener {
-            insertDataToDatabase()
+            insertDataToDatabase(chosenCat)
         }
 
         return view
     }
 
-    private fun insertDataToDatabase() {
-        val cat = category.selectedItem
+    private fun insertDataToDatabase(chosencat: String) {
+
+
+
+        val cat = chosencat
         val value= quantity.text.toString();
         val finalValue=Integer.parseInt(value)
         val price2 = price.text.toString()
@@ -74,7 +90,7 @@ class AddProductFragment : Fragment() {
 
         val product = Product(
             0,name.text.toString(),finalValue,unit.text.toString(),null, "Unassigned",
-            cat.toString(),finalPrice.toLong())
+            cat,finalPrice.toLong())
         mProductViewModel.addProduct(product)
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Added product ${product.prodName}",cal.time.toString()))

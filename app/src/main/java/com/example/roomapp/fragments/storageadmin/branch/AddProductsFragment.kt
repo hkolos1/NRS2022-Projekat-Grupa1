@@ -20,6 +20,7 @@ import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_add_products.*
 import kotlinx.android.synthetic.main.fragment_add_products.view.*
+import kotlinx.coroutines.selects.select
 import java.util.*
 
 class AddProductsFragment: Fragment() {
@@ -40,11 +41,13 @@ class AddProductsFragment: Fragment() {
         mBranchViewModel = ViewModelProvider(this).get(BranchViewModel::class.java)
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
-        val spinnerProducts = view.spinner_assign_product_product
+
+
         view.textViewBranch.text = "Branch "+args.branch.name
 
-        val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
 
+
+        val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
         mProductViewModel.readAllData.observe(viewLifecycleOwner, Observer {
             products -> products.forEach {
                 var da = true
@@ -58,11 +61,20 @@ class AddProductsFragment: Fragment() {
             }
         })
 
-        spinnerProducts.adapter = spinnerProdAdapter
 
+        view.spinner_assign_product_product.setAdapter(spinnerProdAdapter)
+
+        var chosenProduct = Product(0,"",0,"",0,"","",0)
+
+
+        view.spinner_assign_product_product.setOnItemClickListener{
+            parent, view, position, id ->
+            chosenProduct = parent.getItemAtPosition(position) as Product
+        }
 
         view.btn_assign_product.setOnClickListener{
-            val chosenProduct: Product = spinnerProducts.selectedItem as Product
+
+
             val chosenBranch: Branch = args.branch
             val quantity = edit_assign_product_quantity.text.toString().toInt()
 

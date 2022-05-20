@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../.gradle/caches/transforms-2/files-2.1/e8220ae270142819efa89e1c9fcfb46f/appcompat-1.4.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.29528985507246375" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3525" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/drawable/superkasa.xml" value="0.2535" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_bill.xml" value="0.245018115942029" />
@@ -58,6 +59,12 @@
         <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/custom_row_order_product.xml" value="0.15520833333333334" />
         <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_bill.xml" value="0.15520833333333334" />
         <entry key="..\:/Users/palal/AndroidStudioProjects/NRS2022-Projekat-Grupa1/app/src/main/res/layout/fragment_order_add.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/fragment_add.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_add_product.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_add_products.xml" value="0.3345993041992188" />
+        <entry key="app/src/main/res/layout/fragment_admin.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_user.xml" value="0.1" />
       </map>
     </option>
   </component>
