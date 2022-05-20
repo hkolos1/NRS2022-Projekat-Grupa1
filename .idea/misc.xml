@@ -6,6 +6,7 @@
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3525" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/drawable/superkasa.xml" value="0.2535" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_bill.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch_product.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_category.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_category.xml" value="0.2726449275362319" />
@@ -60,7 +61,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
