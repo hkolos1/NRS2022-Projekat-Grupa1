@@ -66,7 +66,7 @@ class ConfirmationPasswordFragment : Fragment() {
             Toast.makeText(requireContext(), "Please fill field", Toast.LENGTH_SHORT).show()
         } else {
             val updatedUser = User(args.user.id , args.user.firstName , args.user.lastName , args.user.age ,
-                question.text.toString(),answer)
+                question.text.toString(),answer, args.user.branch)
             mUserViewModel.updateUser(updatedUser)
             val cal: Calendar = Calendar.getInstance()
             mLogViewModel.addLog(Log(0,args.user.firstName,"Added security question",cal.time.toString()))

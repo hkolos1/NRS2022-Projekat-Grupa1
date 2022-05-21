@@ -14,5 +14,6 @@ data class User(
     val lastName: String,
     val age: Int,
     var question : String,
-    var answer : String
+    var answer : String,
+    var branch : String?
 ): Parcelable
