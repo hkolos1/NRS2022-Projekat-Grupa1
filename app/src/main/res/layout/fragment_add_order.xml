@@ -15,6 +15,7 @@
         android:layout_marginEnd="24dp"
         android:width="100dp"
         android:height="20dp"
+        android:gravity="center|start"
         android:hint="Order name"
         android:inputType="text"
         android:minHeight="48dp"
@@ -39,19 +40,6 @@
         app:layout_constraintTop_toBottomOf="@+id/spinnerTable" />
 
     <Spinner
-        android:id="@+id/spinnerBranch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addOrName"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Spinner
         android:id="@+id/spinnerTable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerBranch"
+        app:layout_constraintTop_toBottomOf="@+id/addOrName"
         tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

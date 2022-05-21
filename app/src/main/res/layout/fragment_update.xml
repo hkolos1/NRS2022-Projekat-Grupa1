@@ -6,69 +6,108 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.admin.users.update.UpdateFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/UpdateFirstFieldLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        app:endIconMode="clear_text"
+    <TextView
+        android:id="@+id/userNameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/UserNameTextView"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/passwordTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/PasswordText"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateFirstName_et" />
+
+    <EditText
+        android:id="@+id/updateFirstName_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/updateFirstName_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/userNameTextView" />
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/UpdatePassFieldLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Password"
-        app:endIconMode="password_toggle"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UpdateFirstFieldLayout">
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/updateLastName_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
-</com.google.android.material.textfield.TextInputLayout>
+    <CheckBox
+        android:id="@+id/checkbox3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:minHeight="48dp"
+        android:text="Show Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateLastName_et" />
 
     <Spinner
         android:id="@+id/updateAge_et"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="32sp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:entries="@array/Role"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox3" />
+
+    <Spinner
+        android:id="@+id/updateBranch"
+        android:layout_width="match_parent"
+        android:layout_height="32sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UpdatePassFieldLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/updateAge_et" />
 
     <Button
         android:id="@+id/update_btn"
@@ -77,12 +116,12 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
+        android:backgroundTint="#002B73"
         android:text="Update"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateAge_et" />
+        app:layout_constraintTop_toBottomOf="@+id/updateBranch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

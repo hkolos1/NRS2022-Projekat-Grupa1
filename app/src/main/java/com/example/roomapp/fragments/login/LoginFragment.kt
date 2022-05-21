@@ -124,8 +124,8 @@ class LoginFragment : Fragment() {
         uiScope.launch {
             val usersNames = repository.getUserName("Admin")
             if (usersNames == null) {
-                repository.addUser(User(0,"admin","admin",0,"",""))
-                repository.addUser(User(0,"user","user",2,"",""))
+                repository.addUser(User(0,"admin","admin",0,"","",null))
+                repository.addUser(User(0,"user","user",2,"","","Sarajevo"))
                 mBranchViewModel.addBranch(Branch(1,"Sarajevo", mutableListOf()))
                 mBranchViewModel.addBranch(Branch(2,"Mostar", mutableListOf()))
                 mBranchViewModel.addBranch(Branch(3,"Banja Luka", mutableListOf()))

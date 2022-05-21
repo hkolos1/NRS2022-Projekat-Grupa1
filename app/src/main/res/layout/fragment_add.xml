@@ -7,122 +7,126 @@
     tools:context=".fragments.admin.users.add.AddFragment">
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/NameTextFieldLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        app:endIconMode="clear_text"
+    <TextView
+        android:id="@+id/userNameTextView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/UserNameTextView"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/passwordTextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/PasswordText"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addFirstName_et" />
+
+    <EditText
+        android:id="@+id/addFirstName_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/addFirstName_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/userNameTextView2" />
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/PasswordTextFieldLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName"
-        app:endIconMode="password_toggle"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NameTextFieldLayout">
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/addLastName_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
-</com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/RepeatTextFieldLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="Repeat Password"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:endIconMode="password_toggle"
+        android:hint="Password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordTextFieldLayout">
-    <com.google.android.material.textfield.TextInputEditText
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextView2" />
+
+    <EditText
         android:id="@+id/addLastName_et2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
-</com.google.android.material.textfield.TextInputLayout>
-
-    <!--<Spinner
-        android:id="@+id/addAge_et"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:clipChildren="false"
         android:ems="10"
-        android:entries="@array/Role"
-        android:spinnerMode="dropdown"
+        android:hint="Repeat Password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RepeatTextFieldLayout" />-->
+        app:layout_constraintTop_toBottomOf="@+id/addLastName_et" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/addAge_et_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+
+    <CheckBox
+        android:id="@+id/checkbox2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:minHeight="48dp"
+        android:text="Show Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addLastName_et2" />
+
+    <Spinner
+        android:id="@+id/addAge_et"
+        android:layout_width="match_parent"
+        android:layout_height="32sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:clipChildren="false"
         android:ems="10"
         android:entries="@array/Role"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox2" />
+
+    <Spinner
+        android:id="@+id/addBranch"
+        android:layout_width="match_parent"
+        android:layout_height="32sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:clipChildren="false"
+        android:ems="10"
+        android:spinnerMode="dropdown"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RepeatTextFieldLayout"
-        android:hint="Role">
-
-        <AutoCompleteTextView
-            android:id="@+id/addAge_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Role"
-            android:inputType="none"
-            android:labelFor="@id/addAge_et" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/addAge_et" />
 
     <Button
         android:id="@+id/add_btn"
@@ -131,11 +135,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
+        android:backgroundTint="#002B73"
         android:text="Add"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addAge_et_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/addBranch" />
 </androidx.constraintlayout.widget.ConstraintLayout>

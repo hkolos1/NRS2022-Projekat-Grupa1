@@ -24,7 +24,6 @@ class AddOrderFragment : Fragment() {
     private  lateinit var mOrderViewModel: OrderViewModel
     private lateinit var mBranchViewModel: BranchViewModel
     private lateinit var name: TextView
-    private lateinit var branch : Spinner
     private lateinit var table : Spinner
     private lateinit var mLogViewModel: LogViewModel
     private val args by navArgs<AddOrderFragmentArgs>()
@@ -42,18 +41,9 @@ class AddOrderFragment : Fragment() {
 
         view.addOrName.text = "Order #${args.number+1}"
         name = view.addOrName
-        branch = view.findViewById(R.id.spinnerBranch)
         table = view.spinnerTable
 
         val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
-
-        mBranchViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-                branch -> branch.forEach {
-            spinnerProdAdapter.add(it)
-        }
-        })
-
-        branch.adapter = spinnerProdAdapter
 
         view.addOrder.setOnClickListener {
             insertDataToDatabase()
@@ -63,10 +53,9 @@ class AddOrderFragment : Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val bran = branch.selectedItem
         val tab = table.selectedItem
 
-        val order = Order(0,name.text.toString(),bran.toString(),tab.toString(),
+        val order = Order(0,name.text.toString(),args.user.branch!!,tab.toString(),
             0, mutableListOf(),0,false,null)
         mOrderViewModel.addOrder(order)
         val cal: Calendar = Calendar.getInstance()
