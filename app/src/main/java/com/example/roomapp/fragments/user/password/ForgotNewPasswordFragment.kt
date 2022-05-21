@@ -76,7 +76,8 @@ class ForgotNewPasswordFragment : Fragment() {
         if (view.newPasswordForgot.text.isEmpty() || view.confirmPasswordForgot.text.isEmpty() ) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
         }else if (newPasswordForgot == confPasswordForgot){
-            val updatedUser = User(args.user.id , args.user.firstName , newPasswordForgot , args.user.age ,args.user.question,args.user.answer)
+            val updatedUser = User(args.user.id , args.user.firstName , newPasswordForgot ,
+                args.user.age ,args.user.question,args.user.answer,args.user.branch)
             mUserViewModel.updateUser(updatedUser)
             val cal: Calendar = Calendar.getInstance()
             mLogViewModel.addLog(Log(0,args.user.firstName,"Password changed",cal.time.toString()))

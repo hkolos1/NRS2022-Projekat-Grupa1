@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
         android:text="@string/UserNameTextView"
         android:textAlignment="viewStart"
@@ -112,6 +112,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkbox2" />
 
+    <Spinner
+        android:id="@+id/addBranch"
+        android:layout_width="match_parent"
+        android:layout_height="32sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:clipChildren="false"
+        android:ems="10"
+        android:spinnerMode="dropdown"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addAge_et" />
+
     <Button
         android:id="@+id/add_btn"
         android:layout_width="match_parent"
@@ -119,11 +135,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
+        android:backgroundTint="#002B73"
         android:text="Add"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#002B73"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addAge_et" />
+        app:layout_constraintTop_toBottomOf="@+id/addBranch" />
 </androidx.constraintlayout.widget.ConstraintLayout>

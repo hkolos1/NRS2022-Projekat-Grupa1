@@ -91,7 +91,8 @@ class UpdatePasswordFragment : Fragment() {
         if (view.oldPassword.text.isEmpty() || view.newPassword.text.isEmpty() || view.confirmPassword.text.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
         } else if (oldPassword == args.user.lastName && newPassword == confPassword){
-            val updatedUser = User(args.user.id , args.user.firstName , newPassword , args.user.age ,args.user.question,args.user.answer)
+            val updatedUser = User(args.user.id , args.user.firstName , newPassword ,
+                args.user.age ,args.user.question,args.user.answer,args.user.branch)
             mUserViewModel.updateUser(updatedUser)
             val cal: Calendar = Calendar.getInstance()
             mLogViewModel.addLog(Log(0,args.user.firstName,"Password changed",cal.time.toString()))
