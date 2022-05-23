@@ -15,7 +15,7 @@ data class Order(
     val table: String,
     var productsQuantity: Int,
     val products: MutableList<Product>,
-    var total: Long,
+    var total: Double,
     var bill: Boolean,
     var billDate: String?
 ): Parcelable

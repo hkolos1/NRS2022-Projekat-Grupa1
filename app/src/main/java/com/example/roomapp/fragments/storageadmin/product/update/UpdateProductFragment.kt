@@ -20,6 +20,7 @@ import com.example.roomapp.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_update.view.*
 import kotlinx.android.synthetic.main.fragment_update_product.*
 import kotlinx.android.synthetic.main.fragment_update_product.view.*
+import java.math.RoundingMode
 import java.util.*
 
 
@@ -75,8 +76,8 @@ class UpdateProductFragment : Fragment() {
         val quan=updatePrAmount.text.toString().toInt()
         val unit=updatePrUnit.text.toString()
         val cat = spinnerCategoryUpdate.selectedItem
-
-        val price=updatePrPrice.text.toString().toLong()
+        var price=updatePrPrice.text.toString().toDouble()
+        price=price.toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
 
         if(inputCheck(prName, prDelStat, updatePrAmount.text)){
             val updatedProduct= Product(args.currentProduct.id, prName, quan,unit,args.currentProduct.branchId,prDelStat,
