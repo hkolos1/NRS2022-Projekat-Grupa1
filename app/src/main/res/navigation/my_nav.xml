@@ -438,5 +438,8 @@
         <argument
             android:name="user"
             app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="print"
+            app:argType="boolean" />
     </fragment>
 </navigation>
