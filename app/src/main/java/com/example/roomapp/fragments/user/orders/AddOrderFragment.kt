@@ -55,7 +55,6 @@ class AddOrderFragment : Fragment() {
 
     private fun insertDataToDatabase() {
         val tab = table.selectedItem
-
         val order = Order(0,name.text.toString(),args.user.branch!!,tab.toString(),
             0, mutableListOf(),0.0,false,0,null)
         mOrderViewModel.addOrder(order)

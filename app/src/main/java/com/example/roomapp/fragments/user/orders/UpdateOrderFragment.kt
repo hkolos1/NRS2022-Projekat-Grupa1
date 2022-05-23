@@ -29,6 +29,7 @@ import kotlinx.coroutines.launch
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
+import java.math.RoundingMode
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.*
@@ -62,7 +63,9 @@ class UpdateOrderFragment : Fragment() {
         val recyclerView = view.listOrder
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        view.total.text = args.order.total.toString()
+        var tot= args.order.total
+            tot=tot.toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
+        view.total.text =tot.toString()
         view.textViewUser2.text = "Products of ${args.order.name}"
         order = args.order
         if(order.bill){

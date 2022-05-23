@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.custom_row_product.view.nameProd
 import kotlinx.android.synthetic.main.custom_row_product.view.quantity
 import kotlinx.android.synthetic.main.custom_row_product.view.unit
 import kotlinx.android.synthetic.main.item_product.view.*
+import java.math.RoundingMode
 
 class OrderAdapter: RecyclerView.Adapter<OrderAdapter.MyViewHolder>() {
 
@@ -40,7 +41,7 @@ class OrderAdapter: RecyclerView.Adapter<OrderAdapter.MyViewHolder>() {
         holder.itemView.idOrder.text = currentItem.name
         holder.itemView.nameOrder.text = currentItem.table
         holder.itemView.quantityProd.text = currentItem.productsQuantity.toString()
-        holder.itemView.totalOrder.text = currentItem.total.toString()
+        holder.itemView.totalOrder.text = currentItem.total.toBigDecimal().setScale(2, RoundingMode.UP).toDouble().toString()
 
         holder.itemView.rowLayoutOrder.setOnClickListener{
             val action= OrderFragmentDirections.actionOrderFragmentToUpdateOrderFragment(user,currentItem)

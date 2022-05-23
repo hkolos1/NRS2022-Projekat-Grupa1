@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1-drugi/app/src/main/res/layout/custom_row_order_product.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1-drugi/app/src/main/res/layout/fragment_add_order.xml" value="0.15833333333333333" />
         <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1-drugi/app/src/main/res/layout/fragment_add_product.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1-drugi/app/src/main/res/layout/fragment_order_add_product.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1-drugi/app/src/main/res/layout/fragment_order_update.xml" value="0.17074275362318841" />
       </map>
     </option>
   </component>
