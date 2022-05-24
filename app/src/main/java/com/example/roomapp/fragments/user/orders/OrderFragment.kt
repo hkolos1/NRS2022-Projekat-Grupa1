@@ -44,7 +44,7 @@ class OrderFragment : Fragment() {
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
         mOrderViewModel.readAllData.observe(viewLifecycleOwner, Observer {order ->
-            adapter.setData(order,args.user)
+            adapter.setData(order.sortedByDescending { it.id },args.user)
             numb=adapter.itemCount
         })
 

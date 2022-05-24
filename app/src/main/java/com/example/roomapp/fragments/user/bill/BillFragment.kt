@@ -17,10 +17,14 @@ import com.example.roomapp.model.Branch
 import com.example.roomapp.model.Log
 import com.example.roomapp.viewmodel.*
 import kotlinx.android.synthetic.main.fragment_bill.view.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
+import java.math.RoundingMode
+import java.net.HttpURLConnection
+import java.net.URL
+import java.net.URLEncoder
 import java.util.*
 
 class BillFragment : Fragment() {
@@ -31,7 +35,6 @@ class BillFragment : Fragment() {
     private lateinit var mOrderViewModel: OrderViewModel
     private lateinit var mLogViewModel: LogViewModel
     private lateinit var mainBranch: Branch
-    private val cal = Calendar.getInstance()
     private val args by navArgs<BillFragmentArgs>()
 
 
@@ -70,35 +73,17 @@ class BillFragment : Fragment() {
         recyclerView2.adapter = adapter2
         recyclerView2.layoutManager = LinearLayoutManager(requireContext())
 
-        view.billDate.text = cal.time.toString()
+        view.billDate.text = args.order.billDate
         view.branchName.text = args.order.branch
 
-        if(args.order.bill){
-            view.buttonPrintBill.visibility = INVISIBLE
-            view.billDate.text = args.order.billDate
-        }
 
-        view.buttonPrintBill.setOnClickListener {
-            args.order.bill = true
-            args.order.billDate = view.billDate.text.toString()
-            args.order.products.forEach {
-                mainBranch.products.forEach { branchProd ->
-                    if(it.prodName == branchProd.prodName)
-                        branchProd.quantity -= it.quantity
-                }
-            }
-            mBranchViewModel.updateBranch(mainBranch)
-            mOrderViewModel.updateOrder(args.order)
-            mLogViewModel.addLog(Log(0,args.user.firstName,"Issue invoice",cal.time.toString()))
-            findNavController().navigateUp()
-        }
-        view.billID.text=args.order.table
+        view.billID.text=args.order.billId.toString()
 
         mCategoryViewModel.readAllData.observe(viewLifecycleOwner, Observer {
             adapter2.setData(args.order.products,it)
         })
 
-        view.orderTotal.text = args.order.total.toString()
+        view.orderTotal.text = args.order.total.toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble().toString()
 
         return view
     }

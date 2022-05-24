@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_add_order.view.*
 import java.util.*
 
 
+
 class AddOrderFragment : Fragment() {
 
     private  lateinit var mOrderViewModel: OrderViewModel
@@ -54,9 +55,8 @@ class AddOrderFragment : Fragment() {
 
     private fun insertDataToDatabase() {
         val tab = table.selectedItem
-
         val order = Order(0,name.text.toString(),args.user.branch!!,tab.toString(),
-            0, mutableListOf(),0,false,null)
+            0, mutableListOf(),0.0,false,0,null)
         mOrderViewModel.addOrder(order)
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Added order ${order.name}",cal.time.toString()))

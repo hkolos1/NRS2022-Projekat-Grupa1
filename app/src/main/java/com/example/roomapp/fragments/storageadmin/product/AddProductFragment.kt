@@ -16,6 +16,7 @@ import com.example.roomapp.viewmodel.CategoryViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_add_product.view.*
+import java.math.RoundingMode
 import java.util.*
 
 
@@ -69,12 +70,13 @@ class AddProductFragment : Fragment() {
         val cat = category.selectedItem
         val value= quantity.text.toString();
         val finalValue=Integer.parseInt(value)
-        val price2 = price.text.toString()
-        val finalPrice=Integer.parseInt(price2)
+        var price2 = price.text.toString().toDouble()
+        price2=price2.toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
+        val finalPrice=price2
 
         val product = Product(
             0,name.text.toString(),finalValue,unit.text.toString(),null, "Unassigned",
-            cat.toString(),finalPrice.toLong())
+            cat.toString(),finalPrice)
         mProductViewModel.addProduct(product)
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Added product ${product.prodName}",cal.time.toString()))
