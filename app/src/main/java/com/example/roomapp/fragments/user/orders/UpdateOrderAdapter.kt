@@ -42,7 +42,7 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
         holder.itemView.prName.text = currentItem.prodName
         holder.itemView.kolicina.text = currentItem.quantity.toString()
         holder.itemView.perunit.text = "Per ${currentItem.unit}: ${currentItem.price}"
-        holder.itemView.totalProd.text = "Total: ${(currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.UP).toDouble()}"
+        holder.itemView.totalProd.text = "Total: ${(currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble()}"
         if(order.bill){
             holder.itemView.buttonX.visibility = INVISIBLE
             holder.itemView.buttonplus.visibility = INVISIBLE
@@ -56,12 +56,12 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
                 quantity--
                 holder.itemView.kolicina.text = "$quantity"
             }
-            order.total -= (currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
+            order.total -= (currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble()
             currentItem.quantity = quantity
-            order.total += (currentItem.price*quantity).toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
-            total.text = order.total.toString()
+            order.total += (currentItem.price*quantity).toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble()
+            total.text = order.total.toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble().toString()
 
-            holder.itemView.totalProd.text = "Total: ${(currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.UP).toDouble()}"
+            holder.itemView.totalProd.text = "Total: ${(currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble()}"
         }
 
         holder.itemView.buttonplus.setOnClickListener {
@@ -72,19 +72,19 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
                 quantity++
                 holder.itemView.kolicina.text = "$quantity"
             }
-            order.total -= (currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
+            order.total -= (currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble()
             currentItem.quantity = quantity
-            order.total += (currentItem.price*quantity).toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
-            total.text = order.total.toString()
+            order.total += (currentItem.price*quantity).toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble()
+            total.text = order.total.toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble().toString()
 
-            holder.itemView.totalProd.text = "Total: ${(currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.UP).toDouble()}"
+            holder.itemView.totalProd.text = "Total: ${(currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble()}"
         }
 
         holder.itemView.buttonX.setOnClickListener {
             order.products.remove(currentItem)
             order.productsQuantity--
-            order.total -= (currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
-            total.text = order.total.toString()
+            order.total -= (currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble()
+            total.text = order.total.toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble().toString()
             setData(order.products, products, order, total)
         }
     }

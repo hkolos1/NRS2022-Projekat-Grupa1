@@ -21,6 +21,7 @@ import kotlinx.coroutines.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
+import java.math.RoundingMode
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
@@ -75,20 +76,14 @@ class BillFragment : Fragment() {
         view.billDate.text = args.order.billDate
         view.branchName.text = args.order.branch
 
-        if(!args.print){
-            view.buttonPrintBill.visibility = INVISIBLE
-        }
 
-        view.buttonPrintBill.setOnClickListener {
-            findNavController().navigateUp()
-        }
         view.billID.text=args.order.billId.toString()
 
         mCategoryViewModel.readAllData.observe(viewLifecycleOwner, Observer {
             adapter2.setData(args.order.products,it)
         })
 
-        view.orderTotal.text = args.order.total.toString()
+        view.orderTotal.text = args.order.total.toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble().toString()
 
         return view
     }

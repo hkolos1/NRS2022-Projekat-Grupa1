@@ -1,9 +1,6 @@
 package com.example.roomapp.fragments.user.orders
 
 import android.app.AlertDialog
-import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
-import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.view.View.INVISIBLE
@@ -63,8 +60,7 @@ class UpdateOrderFragment : Fragment() {
         val recyclerView = view.listOrder
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        var tot= args.order.total
-            tot=tot.toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
+        var tot= args.order.total.toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble()
         view.total.text =tot.toString()
         view.textViewUser2.text = "Products of ${args.order.name}"
         order = args.order
@@ -105,8 +101,7 @@ class UpdateOrderFragment : Fragment() {
             if(order.bill) {
                 val action = UpdateOrderFragmentDirections.actionUpdateOrderFragmentToBillFragment(
                     order,
-                    args.user,
-                    false
+                    args.user
                 )
                 findNavController().navigate(action)
             }else{
@@ -214,12 +209,12 @@ class UpdateOrderFragment : Fragment() {
                             response.append(inputLine)
                             inputLine = it.readLine()
                         }
-                        //println("Response : $response")
+                        println("Response : $response")
                         //println(response.toString().substring(252,258))
 
                         args.order.bill = true
                         args.order.billId = response.toString().substring(252,258).toInt()
-                        args.order.billDate = response.toString().substring(379,391)
+                        args.order.billDate = response.toString().substring(379,391) + " " + response.toString().substring(514,522)
                         args.order.products.forEach {
                             mainBranch.products.forEach { branchProd ->
                                 if(it.prodName == branchProd.prodName)
@@ -230,7 +225,7 @@ class UpdateOrderFragment : Fragment() {
                         mOrderViewModel.updateOrder(args.order)
                         mLogViewModel.addLog(Log(0,args.user.firstName,"Issue invoice",cal.time.toString()))
                         GlobalScope.launch(Dispatchers.Main) {
-                            val action = UpdateOrderFragmentDirections.actionUpdateOrderFragmentToBillFragment(order,args.user,true)
+                            val action = UpdateOrderFragmentDirections.actionUpdateOrderFragmentToBillFragment(order,args.user)
                             findNavController().navigate(action)
                         }
                     }
