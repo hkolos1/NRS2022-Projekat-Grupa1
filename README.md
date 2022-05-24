@@ -57,6 +57,9 @@ Sve osobe koje rade na ovom projektu moraju pratiti sljedeće korake prilikom ra
 * Kao Korisnik poslovnice, želim imati mogućnost kreiranja narudžbi po stolu u kafiću ili po random mjestu
 * Kao Korisnik želim imati mogućnost Izdavanja računa za narudžbu po stolu u kafiću ili po random mjestu
 
+### Sprint 5:
+* Kao Korisnik poslovnice, želim fiskalizirati račun u skladu sa specifikacijom za FBiH (http://kase.ba/Downloads)
+
 
 ## Definition of Done
 
