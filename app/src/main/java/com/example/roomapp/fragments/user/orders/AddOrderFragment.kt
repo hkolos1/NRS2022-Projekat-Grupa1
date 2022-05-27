@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
@@ -44,8 +45,6 @@ class AddOrderFragment : Fragment() {
         name = view.addOrName
         table = view.spinnerTable
 
-        val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
-
         view.addOrder.setOnClickListener {
             insertDataToDatabase()
         }
@@ -63,6 +62,8 @@ class AddOrderFragment : Fragment() {
 
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
         findNavController().navigateUp()
+        val action= OrderFragmentDirections.actionOrderFragmentToUpdateOrderFragment(args.user,order)
+        findNavController().navigate(action)
     }
 
 

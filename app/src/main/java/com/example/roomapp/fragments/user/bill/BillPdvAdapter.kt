@@ -40,11 +40,11 @@ class BillPdvAdapter: RecyclerView.Adapter<BillPdvAdapter.MyViewHolder>() {
                 totalWithNoTaxes+=a/(1.00+currentItem.pdv.toDouble()/100)
             }
         }
-        totalWithNoTaxes=totalWithNoTaxes.toBigDecimal().setScale(2, RoundingMode.DOWN).toDouble()
+        totalWithNoTaxes=totalWithNoTaxes.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
         holder.itemView.taxBase.text = totalWithNoTaxes.toString()
 
         var taxTot =totalWithNoTaxes*(currentItem.pdv.toDouble()/100)
-        taxTot=taxTot.toBigDecimal().setScale(2, RoundingMode.DOWN).toDouble()
+        taxTot=taxTot.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
         holder.itemView.taxTotal.text = taxTot.toString()
 
 

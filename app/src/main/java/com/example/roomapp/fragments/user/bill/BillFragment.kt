@@ -83,7 +83,7 @@ class BillFragment : Fragment() {
             adapter2.setData(args.order.products,it)
         })
 
-        view.orderTotal.text = args.order.total.toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble().toString()
+        view.orderTotal.text = args.order.total.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble().toString()
 
         return view
     }

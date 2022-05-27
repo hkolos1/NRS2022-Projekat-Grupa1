@@ -102,7 +102,7 @@ class AddFragment : Fragment() {
         val age = addAge_et.selectedItemPosition
         var bran:String? = null
         if(age == 2)
-            bran = updateBranch.selectedItem.toString()
+            bran = addBranch.selectedItem.toString()
 
         if(inputCheck(firstName, lastName, lastName2)){
             if(lastName==lastName2) {

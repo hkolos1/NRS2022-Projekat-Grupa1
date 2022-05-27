@@ -25,6 +25,7 @@ class OrderFragment : Fragment() {
     private lateinit var mLogViewModel: LogViewModel
     private var numb=0
     private val args by navArgs<OrderFragmentArgs>()
+    private val adapter = OrderAdapter()
 
 
     override fun onCreateView(
@@ -34,7 +35,6 @@ class OrderFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_order, container, false)
 
-        val adapter = OrderAdapter()
         val recyclerView = view.recyclerViewOrder
 
         recyclerView.adapter = adapter
@@ -53,7 +53,7 @@ class OrderFragment : Fragment() {
         addButton.setOnClickListener {
             addingOrder()
         }
-        setHasOptionsMenu(true)
+
         return view
     }
 

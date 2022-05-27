@@ -2,6 +2,7 @@ package com.example.roomapp.fragments.user.orders
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ import com.example.roomapp.viewmodel.OrderViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_order_add_product.*
 import kotlinx.android.synthetic.main.fragment_order_add_product.view.*
+import java.math.RoundingMode
 import java.util.*
 
 class AddProductToOrderFragment : Fragment() {
@@ -74,8 +76,9 @@ class AddProductToOrderFragment : Fragment() {
 
             @SuppressLint("SetTextI18n")
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                view.textViewQuantityInBranch.text ="/"+mainBranch.products[
-                        mainBranch.products.indexOf(spinnerProducts.selectedItem)].quantity.toString()
+                view.textViewQuantityInBranch.text = mainBranch.products[
+                        mainBranch.products.indexOf(spinnerProducts.selectedItem)
+                ].unit+" / "+mainBranch.products[mainBranch.products.indexOf(spinnerProducts.selectedItem)].quantity.toString()
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 view.textViewQuantityInBranch.text = "/0"
@@ -90,7 +93,7 @@ class AddProductToOrderFragment : Fragment() {
             if(quantity>chosenProduct.quantity){
                 Toast.makeText(requireContext(), "Not valid quantity for "+chosenProduct.prodName, Toast.LENGTH_SHORT).show()
             }else{
-                args.order.total += quantity * chosenProduct.price
+                args.order.total += (quantity * chosenProduct.price).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
                 args.order.productsQuantity+=1
                 args.order.products.add(
                     Product(chosenProduct.id,chosenProduct.prodName,quantity,
