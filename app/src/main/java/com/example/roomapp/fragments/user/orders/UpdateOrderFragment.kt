@@ -60,7 +60,7 @@ class UpdateOrderFragment : Fragment() {
         val recyclerView = view.listOrder
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        var tot= args.order.total.toBigDecimal().setScale(2, RoundingMode.CEILING).toDouble()
+        var tot= args.order.total.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
         view.total.text =tot.toString()
         view.textViewUser2.text = "Products of ${args.order.name}"
         order = args.order
@@ -95,6 +95,7 @@ class UpdateOrderFragment : Fragment() {
         }
         if(!args.order.bill){
             view.btnShowBill.text = "Print Bill"
+            setHasOptionsMenu(true)
         }
 
         view.btnShowBill.setOnClickListener {
@@ -112,9 +113,15 @@ class UpdateOrderFragment : Fragment() {
         view.btnFinishOrder.setOnClickListener {
             insertDataToDatabase()
         }
-        setHasOptionsMenu(true)
 
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(args.order.bill){
+            setHasOptionsMenu(false)
+        }
     }
 
     private fun insertDataToDatabase() {
@@ -129,8 +136,7 @@ class UpdateOrderFragment : Fragment() {
         mLogViewModel.addLog(Log(0,args.user.firstName,"Updated order",cal.time.toString()))
 
         Toast.makeText(requireContext(), "Successfully updated!", Toast.LENGTH_LONG).show()
-        val action = UpdateOrderFragmentDirections.actionUpdateOrderFragmentToOrderFragment(args.user)
-        findNavController().navigate(action)
+        findNavController().navigateUp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -163,7 +169,10 @@ class UpdateOrderFragment : Fragment() {
     }
 
     private fun sendPostRequest() {
-
+        if(order.productsQuantity==0 || order.total == 0.0){
+            Toast.makeText(context, "Add some products first", Toast.LENGTH_LONG).show()
+            return
+        }
         var reqParam = "<?xml version=\"1.0\" encoding=\"utf-8\"?><RacunZahtjev  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n" +
                 "  <VrstaZahtjeva>0</VrstaZahtjeva>\n" +
                 "  <NoviObjekat>  \n" +
