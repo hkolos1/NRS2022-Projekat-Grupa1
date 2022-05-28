@@ -63,7 +63,7 @@ class UpdateProductFragment: Fragment() {
                     if(newQuantity <= chosenProduct.quantity){
                         addLog(chosenProduct, newQuantity)
                         val newProduct = Product(chosenProduct.id, chosenProduct.prodName, newQuantity, chosenProduct.unit, chosenBranch.id, chosenProduct.deliveryStatus,
-                            chosenProduct.category, chosenProduct.price)
+                            chosenProduct.category, chosenProduct.price,chosenProduct.round)
 
                         chosenBranch.products.remove(chosenProduct)
                         chosenBranch.products.add(newProduct)
@@ -78,7 +78,7 @@ class UpdateProductFragment: Fragment() {
                     if(newQuantity > chosenProduct.quantity){
                         addLog(chosenProduct, newQuantity)
                         val newProduct = Product(chosenProduct.id, chosenProduct.prodName, prodInWarehouse.quantity-(newQuantity-chosenProduct.quantity),
-                            chosenProduct.unit, chosenProduct.id, chosenProduct.deliveryStatus, chosenProduct.category, chosenProduct.price)
+                            chosenProduct.unit, chosenProduct.id, chosenProduct.deliveryStatus, chosenProduct.category, chosenProduct.price, chosenProduct.round)
 
                         mProductViewModel.updateProduct(newProduct)
 
@@ -86,7 +86,7 @@ class UpdateProductFragment: Fragment() {
                         chosenBranch.products.remove(chosenProduct)
                         chosenBranch.products.add(Product(chosenProduct.id,chosenProduct.prodName,newQuantity,
                             chosenProduct.unit,chosenBranch.id,chosenProduct.deliveryStatus,
-                            chosenProduct.category,chosenProduct.price))
+                            chosenProduct.category,chosenProduct.price,chosenProduct.round))
                         mBranchViewModel.updateBranch(chosenBranch)
 
                     }

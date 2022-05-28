@@ -75,11 +75,11 @@ class AddProductsFragment: Fragment() {
                 val newProduct = Product(chosenProduct.id, chosenProduct.prodName,
                     chosenProduct.quantity-quantity,// <-- Oduzima dio kolicine iz skladista
                     chosenProduct.unit,chosenBranch.id, chosenProduct.deliveryStatus,
-                    chosenProduct.category, chosenProduct.price)
+                    chosenProduct.category, chosenProduct.price,chosenProduct.round)
 
                 args.branch.products.add(Product(chosenProduct.id,chosenProduct.prodName,quantity,
                     chosenProduct.unit,chosenBranch.id,chosenProduct.deliveryStatus,
-                    chosenProduct.category,chosenProduct.price))
+                    chosenProduct.category,chosenProduct.price,chosenProduct.round))
                 mBranchViewModel.updateBranch(args.branch)
 
                 mProductViewModel.updateProduct(newProduct)

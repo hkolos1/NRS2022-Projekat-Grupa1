@@ -16,7 +16,8 @@ data class Product(
     val branchId: Int?,
     val deliveryStatus: String,
     val category: String?,
-    val price: Double
+    val price: Double,
+    val round:Boolean
 ): Parcelable{
     override fun toString(): String {
         return prodName

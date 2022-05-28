@@ -80,7 +80,7 @@ class DeliveryStatusFragment: Fragment() {
         // Create
         val updatedProduct = Product(args.currentProduct.id, args.currentProduct.prodName,
             args.currentProduct.quantity, args.currentProduct.unit, args.currentProduct.branchId, status,
-                args.currentProduct.category,args.currentProduct.price)
+                args.currentProduct.category,args.currentProduct.price,args.currentProduct.round)
         // Update
         mProductViewModel.updateProduct(updatedProduct)
         val cal: Calendar = Calendar.getInstance()

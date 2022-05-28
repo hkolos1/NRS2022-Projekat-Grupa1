@@ -30,6 +30,7 @@ class AddProductFragment : Fragment() {
     private lateinit var price: EditText
     private lateinit var category : Spinner
     private lateinit var mLogViewModel: LogViewModel
+    private lateinit var round : Spinner
     private val args by navArgs<AddProductFragmentArgs>()
 
     override fun onCreateView(
@@ -48,9 +49,12 @@ class AddProductFragment : Fragment() {
         unit = view.findViewById(R.id.addPrUnit)
         price = view.findViewById(R.id.addPrPrice)
         category = view.findViewById(R.id.spinnerCategory)
+        round = view.findViewById(R.id.spinnerRound)
 
         val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
-
+        val spinnerProdAdapter1 = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
+        spinnerProdAdapter1.add("Round");
+        spinnerProdAdapter1.add("Decimal")
         mCategoryViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
                 categ -> categ.forEach {
             spinnerProdAdapter.add(it.nameCategory)
@@ -58,6 +62,7 @@ class AddProductFragment : Fragment() {
         })
 
         category.adapter = spinnerProdAdapter
+        round.adapter = spinnerProdAdapter1
 
         view.addButton.setOnClickListener {
             insertDataToDatabase()
@@ -73,10 +78,14 @@ class AddProductFragment : Fragment() {
         var price2 = price.text.toString().toDouble()
         price2=price2.toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
         val finalPrice=price2
-
+        val roundF = round.selectedItem
+        var roundFinal = false;
+        if (roundF.equals("Round")) {
+            roundFinal = true;
+        }
         val product = Product(
             0,name.text.toString(),finalValue,unit.text.toString(),null, "Unassigned",
-            cat.toString(),finalPrice)
+            cat.toString(),finalPrice,roundFinal)
         mProductViewModel.addProduct(product)
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,args.user.firstName,"Added product ${product.prodName}",cal.time.toString()))

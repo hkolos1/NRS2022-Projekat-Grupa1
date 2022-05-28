@@ -98,7 +98,7 @@ class AddProductToOrderFragment : Fragment() {
                 args.order.products.add(
                     Product(chosenProduct.id,chosenProduct.prodName,quantity,
                         chosenProduct.unit,chosenProduct.branchId,chosenProduct.deliveryStatus,
-                        chosenProduct.category,chosenProduct.price)
+                        chosenProduct.category,chosenProduct.price,chosenProduct.round)
                 )
                 mOrderViewModel.updateOrder(args.order)
 
