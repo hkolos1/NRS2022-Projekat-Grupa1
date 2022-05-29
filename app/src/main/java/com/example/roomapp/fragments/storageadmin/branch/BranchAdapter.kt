@@ -26,6 +26,10 @@ class BranchAdapter: RecyclerView.Adapter<BranchAdapter.MyViewHolder>()  {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem: Branch = branchList[position]
 
+        holder.itemView.buttonEditBranch.setOnClickListener {
+            val action = BranchFragmentDirections.actionBranchFragmentToAllPlacesFragment2(currentItem,user)
+            holder.itemView.findNavController().navigate(action)
+        }
 
         holder.itemView.mat3_custom_row_branch_name.text = currentItem.name
         if(currentItem.products.size == 1)

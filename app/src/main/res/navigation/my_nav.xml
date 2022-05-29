@@ -249,6 +249,9 @@
         <argument
             android:name="user"
             app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="branch"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -262,10 +265,13 @@
         <action
             android:id="@+id/action_branchFragment_to_allProductsInBranchFragment"
             app:destination="@id/allProductsInBranchFragment" />
+        <action
+            android:id="@+id/action_branchFragment_to_allPlacesFragment2"
+            app:destination="@id/allPlacesFragment" />
     </fragment>
     <fragment
         android:id="@+id/allProductsInBranchFragment"
-        android:name="com.example.roomapp.fragments.storageadmin.branch.AllProductsFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.products.AllProductsFragment"
         android:label="All products in Branch"
         tools:layout="@layout/fragment_all_products">
         <argument
@@ -284,7 +290,7 @@
 
     <fragment
         android:id="@+id/updateProductInBranchFragment"
-        android:name="com.example.roomapp.fragments.storageadmin.branch.UpdateProductFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.products.UpdateProductFragment"
         android:label="Update product"
         tools:layout="@layout/fragment_update_product_in_branch">
         <argument
@@ -297,7 +303,7 @@
 
     <fragment
         android:id="@+id/addProductsToBranchFragment"
-        android:name="com.example.roomapp.fragments.storageadmin.branch.AddProductsFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.products.AddProductsFragment"
         android:label="Add Product To Branch"
         tools:layout="@layout/fragment_add_products">
         <argument
@@ -438,5 +444,31 @@
         <argument
             android:name="user"
             app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/allPlacesFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.places.AllPlacesFragment"
+        android:label="Places in Branch"
+        tools:layout="@layout/fragment_all_places">
+        <argument
+            android:name="currentBranch"
+            app:argType="com.example.roomapp.model.Branch" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_allPlacesFragment_to_addPlaceFragment"
+            app:destination="@id/addPlaceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPlaceFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.places.AddPlaceFragment"
+        android:label="Add Place">
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="branch"
+            app:argType="com.example.roomapp.model.Branch" />
     </fragment>
 </navigation>

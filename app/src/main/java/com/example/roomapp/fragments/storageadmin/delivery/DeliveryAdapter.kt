@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.custom_row_delivery.view.*
 class DeliveryAdapter: RecyclerView.Adapter<DeliveryAdapter.MyViewHolder>() {
 
     private var productList = emptyList<Product>()
+    private var branchList = emptyList<String>()
     private lateinit var user: User
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){}
@@ -28,12 +29,13 @@ class DeliveryAdapter: RecyclerView.Adapter<DeliveryAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem: Product = productList[position]
-
+        holder.itemView.delivery_branch_name_txt.text = branchList[position]
         holder.itemView.delivery_product_name.text = currentItem.prodName
         holder.itemView.delivery_product_status.text = currentItem.deliveryStatus
+        holder.itemView.delivery_product_quantity_txt.text = currentItem.quantity.toString()
 
         holder.itemView.rowLayout.setOnClickListener {
-            val action = DeliveryFragmentDirections.actionDeliveryFragmentToDeliveryStatusFragment(currentItem,user)
+            val action = DeliveryFragmentDirections.actionDeliveryFragmentToDeliveryStatusFragment(currentItem,user,branchList[position])
             holder.itemView.findNavController().navigate(action)
         }
 
@@ -43,9 +45,10 @@ class DeliveryAdapter: RecyclerView.Adapter<DeliveryAdapter.MyViewHolder>() {
         return productList.size
     }
 
-    fun setData(products: List<Product>, user: User){
+    fun setData(products: List<Product>, user: User, listBranch: MutableList<String>){
         this.productList = products
         this.user = user
+        this.branchList = listBranch
         notifyDataSetChanged()
     }
 

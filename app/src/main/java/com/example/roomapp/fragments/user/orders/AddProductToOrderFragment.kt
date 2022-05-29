@@ -64,7 +64,7 @@ class AddProductToOrderFragment : Fragment() {
                             da = false
                         }
                     }
-                    if(da) spinnerProdAdapter.add(it)
+                    if(da && it.deliveryStatus == "Received") spinnerProdAdapter.add(it)
                 }
             }
         }

@@ -8,8 +8,15 @@ import com.google.gson.reflect.TypeToken
 class DataConverter {
 
         @TypeConverter
-        fun fromString(value: String): MutableList<Product> {
+        fun fromStringList(value: String): MutableList<Product> {
             val listType = object : TypeToken<MutableList<Product>>() {}.type
+            return Gson().fromJson(value, listType)
+
+        }
+
+        @TypeConverter
+        fun fromStringListString(value: String): MutableList<String> {
+            val listType = object : TypeToken<MutableList<String>>() {}.type
             return Gson().fromJson(value, listType)
 
         }
@@ -20,4 +27,9 @@ class DataConverter {
             return gson.toJson(list)
         }
 
+        @TypeConverter
+        fun fromListString(list: MutableList<String>): String {
+            val gson = Gson()
+            return gson.toJson(list)
+        }
 }

@@ -11,12 +11,14 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
+import com.example.roomapp.model.Branch
 import com.example.roomapp.model.Log
 import com.example.roomapp.model.Order
 import com.example.roomapp.viewmodel.BranchViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.OrderViewModel
 import kotlinx.android.synthetic.main.fragment_add_order.view.*
+import kotlinx.android.synthetic.main.fragment_order_add_product.view.*
 import java.util.*
 
 
@@ -29,6 +31,7 @@ class AddOrderFragment : Fragment() {
     private lateinit var table : Spinner
     private lateinit var mLogViewModel: LogViewModel
     private val args by navArgs<AddOrderFragmentArgs>()
+    private lateinit var mainBranch: Branch
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +46,23 @@ class AddOrderFragment : Fragment() {
 
         view.addOrName.text = "Order #${args.number+1}"
         name = view.addOrName
+
         table = view.spinnerTable
+
+        val spinnerPlacAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
+
+        mBranchViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                branch -> branch.forEach{ branch1 ->
+            if(branch1.name == args.user.branch) {
+                mainBranch = branch1
+                (branch1.places).forEach {
+                    spinnerPlacAdapter.add(it)
+                }
+            }
+        }
+        })
+
+        table.adapter = spinnerPlacAdapter
 
         view.addOrder.setOnClickListener {
             insertDataToDatabase()
@@ -53,8 +72,8 @@ class AddOrderFragment : Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val tab = table.selectedItem
-        val order = Order(0,name.text.toString(),args.user.branch!!,tab.toString(),
+        val tab = table.selectedItem.toString() ?: return
+        val order = Order(0,name.text.toString(),args.user.branch!!,tab,
             0, mutableListOf(),0.0,false,0,null)
         mOrderViewModel.addOrder(order)
         val cal: Calendar = Calendar.getInstance()
