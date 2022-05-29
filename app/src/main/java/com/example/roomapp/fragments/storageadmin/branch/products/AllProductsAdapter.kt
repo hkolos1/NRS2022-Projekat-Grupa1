@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.storageadmin.branch
+package com.example.roomapp.fragments.storageadmin.branch.products
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomapp.R
-import com.example.roomapp.fragments.storageadmin.category.CategoryFragmentDirections
 import com.example.roomapp.model.Branch
 import com.example.roomapp.model.Product
 import com.example.roomapp.model.User

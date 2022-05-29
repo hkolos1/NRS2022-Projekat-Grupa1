@@ -4,10 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch_place.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_delivery.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_order.xml" value="0.1707193515704154" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_order.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_places.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_products.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_all_places.xml" value="0.24864130434782608" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_all_products.xml" value="0.24864130434782608" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_branch.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_delivery.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_delivery_status.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_login.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_order.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_order_add_product.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_place_in_branch.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_product_in_branch.xml" value="0.24864130434782608" />
       </map>
     </option>
   </component>

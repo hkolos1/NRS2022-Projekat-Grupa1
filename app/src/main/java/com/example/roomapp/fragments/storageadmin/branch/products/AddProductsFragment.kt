@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.storageadmin.branch
+package com.example.roomapp.fragments.storageadmin.branch.products
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -74,7 +74,7 @@ class AddProductsFragment: Fragment() {
 
                 val newProduct = Product(chosenProduct.id, chosenProduct.prodName,
                     chosenProduct.quantity-quantity,// <-- Oduzima dio kolicine iz skladista
-                    chosenProduct.unit,chosenBranch.id, chosenProduct.deliveryStatus,
+                    chosenProduct.unit,null, chosenProduct.deliveryStatus,
                     chosenProduct.category, chosenProduct.price)
 
                 args.branch.products.add(Product(chosenProduct.id,chosenProduct.prodName,quantity,

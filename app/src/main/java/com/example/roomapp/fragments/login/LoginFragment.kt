@@ -119,9 +119,9 @@ class LoginFragment : Fragment() {
             if (usersNames == null) {
                 repository.addUser(User(0,"admin","admin",0,"","",null))
                 repository.addUser(User(0,"user","user",2,"","","Sarajevo"))
-                mBranchViewModel.addBranch(Branch(1,"Sarajevo", mutableListOf()))
-                mBranchViewModel.addBranch(Branch(2,"Mostar", mutableListOf()))
-                mBranchViewModel.addBranch(Branch(3,"Banja Luka", mutableListOf()))
+                mBranchViewModel.addBranch(Branch(1,"Sarajevo", mutableListOf(), mutableListOf()))
+                mBranchViewModel.addBranch(Branch(2,"Mostar", mutableListOf(), mutableListOf()))
+                mBranchViewModel.addBranch(Branch(3,"Banja Luka", mutableListOf(), mutableListOf()))
                 mCategoryViewModel.addCategory(Category(0,"PDV","PDV",17))
             }
         }

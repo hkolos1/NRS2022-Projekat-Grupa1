@@ -11,7 +11,8 @@ data class Branch(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val products: MutableList<Product>
+    val products: MutableList<Product>,
+    val places: MutableList<String>
 ): Parcelable{
     override fun toString(): String {
         return name

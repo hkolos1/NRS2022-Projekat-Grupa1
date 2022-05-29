@@ -1,11 +1,10 @@
-package com.example.roomapp.fragments.storageadmin.branch
+package com.example.roomapp.fragments.storageadmin.branch.products
 
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -71,7 +70,7 @@ class AllProductsFragment: Fragment() {
             mBranchViewModel.updateBranch(args.currentBranch)
             val cal: Calendar = Calendar.getInstance()
             mLogViewModel.addLog(Log(0,args.user.firstName,"Deleted all products",cal.time.toString()))
-
+            findNavController().navigateUp()
             Toast.makeText(
                 requireContext(),
                 "Successfully removed everything",
