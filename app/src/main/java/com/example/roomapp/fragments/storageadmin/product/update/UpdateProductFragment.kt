@@ -49,11 +49,23 @@ class UpdateProductFragment : Fragment() {
         view.updatePrUnit.setText(args.currentProduct.unit)
 
         view.updatePrPrice.setText(args.currentProduct.price.toString())
+        var round1 = args.currentProduct.round
+        var roundF = ""
+       if (round1 == true) {
+           roundF = "Round"
+       }
+        else{
+            roundF = "Decimal"
+       }
 
         val category = view.spinnerCategoryUpdate
+        val round = view.spinnerRoundUpdate;
 
         val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
 
+        val spinnerProdAdapter1 = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
+        spinnerProdAdapter1.add("Round");
+        spinnerProdAdapter1.add("Decimal")
         mCategoryViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
                 categ -> categ.forEach {
             spinnerProdAdapter.add(it.nameCategory)
@@ -61,6 +73,7 @@ class UpdateProductFragment : Fragment() {
         })
 
         category.adapter = spinnerProdAdapter
+        round.adapter = spinnerProdAdapter1
 
         view.updateButton.setOnClickListener {
             updateItem()
@@ -73,15 +86,20 @@ class UpdateProductFragment : Fragment() {
     private fun updateItem(){
         val prName=updatePrName.text.toString()
         val prDelStat=args.currentProduct.deliveryStatus
-        val quan=updatePrAmount.text.toString().toInt()
+        var quan=updatePrAmount.text.toString().toDouble()
+        quan=quan.toBigDecimal().setScale(3, RoundingMode.UP).toDouble()
         val unit=updatePrUnit.text.toString()
         val cat = spinnerCategoryUpdate.selectedItem
         var price=updatePrPrice.text.toString().toDouble()
         price=price.toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
-
+        val roundF = spinnerRoundUpdate.selectedItem
+        var roundFinal = false;
+        if (roundF.equals("Round")) {
+            roundFinal = true;
+        }
         if(inputCheck(prName, prDelStat, updatePrAmount.text)){
             val updatedProduct= Product(args.currentProduct.id, prName, quan,unit,args.currentProduct.branchId,prDelStat,
-                cat.toString(),price)
+                cat.toString(),price,roundFinal)
             mProductViewModel.updateProduct(updatedProduct)
             val cal: Calendar = Calendar.getInstance()
             mLogViewModel.addLog(Log(0,args.user.firstName,"Updated product ${args.currentProduct.prodName}",cal.time.toString()))

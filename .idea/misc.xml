@@ -1,28 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch.xml" value="0.245018115942029" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_branch_place.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_delivery.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_order.xml" value="0.1707193515704154" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_order.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_places.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_products.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_all_places.xml" value="0.24864130434782608" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_all_products.xml" value="0.24864130434782608" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_branch.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_delivery.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_delivery_status.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_login.xml" value="0.245018115942029" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_order.xml" value="0.245018115942029" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_order_add_product.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_place_in_branch.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_update_product_in_branch.xml" value="0.24864130434782608" />
-      </map>
-    </option>
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

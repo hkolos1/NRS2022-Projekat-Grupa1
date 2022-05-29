@@ -20,6 +20,7 @@ import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_add_products.*
 import kotlinx.android.synthetic.main.fragment_add_products.view.*
+import java.math.RoundingMode
 import java.util.*
 
 class AddProductsFragment: Fragment() {
@@ -64,7 +65,8 @@ class AddProductsFragment: Fragment() {
         view.btn_assign_product.setOnClickListener{
             val chosenProduct: Product = spinnerProducts.selectedItem as Product
             val chosenBranch: Branch = args.branch
-            val quantity = edit_assign_product_quantity.text.toString().toInt()
+            var quantity = edit_assign_product_quantity.text.toString().toDouble()
+            quantity=quantity.toBigDecimal().setScale(3, RoundingMode.UP).toDouble()
 
             if(quantity>chosenProduct.quantity){
                 Toast.makeText(requireContext(), "Not valid quantity for "+chosenProduct.prodName, Toast.LENGTH_SHORT).show()
@@ -75,11 +77,11 @@ class AddProductsFragment: Fragment() {
                 val newProduct = Product(chosenProduct.id, chosenProduct.prodName,
                     chosenProduct.quantity-quantity,// <-- Oduzima dio kolicine iz skladista
                     chosenProduct.unit,null, chosenProduct.deliveryStatus,
-                    chosenProduct.category, chosenProduct.price)
+                    chosenProduct.category, chosenProduct.price,chosenProduct.round)
 
                 args.branch.products.add(Product(chosenProduct.id,chosenProduct.prodName,quantity,
                     chosenProduct.unit,chosenBranch.id,chosenProduct.deliveryStatus,
-                    chosenProduct.category,chosenProduct.price))
+                    chosenProduct.category,chosenProduct.price,chosenProduct.round))
                 mBranchViewModel.updateBranch(args.branch)
 
                 mProductViewModel.updateProduct(newProduct)

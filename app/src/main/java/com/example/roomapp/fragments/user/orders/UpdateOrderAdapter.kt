@@ -21,7 +21,7 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
 
     private var list = emptyList<Product>()
     private var products = emptyList<Product>()
-    private var quantity = 0
+    private var quantity = 0.0
     private lateinit var order: Order
     private lateinit var total: TextView
 
@@ -49,43 +49,103 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
             holder.itemView.buttonminus.visibility = INVISIBLE
         }
         holder.itemView.buttonminus.setOnClickListener {
-            quantity = Integer.parseInt(holder.itemView.kolicina.text.toString())
-            if(quantity<=0){
-                quantity=0
-            }else{
-                quantity--
-                holder.itemView.kolicina.text = "$quantity"
-            }
-            order.total -= (currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
-            currentItem.quantity = quantity
-            if((order.total+(currentItem.price * currentItem.quantity).toBigDecimal()
-                    .setScale(2, RoundingMode.HALF_EVEN).toDouble())<0.05){
-                order.total = 0.00
-                total.text = 0.00.toString()
-            }else {
-                order.total += (currentItem.price * quantity).toBigDecimal()
+           if(currentItem.round==false) {
+                quantity = (holder.itemView.kolicina.text.toString()).toDouble()
+                if (quantity <= 0) {
+                    quantity = 0.0
+                } else {
+                    quantity--
+                    holder.itemView.kolicina.text = "$quantity"
+                }
+                order.total -= (currentItem.price * currentItem.quantity).toBigDecimal()
                     .setScale(2, RoundingMode.HALF_EVEN).toDouble()
-                total.text = order.total.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
-                    .toString()
+                currentItem.quantity = quantity
+                if ((order.total + (currentItem.price * currentItem.quantity).toBigDecimal()
+                        .setScale(2, RoundingMode.HALF_EVEN).toDouble()) < 0.05
+                ) {
+                    order.total = 0.00
+                    total.text = 0.00.toString()
+                } else {
+                    order.total += (currentItem.price * quantity).toBigDecimal()
+                        .setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                    total.text =
+                        order.total.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                            .toString()
+                }
+                holder.itemView.totalProd.text = "Total: ${
+                    (currentItem.price * currentItem.quantity).toBigDecimal()
+                        .setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                }"
+            }else{
+               quantity = (holder.itemView.kolicina.text.toString()).toDouble()
+               if (quantity <= 0.1) {
+                   quantity = 0.0
+               } else {
+                   quantity-=0.05
+                   holder.itemView.kolicina.text = "$quantity"
+               }
+               order.total -= (currentItem.price * currentItem.quantity).toBigDecimal()
+                   .setScale(2, RoundingMode.HALF_EVEN).toDouble()
+               currentItem.quantity = quantity
+               if ((order.total + (currentItem.price * currentItem.quantity).toBigDecimal()
+                       .setScale(2, RoundingMode.HALF_EVEN).toDouble()) < 0.05
+               ) {
+                   order.total = 0.00
+                   total.text = 0.00.toString()
+               } else {
+                   order.total += (currentItem.price * quantity).toBigDecimal()
+                       .setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                   total.text =
+                       order.total.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                           .toString()
+               }
+               holder.itemView.totalProd.text = "Total: ${
+                   (currentItem.price * currentItem.quantity).toBigDecimal()
+                       .setScale(2, RoundingMode.HALF_EVEN).toDouble()
+               }"
+
+           }
             }
-            holder.itemView.totalProd.text = "Total: ${(currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()}"
-        }
 
         holder.itemView.buttonplus.setOnClickListener {
-            quantity = Integer.parseInt(holder.itemView.kolicina.text.toString())
-            if(quantity>=products[position].quantity){
-                quantity=products[position].quantity
-            }else{
-                quantity++
-                holder.itemView.kolicina.text = "$quantity"
-            }
-            order.total -= (currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
-            currentItem.quantity = quantity
-            order.total += (currentItem.price*quantity).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
-            total.text = order.total.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble().toString()
+            if(currentItem.round==false){
+                quantity = (holder.itemView.kolicina.text.toString()).toDouble()
+                if (quantity >= products[position].quantity) {
+                    quantity = products[position].quantity
+                } else {
+                    quantity++
+                    holder.itemView.kolicina.text = "$quantity"
+                }
+                order.total -= (currentItem.price * currentItem.quantity).toBigDecimal()
+                    .setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                currentItem.quantity = quantity
+                order.total += (currentItem.price * quantity).toBigDecimal()
+                    .setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                total.text =
+                    order.total.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                        .toString()
 
-            holder.itemView.totalProd.text = "Total: ${(currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()}"
-        }
+                holder.itemView.totalProd.text = "Total: ${
+                    (currentItem.price * currentItem.quantity).toBigDecimal()
+                        .setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                }"
+            }else{
+                quantity =(holder.itemView.kolicina.text.toString()).toDouble()
+                if(quantity>=products[position].quantity){
+                    quantity=products[position].quantity
+                }else{
+                    quantity+=0.05
+                    holder.itemView.kolicina.text = "$quantity"
+                }
+                order.total -= (currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                currentItem.quantity = quantity
+                order.total += (currentItem.price*quantity).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
+                total.text = order.total.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble().toString()
+
+                holder.itemView.totalProd.text = "Total: ${(currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()}"
+
+            }
+            }
 
         holder.itemView.buttonX.setOnClickListener {
             order.products.remove(currentItem)
