@@ -55,8 +55,8 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
                     quantity = 0.0
                 } else {
                     quantity--
-                    holder.itemView.kolicina.text = "$quantity"
                 }
+               holder.itemView.kolicina.text = "$quantity"
                 order.total -= (currentItem.price * currentItem.quantity).toBigDecimal()
                     .setScale(2, RoundingMode.HALF_EVEN).toDouble()
                 currentItem.quantity = quantity
@@ -81,9 +81,10 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
                if (quantity <= 0.1) {
                    quantity = 0.0
                } else {
-                   quantity-=0.05
-                   holder.itemView.kolicina.text = "$quantity"
+                   quantity = (quantity-0.05).toBigDecimal()
+                       .setScale(2, RoundingMode.HALF_EVEN).toDouble()
                }
+               holder.itemView.kolicina.text = "$quantity"
                order.total -= (currentItem.price * currentItem.quantity).toBigDecimal()
                    .setScale(2, RoundingMode.HALF_EVEN).toDouble()
                currentItem.quantity = quantity
@@ -114,8 +115,8 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
                     quantity = products[position].quantity
                 } else {
                     quantity++
-                    holder.itemView.kolicina.text = "$quantity"
                 }
+                holder.itemView.kolicina.text = "$quantity"
                 order.total -= (currentItem.price * currentItem.quantity).toBigDecimal()
                     .setScale(2, RoundingMode.HALF_EVEN).toDouble()
                 currentItem.quantity = quantity
@@ -134,9 +135,10 @@ class UpdateOrderAdapter: RecyclerView.Adapter<UpdateOrderAdapter.MyViewHolder>(
                 if(quantity>=products[position].quantity){
                     quantity=products[position].quantity
                 }else{
-                    quantity+=0.05
-                    holder.itemView.kolicina.text = "$quantity"
+                    quantity= (quantity+0.05).toBigDecimal()
+                        .setScale(2, RoundingMode.HALF_EVEN).toDouble()
                 }
+                holder.itemView.kolicina.text = "$quantity"
                 order.total -= (currentItem.price*currentItem.quantity).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
                 currentItem.quantity = quantity
                 order.total += (currentItem.price*quantity).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()

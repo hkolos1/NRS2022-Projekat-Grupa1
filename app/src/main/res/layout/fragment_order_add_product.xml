@@ -7,7 +7,7 @@
     android:padding="24sp"
     tools:context=".fragments.user.orders.AddProductToOrderFragment">
 
-    <Spinner
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/spinner_assign_product_product_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
