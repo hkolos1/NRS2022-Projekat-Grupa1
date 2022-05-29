@@ -14,7 +14,7 @@ data class Product(
     var quantity: Double,
     val unit: String,
     val branchId: Int?,
-    val deliveryStatus: String,
+    var deliveryStatus: String,
     val category: String?,
     val price: Double,
     val round:Boolean
