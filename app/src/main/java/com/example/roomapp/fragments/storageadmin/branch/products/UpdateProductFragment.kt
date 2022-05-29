@@ -16,6 +16,7 @@ import com.example.roomapp.viewmodel.BranchViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_update_product_in_branch.view.*
+import java.math.RoundingMode
 import java.util.*
 import kotlin.concurrent.thread
 
@@ -52,7 +53,8 @@ class UpdateProductFragment: Fragment() {
         view.text_view_update_product_name.text = args.currentProduct.prodName
 
         view.btn_update_product_in_branch.setOnClickListener{
-                val newQuantity = view.update_product_quant.text.toString().toInt()
+                var newQuantity = view.update_product_quant.text.toString().toDouble()
+                newQuantity=newQuantity.toBigDecimal().setScale(3, RoundingMode.UP).toDouble()
                 val combinedQuantity = chosenProduct.quantity+args.currentProduct.quantity
                 if(newQuantity > combinedQuantity){
                     Toast.makeText(context, "Maximum assignable: $combinedQuantity" +
