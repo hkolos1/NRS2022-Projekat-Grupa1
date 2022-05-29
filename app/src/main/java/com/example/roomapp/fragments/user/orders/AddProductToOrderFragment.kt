@@ -88,7 +88,7 @@ class AddProductToOrderFragment : Fragment() {
         view.btn_assign_product_order.setOnClickListener{
             val chosenProduct: Product = spinnerProducts.selectedItem as Product
             val chosenOrder: Order = args.order
-            val quantity = edit_assign_product_quantity_order.text.toString().toInt()
+            val quantity = edit_assign_product_quantity_order.text.toString().toDouble()
 
             if(quantity>chosenProduct.quantity){
                 Toast.makeText(requireContext(), "Not valid quantity for "+chosenProduct.prodName, Toast.LENGTH_SHORT).show()

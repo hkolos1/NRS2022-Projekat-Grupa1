@@ -11,7 +11,7 @@ data class Product(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val prodName: String,
-    var quantity: Int,
+    var quantity: Double,
     val unit: String,
     val branchId: Int?,
     val deliveryStatus: String,

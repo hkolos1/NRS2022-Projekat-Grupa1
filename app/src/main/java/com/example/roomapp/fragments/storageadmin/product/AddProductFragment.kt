@@ -74,14 +74,15 @@ class AddProductFragment : Fragment() {
     private fun insertDataToDatabase() {
         val cat = category.selectedItem
         val value= quantity.text.toString();
-        val finalValue=Integer.parseInt(value)
+        var finalValue=value.toDouble()
+        finalValue=finalValue.toBigDecimal().setScale(3, RoundingMode.UP).toDouble()
         var price2 = price.text.toString().toDouble()
         price2=price2.toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
         val finalPrice=price2
         val roundF = round.selectedItem
-        var roundFinal = false;
+        var roundFinal = true;
         if (roundF.equals("Round")) {
-            roundFinal = true;
+            roundFinal = false;
         }
         val product = Product(
             0,name.text.toString(),finalValue,unit.text.toString(),null, "Unassigned",

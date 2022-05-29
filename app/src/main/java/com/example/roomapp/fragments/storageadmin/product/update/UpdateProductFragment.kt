@@ -86,7 +86,8 @@ class UpdateProductFragment : Fragment() {
     private fun updateItem(){
         val prName=updatePrName.text.toString()
         val prDelStat=args.currentProduct.deliveryStatus
-        val quan=updatePrAmount.text.toString().toInt()
+        var quan=updatePrAmount.text.toString().toDouble()
+        quan=quan.toBigDecimal().setScale(3, RoundingMode.UP).toDouble()
         val unit=updatePrUnit.text.toString()
         val cat = spinnerCategoryUpdate.selectedItem
         var price=updatePrPrice.text.toString().toDouble()

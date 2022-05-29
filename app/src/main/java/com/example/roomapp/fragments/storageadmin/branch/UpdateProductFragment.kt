@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.roomapp.R
 import com.example.roomapp.model.Log
@@ -16,6 +15,7 @@ import com.example.roomapp.viewmodel.BranchViewModel
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_update_product_in_branch.view.*
+import java.math.RoundingMode
 import java.util.*
 import kotlin.concurrent.thread
 
@@ -49,7 +49,8 @@ class UpdateProductFragment: Fragment() {
             thread{
                 val prodInWarehouse = mProductViewModel.getProductById(chosenProduct.id)
 
-                val newQuantity = view.update_product_quant.text.toString().toInt()
+                var newQuantity = view.update_product_quant.text.toString().toDouble()
+                newQuantity=newQuantity.toBigDecimal().setScale(3, RoundingMode.UP).toDouble()
 
                 val combinedQuantity = prodInWarehouse.quantity+chosenProduct.quantity
                 if(newQuantity > combinedQuantity){
@@ -77,7 +78,7 @@ class UpdateProductFragment: Fragment() {
                     // , onda se oduzima potrebni dio iz skladista i dodaje trenutnoj vrijednosti
                     if(newQuantity > chosenProduct.quantity){
                         addLog(chosenProduct, newQuantity)
-                        val newProduct = Product(chosenProduct.id, chosenProduct.prodName, prodInWarehouse.quantity-(newQuantity-chosenProduct.quantity),
+                        val newProduct = Product(chosenProduct.id, chosenProduct.prodName, (prodInWarehouse.quantity-(newQuantity-chosenProduct.quantity)).toBigDecimal().setScale(3, RoundingMode.UP).toDouble(),
                             chosenProduct.unit, chosenProduct.id, chosenProduct.deliveryStatus, chosenProduct.category, chosenProduct.price, chosenProduct.round)
 
                         mProductViewModel.updateProduct(newProduct)
@@ -98,7 +99,7 @@ class UpdateProductFragment: Fragment() {
         return view
     }
 
-    fun addLog(prod: Product, quantity: Int){
+    fun addLog(prod: Product, quantity: Double){
         val cal: Calendar = Calendar.getInstance()
         mLogViewModel.addLog(Log(0,"Storage Admin","Updated ${prod.prodName} to $quantity",cal.time.toString()))
     }

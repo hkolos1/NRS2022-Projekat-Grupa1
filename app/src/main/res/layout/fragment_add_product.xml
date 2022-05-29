@@ -34,7 +34,7 @@
         android:width="100dp"
         android:height="20dp"
         android:hint="Product quantity"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
