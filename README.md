@@ -60,6 +60,9 @@ Sve osobe koje rade na ovom projektu moraju pratiti sljedeće korake prilikom ra
 ### Sprint 5:
 * Kao Korisnik poslovnice, želim fiskalizirati račun u skladu sa specifikacijom za FBiH (http://kase.ba/Downloads)
 
+### Sprint 6:
+* Svaka grupa zadatak koji je dobila na konsultacijama
+
 
 ## Definition of Done
 
