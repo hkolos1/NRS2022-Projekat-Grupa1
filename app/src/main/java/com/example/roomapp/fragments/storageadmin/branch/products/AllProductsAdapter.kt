@@ -35,7 +35,13 @@ class AllProductsAdapter: RecyclerView.Adapter<AllProductsAdapter.MyViewHolder>(
         val currentItem: Product = productsList[position]
 
         holder.itemView.all_products_name.text = currentItem.prodName
-        holder.itemView.all_products_quantity_and_unit.text = currentItem.quantity.toString() + " " + currentItem.unit.toString()
+        if(currentItem.round==false){
+            holder.itemView.all_products_quantity_and_unit.text = currentItem.quantity.toInt().toString() + " " + currentItem.unit.toString()
+        }
+        else{
+            holder.itemView.all_products_quantity_and_unit.text = currentItem.quantity.toString() + " " + currentItem.unit.toString()
+        }
+
 
         holder.itemView.rowLayout23.setOnClickListener{
             val action= AllProductsFragmentDirections.actionAllProductsInBranchFragmentToAddProductsToUpdateProductsFragment(branch, currentItem)

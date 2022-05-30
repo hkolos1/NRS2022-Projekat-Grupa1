@@ -3,6 +3,7 @@ package com.example.roomapp.fragments.user.orders
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -85,10 +86,17 @@ class AddProductToOrderFragment : Fragment() {
             }
         }
 
+
+
+
         view.btn_assign_product_order.setOnClickListener{
             val chosenProduct: Product = spinnerProducts.selectedItem as Product
             val chosenOrder: Order = args.order
             val quantity = edit_assign_product_quantity_order.text.toString().toDouble()
+
+            if(chosenProduct.round==false){
+                view.edit_assign_product_quantity_order.inputType=InputType.TYPE_CLASS_NUMBER
+            }
 
             if(quantity>chosenProduct.quantity){
                 Toast.makeText(requireContext(), "Not valid quantity for "+chosenProduct.prodName, Toast.LENGTH_SHORT).show()

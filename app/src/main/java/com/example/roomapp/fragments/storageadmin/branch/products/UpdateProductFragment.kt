@@ -54,6 +54,9 @@ class UpdateProductFragment: Fragment() {
 
         view.btn_update_product_in_branch.setOnClickListener{
                 var newQuantity = view.update_product_quant.text.toString().toDouble()
+            if(chosenProduct.round==false){
+                newQuantity=newQuantity.toInt().toDouble()
+            }
                 newQuantity=newQuantity.toBigDecimal().setScale(3, RoundingMode.UP).toDouble()
                 val combinedQuantity = chosenProduct.quantity+args.currentProduct.quantity
                 if(newQuantity > combinedQuantity){

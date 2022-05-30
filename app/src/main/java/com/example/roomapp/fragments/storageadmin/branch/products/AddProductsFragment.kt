@@ -73,11 +73,18 @@ class AddProductsFragment: Fragment() {
             }else if(args.branch.products.contains(chosenProduct)){
                 Toast.makeText(requireContext(), chosenProduct.prodName + " is already assigned to " + chosenBranch.name, Toast.LENGTH_SHORT).show()
             }else{
-
+                var quant=(chosenProduct.quantity-quantity)
+                if (chosenProduct.round.equals("Round")) {
+                 quant=quant.toInt().toDouble()
+                }
                 val newProduct = Product(chosenProduct.id, chosenProduct.prodName,
-                    chosenProduct.quantity-quantity,// <-- Oduzima dio kolicine iz skladista
+                   quant.toBigDecimal().setScale(3, RoundingMode.UP).toDouble(),// <-- Oduzima dio kolicine iz skladista
                     chosenProduct.unit,null, chosenProduct.deliveryStatus,
                     chosenProduct.category, chosenProduct.price,chosenProduct.round)
+
+                if (chosenProduct.round==false) {
+                    quantity=quantity.toInt().toDouble()
+                }
 
                 args.branch.products.add(Product(chosenProduct.id,chosenProduct.prodName,quantity,
                     chosenProduct.unit,chosenBranch.id,chosenProduct.deliveryStatus,

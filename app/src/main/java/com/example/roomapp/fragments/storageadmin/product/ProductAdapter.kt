@@ -33,7 +33,12 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
         val currentItem: Product = list[position]
         holder.itemView.nameProd.text = (position+1).toString()
         holder.itemView.deliveryS.text = currentItem.prodName
-        holder.itemView.quantity.text = currentItem.quantity.toString()
+        if(currentItem.round==false){
+        holder.itemView.quantity.text = currentItem.quantity.toInt().toString()
+        }
+        else{
+            holder.itemView.quantity.text = currentItem.quantity.toString()
+        }
         holder.itemView.unit.text = currentItem.unit
 
        holder.itemView.rowLayout2.setOnClickListener{
