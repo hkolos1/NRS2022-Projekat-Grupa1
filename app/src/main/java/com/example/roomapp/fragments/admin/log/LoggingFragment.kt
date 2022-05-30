@@ -32,7 +32,7 @@ class LoggingFragment : Fragment() {
         // UserViewModel
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
         mLogViewModel.readAllData.observe(viewLifecycleOwner, Observer { log ->
-            adapter.setData(log)
+            adapter.setData(log.sortedByDescending { it.id })
         })
 
         return view

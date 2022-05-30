@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.storageadmin.product.update
+package com.example.roomapp.fragments.storageadmin.product
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -49,31 +49,29 @@ class UpdateProductFragment : Fragment() {
         view.updatePrUnit.setText(args.currentProduct.unit)
 
         view.updatePrPrice.setText(args.currentProduct.price.toString())
-        var round1 = args.currentProduct.round
-        var roundF = ""
-       if (round1 == true) {
-           roundF = "Round"
-       }
-        else{
-            roundF = "Decimal"
-       }
 
         val category = view.spinnerCategoryUpdate
         val round = view.spinnerRoundUpdate;
 
         val spinnerProdAdapter = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
 
-        val spinnerProdAdapter1 = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
-        spinnerProdAdapter1.add("Round");
-        spinnerProdAdapter1.add("Decimal")
+        val spinnerRound = ArrayAdapter<Any>(requireContext(), android.R.layout.simple_spinner_dropdown_item)
+        spinnerRound.add("Round");
+        spinnerRound.add("Decimal")
+
         mCategoryViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
                 categ -> categ.forEach {
-            spinnerProdAdapter.add(it.nameCategory)
-        }
+                    spinnerProdAdapter.add(it.nameCategory)
+                }
+            category.adapter = spinnerProdAdapter
+
+            category.setSelection(spinnerProdAdapter.getPosition(args.currentProduct.category))
         })
 
         category.adapter = spinnerProdAdapter
-        round.adapter = spinnerProdAdapter1
+        round.adapter = spinnerRound
+
+        round.setSelection(if(args.currentProduct.round) 1 else 0)
 
         view.updateButton.setOnClickListener {
             updateItem()
@@ -93,9 +91,10 @@ class UpdateProductFragment : Fragment() {
         var price=updatePrPrice.text.toString().toDouble()
         price=price.toBigDecimal().setScale(2, RoundingMode.UP).toDouble()
         val roundF = spinnerRoundUpdate.selectedItem
-        var roundFinal = false;
+        var roundFinal = true;
         if (roundF.equals("Round")) {
-            roundFinal = true;
+            roundFinal = false;
+            quan=quan.toInt().toDouble()
         }
         if(inputCheck(prName, prDelStat, updatePrAmount.text)){
             val updatedProduct= Product(args.currentProduct.id, prName, quan,unit,args.currentProduct.branchId,prDelStat,

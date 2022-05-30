@@ -315,7 +315,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateProductFragment"
-        android:name="com.example.roomapp.fragments.storageadmin.product.update.UpdateProductFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.product.UpdateProductFragment"
         android:label="Update Product"
         tools:layout="@layout/fragment_update_product">
         <action

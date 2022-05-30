@@ -5,28 +5,28 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fe47775-b00f-4d27-a4a3-d62f1fa96a9f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/branch/products/AddProductsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/branch/products/AddProductsFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/branch/products/AllProductsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/branch/products/AllProductsAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/branch/products/UpdateProductFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/branch/products/UpdateProductFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/product/AddProductFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/product/AddProductFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/product/ProductAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/product/ProductAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/user/orders/AddProductToOrderFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/user/orders/AddProductToOrderFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/admin/log/LoggingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/admin/log/LoggingFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/product/update/UpdateProductFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/storageadmin/product/UpdateProductFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/user/orders/AddOrderFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/user/orders/AddOrderFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/user/orders/UpdateOrderFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/user/orders/UpdateOrderFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_update_product.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_update_product.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/my_nav.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/my_nav.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RF8NB0XRL6Z]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Administrator\.android\avd\Pixel_4_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -58,6 +58,11 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.roomapp.fragments.storageadmin.product" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">

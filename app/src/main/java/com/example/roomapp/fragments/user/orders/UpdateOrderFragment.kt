@@ -132,7 +132,8 @@ class UpdateOrderFragment : Fragment() {
             }
         }
         mBranchViewModel.updateBranch(mainBranch)
-        mOrderViewModel.updateOrder(order)
+        mOrderViewModel.deleteOrder(args.order)
+        mOrderViewModel.addOrder(order)
         mLogViewModel.addLog(Log(0,args.user.firstName,"Updated order",cal.time.toString()))
 
         Toast.makeText(requireContext(), "Successfully updated!", Toast.LENGTH_LONG).show()
