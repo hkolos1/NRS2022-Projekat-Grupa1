@@ -26,7 +26,40 @@ class LoggingAdapter: RecyclerView.Adapter<LoggingAdapter.MyViewHolder>() {
         val currentItem: Log = logList[position]
         holder.itemView.firstName_txt.text = currentItem.userName
         holder.itemView.lastName_txt.text = currentItem.action
-        holder.itemView.age_txt.text = currentItem.time
+
+
+        var vr = currentItem.time
+
+        vr = vr.drop(4)
+
+        vr = vr.removeRange(
+            startIndex = 16,
+            endIndex = 25
+        )
+
+        var finalString: String = vr.substring(
+            startIndex = 0,
+            endIndex = 6
+        )
+
+        finalString +=
+            vr.substring(
+                startIndex = 15,
+                endIndex = 21
+            )
+
+
+        finalString = finalString.plus(" ")
+        finalString = finalString.plus(
+            vr.substring(
+                startIndex = 7,
+                endIndex = 15
+            )
+        )
+
+
+
+        holder.itemView.age_txt.text = finalString
 
     }
 
