@@ -31,8 +31,7 @@ class DeliveryAdapter: RecyclerView.Adapter<DeliveryAdapter.MyViewHolder>() {
         val currentItem: Product = productList[position]
         holder.itemView.delivery_branch_name_txt.text = branchList[position]
         holder.itemView.delivery_product_name.text = currentItem.prodName
-        holder.itemView.delivery_product_status.text = currentItem.deliveryStatus
-        holder.itemView.delivery_product_quantity_txt.text = currentItem.quantity.toString()
+        holder.itemView.delivery_product_quantity_txt.text = currentItem.quantity.toInt().toString().plus( " ").plus(currentItem.unit)
 
         holder.itemView.rowLayout.setOnClickListener {
             val action = DeliveryFragmentDirections.actionDeliveryFragmentToDeliveryStatusFragment(currentItem,user,branchList[position])

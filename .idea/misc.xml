@@ -3,14 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/custom_row_log.xml" value="0.2717391304347826" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_logging.xml" value="0.2717391304347826" />
-        <entry key="..\:/Users/DT User6/AndroidStudioProjects/NRS2022-Projekat-Grupa1-dr/app/src/main/res/layout/fragment_order_add_product.xml" value="0.17074275362318841" />
+        <entry key="app/src/main/res/layout/custom_row_branch.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/custom_row_delivery.xml" value="0.3513916900192482" />
+        <entry key="app/src/main/res/layout/custom_row_delivery_old.xml" value="0.28351449275362317" />
+        <entry key="app/src/main/res/layout/custom_row_log.xml" value="0.4248823304107223" />
+        <entry key="app/src/main/res/layout/custom_row_log_old.xml" value="0.3302083333333333" />
+        <entry key="app/src/main/res/layout/custom_row_order.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/custom_row_order_product.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/custom_row_product.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/fragment_delivery.xml" value="0.3503854281660439" />
+        <entry key="app/src/main/res/layout/fragment_delivery_status.xml" value="0.20465240478515628" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/fragment_logging.xml" value="0.31287824105525364" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.24547101449275363" />
       </map>
     </option>
   </component>
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/out" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
   </component>
 </project>
