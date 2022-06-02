@@ -13,11 +13,14 @@
         <entry key="app/src/main/res/layout/custom_row_order.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/custom_row_order_product.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/custom_row_product.xml" value="0.24547101449275363" />
-        <entry key="app/src/main/res/layout/fragment_delivery.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/custom_row_product_old.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_delivery.xml" value="0.340289306640625" />
         <entry key="app/src/main/res/layout/fragment_delivery_status.xml" value="0.20465240478515628" />
         <entry key="app/src/main/res/layout/fragment_list.xml" value="0.2745101928710938" />
         <entry key="app/src/main/res/layout/fragment_logging.xml" value="0.31287824105525364" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.24547101449275363" />
+        <entry key="app/src/main/res/layout/fragment_product.xml" value="0.39815713387948504" />
+        <entry key="app/src/main/res/layout/fragment_product_old.xml" value="0.28351449275362317" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.28351449275362317" />
       </map>
     </option>
