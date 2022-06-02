@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/custom_row.xml" value="0.28351449275362317" />
+        <entry key="app/src/main/res/layout/custom_row.xml" value="0.28524331355440435" />
         <entry key="app/src/main/res/layout/custom_row_branch.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/custom_row_delivery.xml" value="0.3513916900192482" />
         <entry key="app/src/main/res/layout/custom_row_delivery_old.xml" value="0.28351449275362317" />
@@ -15,7 +15,7 @@
         <entry key="app/src/main/res/layout/custom_row_product.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/fragment_delivery.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_delivery_status.xml" value="0.20465240478515628" />
-        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.3630476136138474" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.2745101928710938" />
         <entry key="app/src/main/res/layout/fragment_logging.xml" value="0.31287824105525364" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.28351449275362317" />

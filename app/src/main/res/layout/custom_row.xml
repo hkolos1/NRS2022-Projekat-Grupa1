@@ -40,7 +40,7 @@
                     android:id="@+id/firstName_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
+                    android:layout_weight="0.3"
                     android:padding="3dp"
                     android:text="name"
                     android:textAlignment="textStart"
@@ -63,10 +63,10 @@
                     android:id="@+id/age_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
+                    android:layout_weight="0.3"
                     android:padding="3dp"
                     android:text="role"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textSize="14sp" />
 
