@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">"SuperKasa"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="Role">
+        <item>Admin</item>
+        <item>Storage Admin</item>
+        <item>User</item>
+    </string-array>
+    <string name="FirstNameText">First Name :</string>
+    <string name="FirstNameTextField">Enter First Name</string>
+    <string name="SecondNameTextField">Enter Second Name</string>
+    <string name="LastNameText">Last Name :</string>
+    <string name="EmailText">Email :</string>
+    <string name="UserMailId">Enter Email</string>
+    <string name="submitButton">Register</string>
+    <string name="List_of_Users_text">List Of Registered Users</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="PasswordText">Password:</string>
+    <string name="PasswordTextFiels">Enter Password</string>
+    <string name="UserNameTextView">User Name:</string>
+    <string name="UsernameTextField">Enter User Name</string>
+    <string name="backButton">Back</string>
+    <string name="Login_text">Login</string>
+    <string name="Login_button">Login</string>
+    <string name="signupText">Sign Up!</string>
+    <string name="view_all_products_in_branch">View all products in branch</string>
+    <string name="add_product_to_branch">Add product to branch</string>
+    <string name="welcome_admin">Welcome Admin</string>
+    <string name="delivery_status">Delivery status</string>
+    <string name="branch_name_placeholder">branch_name_placeholder</string>
+    <string name="product_amount_placeholder">product_amount_placeholder</string>
+    <string-array name="SpinerQuestionItems">
+        <item>What is your favorite food ?</item>
+        <item>What is your best friend ?</item>
+        <item>What is your favorite club ?</item>
+        <item>What is your pet name ?</item>
+        <item>What is your favorite place ?</item>
+    </string-array>
+    <string-array name="SpinerTables">
+        <item>Table #1</item>
+        <item>Table #2</item>
+        <item>Table #3</item>
+        <item>Table #4</item>
+        <item>Table #5</item>
+    </string-array>
+</resources>

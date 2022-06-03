@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.roomapp.fragments.admin.users.list.ListFragment"
+        android:label="User List"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.roomapp.fragments.admin.users.add.AddFragment"
+        android:label="Add User"
+        tools:layout="@layout/fragment_add">
+        <action
+            android:id="@+id/action_addFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.roomapp.fragments.admin.users.update.UpdateFragment"
+        android:label="Update User"
+        tools:layout="@layout/fragment_update">
+        <action
+            android:id="@+id/action_updateFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.example.roomapp.fragments.admin.AdminFragment"
+        android:label="Admin Panel"
+        tools:layout="@layout/fragment_admin">
+        <action
+            android:id="@+id/action_adminFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_updatePasswordFragment"
+            app:destination="@id/updatePasswordFragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_loggingFragment"
+            app:destination="@id/loggingFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_adminFragment_to_storageAdminFragment"
+            app:destination="@id/storageAdminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.roomapp.fragments.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_storageAdminFragment"
+            app:destination="@id/storageAdminFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.roomapp.fragments.user.password.ForgotPasswordFragment"
+        android:label="Forgot Password"
+        tools:layout="@layout/fragment_forgot_password">
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_forgotPasswordQuestionFragment"
+            app:destination="@id/forgotPasswordQuestionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotNewPasswordFragment"
+        android:name="com.example.roomapp.fragments.user.password.ForgotNewPasswordFragment"
+        android:label="New Password"
+        tools:layout="@layout/fragment_forgot_new_password">
+        <action
+            android:id="@+id/action_forgotNewPasswordFragment_to_loggingFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.roomapp.fragments.user.UserFragment"
+        android:label="User Panel"
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_userFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_updatePasswordFragment"
+            app:destination="@id/updatePasswordFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_confirmationPasswordFragment"
+            app:destination="@id/confirmationPasswordFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_userFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updatePasswordFragment"
+        android:name="com.example.roomapp.fragments.user.password.UpdatePasswordFragment"
+        android:label="Change Password"
+        tools:layout="@layout/fragment_update_password" >
+        <action
+            android:id="@+id/action_updateFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/loggingFragment"
+        android:name="com.example.roomapp.fragments.admin.log.LoggingFragment"
+        android:label="Logging"
+        tools:layout="@layout/fragment_logging" />
+    <fragment
+        android:id="@+id/storageAdminFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.StorageAdminFragment"
+        android:label="Storage Admin Panel"
+        tools:layout="@layout/fragment_admin_storage">
+        <action
+            android:id="@+id/action_storageAdminFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_storageAdminFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_storageAdminFragment_to_branchFragment"
+            app:destination="@id/branchFragment" />
+        <action
+            android:id="@+id/action_storageAdminFragment_to_deliveryFragment"
+            app:destination="@id/deliveryFragment" />
+        <action
+            android:id="@+id/action_storageAdminFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/confirmationPasswordFragment"
+        android:name="com.example.roomapp.fragments.user.password.ConfirmationPasswordFragment"
+        android:label="Security question"
+        tools:layout="@layout/fragment_confirmation_password">
+
+        <action
+            android:id="@+id/action_confirmationPasswordFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.product.ProductFragment"
+        android:label="Product Storage"
+        tools:layout="@layout/fragment_product">
+        <action
+            android:id="@+id/action_productFragment_to_addProduct"
+            app:destination="@id/addProduct" />
+        <action
+            android:id="@+id/action_productFragment_to_updateProductFragment"
+            app:destination="@id/updateProductFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProduct"
+        android:name="com.example.roomapp.fragments.storageadmin.product.AddProductFragment"
+        android:label="Add Product"
+        tools:layout="@layout/fragment_add_product">
+        <action
+            android:id="@+id/action_addProduct_to_fragmentProduct"
+            app:destination="@id/productFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deliveryFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.delivery.DeliveryFragment"
+        android:label="Deliveries"
+        tools:layout="@layout/fragment_delivery" >
+        <action
+            android:id="@+id/action_deliveryFragment_to_deliveryStatusFragment"
+            app:destination="@id/deliveryStatusFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deliveryStatusFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.delivery.DeliveryStatusFragment"
+        android:label="Change status"
+        tools:layout="@layout/fragment_delivery_status">
+        <argument
+            android:name="currentProduct"
+            app:argType="com.example.roomapp.model.Product" />
+        <action
+            android:id="@+id/action_deliveryStatusFragment_to_deliveryFragment"
+            app:destination="@id/deliveryFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="branch"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/branchFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.BranchFragment"
+        android:label="Branches"
+        tools:layout="@layout/fragment_branch" >
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_branchFragment_to_allProductsInBranchFragment"
+            app:destination="@id/allProductsInBranchFragment" />
+        <action
+            android:id="@+id/action_branchFragment_to_allPlacesFragment2"
+            app:destination="@id/allPlacesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allProductsInBranchFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.products.AllProductsFragment"
+        android:label="All products in Branch"
+        tools:layout="@layout/fragment_all_products">
+        <argument
+            android:name="currentBranch"
+            app:argType="com.example.roomapp.model.Branch" />
+        <action
+            android:id="@+id/action_allProductsInBranchFragment_to_addProductsToBranchFragment"
+            app:destination="@id/addProductsToBranchFragment" />
+        <action
+            android:id="@+id/action_allProductsInBranchFragment_to_addProductsToUpdateProductsFragment"
+            app:destination="@id/updateProductInBranchFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateProductInBranchFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.products.UpdateProductFragment"
+        android:label="Update product"
+        tools:layout="@layout/fragment_update_product_in_branch">
+        <argument
+            android:name="currentBranch"
+            app:argType="com.example.roomapp.model.Branch"/>
+        <argument
+            android:name="currentProduct"
+            app:argType="com.example.roomapp.model.Product"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/addProductsToBranchFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.products.AddProductsFragment"
+        android:label="Add Product To Branch"
+        tools:layout="@layout/fragment_add_products">
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="branch"
+            app:argType="com.example.roomapp.model.Branch" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateProductFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.product.UpdateProductFragment"
+        android:label="Update Product"
+        tools:layout="@layout/fragment_update_product">
+        <action
+            android:id="@+id/action_updateProductFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <argument
+            android:name="currentProduct"
+            app:argType="com.example.roomapp.model.Product" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordQuestionFragment"
+        android:name="com.example.roomapp.fragments.user.password.ForgotPasswordQuestionFragment"
+        android:label="Question">
+        <action
+            android:id="@+id/action_forgotPasswordQuestionFragment_to_forgotNewPasswordFragment"
+            app:destination="@id/forgotNewPasswordFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.category.CategoryFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_category">
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_categoryFragment_to_addCategoryFragment"
+            app:destination="@id/addCategoryFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_updateCategoryFragment"
+            app:destination="@id/updateCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCategoryFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.category.AddCategoryFragment"
+        android:label="Add category">
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateCategoryFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.category.UpdateCategoryFragment"
+        android:label="Update category">
+        <argument
+            android:name="category"
+            app:argType="com.example.roomapp.model.Category" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.example.roomapp.fragments.user.orders.OrderFragment"
+        android:label="Orders"
+        tools:layout="@layout/fragment_order">
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_orderFragment_to_addOrderFragment"
+            app:destination="@id/addOrderFragment" />
+        <action
+            android:id="@+id/action_orderFragment_to_updateOrderFragment"
+            app:destination="@id/updateOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addOrderFragment"
+        android:name="com.example.roomapp.fragments.user.orders.AddOrderFragment"
+        android:label="Create order"
+        tools:layout="@layout/fragment_add_order">
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="number"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateOrderFragment"
+        android:name="com.example.roomapp.fragments.user.orders.UpdateOrderFragment"
+        android:label="Order preview"
+        tools:layout="@layout/fragment_order_update">
+        <action
+            android:id="@+id/action_updateOrderFragment_to_addProductToOrderFragment"
+            app:destination="@id/addProductToOrderFragment" />
+        <action
+            android:id="@+id/action_updateOrderFragment_to_billFragment"
+            app:destination="@id/billFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="order"
+            app:argType="com.example.roomapp.model.Order" />
+        <action
+            android:id="@+id/action_updateOrderFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProductToOrderFragment"
+        android:name="com.example.roomapp.fragments.user.orders.AddProductToOrderFragment"
+        android:label="Add product to order"
+        tools:layout="@layout/fragment_order_add_product">
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="order"
+            app:argType="com.example.roomapp.model.Order" />
+    </fragment>
+    <fragment
+        android:id="@+id/billFragment"
+        android:name="com.example.roomapp.fragments.user.bill.BillFragment"
+        android:label="Bill"
+        tools:layout="@layout/fragment_bill">
+        <argument
+            android:name="order"
+            app:argType="com.example.roomapp.model.Order" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/allPlacesFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.places.AllPlacesFragment"
+        android:label="Places in Branch"
+        tools:layout="@layout/fragment_all_places">
+        <argument
+            android:name="currentBranch"
+            app:argType="com.example.roomapp.model.Branch" />
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <action
+            android:id="@+id/action_allPlacesFragment_to_addPlaceFragment"
+            app:destination="@id/addPlaceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPlaceFragment"
+        android:name="com.example.roomapp.fragments.storageadmin.branch.places.AddPlaceFragment"
+        android:label="Add Place">
+        <argument
+            android:name="user"
+            app:argType="com.example.roomapp.model.User" />
+        <argument
+            android:name="branch"
+            app:argType="com.example.roomapp.model.Branch" />
+    </fragment>
+</navigation>

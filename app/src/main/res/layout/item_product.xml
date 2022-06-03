@@ -1,0 +1,27 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="60dp"
+    android:layout_margin="5dp"
+    android:padding="0dp"
+    app:cardCornerRadius="19dp"
+    app:cardElevation="4dp"
+    android:id="@+id/rowLayout" >
+
+
+        <TextView
+            android:id="@+id/prName"
+            android:layout_width="272dp"
+            android:layout_height="34dp"
+            android:text="TextView"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="12dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
