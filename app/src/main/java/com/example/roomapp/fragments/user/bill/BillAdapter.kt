@@ -33,7 +33,7 @@ class BillAdapter: RecyclerView.Adapter<BillAdapter.MyViewHolder>() {
         df.roundingMode = RoundingMode.CEILING
         holder.itemView.prQuan.text = "Quantity:  ${currentItem.quantity}"
         holder.itemView.prOnePrice.text = "Price per one: ${currentItem.price}"
-        holder.itemView.prTotal.text = "Total: ${currentItem.quantity * currentItem.price}"
+        holder.itemView.prTotal.text = "Total:  ${(currentItem.quantity * currentItem.price).toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()}"
 
     }
 

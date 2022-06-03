@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_add_products.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_order_add_product.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/NRS2022/app/src/main/res/layout/fragment_user.xml" value="0.28804347826086957" />
         <entry key="app/src/main/res/layout/custom_row.xml" value="0.28524331355440435" />
         <entry key="app/src/main/res/layout/custom_row_branch.xml" value="0.24547101449275363" />
         <entry key="app/src/main/res/layout/custom_row_category.xml" value="0.28489419442636" />

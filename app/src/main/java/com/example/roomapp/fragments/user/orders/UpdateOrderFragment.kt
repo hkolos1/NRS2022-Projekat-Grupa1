@@ -23,13 +23,16 @@ import kotlinx.android.synthetic.main.fragment_order_update.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.apache.http.conn.ConnectTimeoutException
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.math.RoundingMode
 import java.net.HttpURLConnection
+import java.net.SocketTimeoutException
 import java.net.URL
 import java.util.*
+import java.util.concurrent.TimeoutException
 
 
 class UpdateOrderFragment : Fragment() {
@@ -129,11 +132,11 @@ class UpdateOrderFragment : Fragment() {
             mainBranch.products.forEach { branchProd ->
                 if(it.prodName == branchProd.prodName)
                     branchProd.quantity -= it.quantity
+                    branchProd.quantity = branchProd.quantity.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
             }
         }
         mBranchViewModel.updateBranch(mainBranch)
-        mOrderViewModel.deleteOrder(args.order)
-        mOrderViewModel.addOrder(order)
+        mOrderViewModel.updateOrder(order)
         mLogViewModel.addLog(Log(0,args.user.firstName,"Updated order",cal.time.toString()))
 
         Toast.makeText(requireContext(), "Successfully updated!", Toast.LENGTH_LONG).show()
@@ -206,6 +209,7 @@ class UpdateOrderFragment : Fragment() {
             try {
                 with(mURL.openConnection() as HttpURLConnection) {
                     // optional default is GET
+                    this.connectTimeout = 3000
                     requestMethod = "POST"
                     val wr = OutputStreamWriter(outputStream);
                     wr.write(reqParam);
@@ -222,17 +226,23 @@ class UpdateOrderFragment : Fragment() {
                         println("Response : $response")
                         //println(response.toString().substring(252,258))
 
-                        args.order.bill = true
-                        args.order.billId = response.toString().substring(252,258).toInt()
-                        args.order.billDate = response.toString().substring(379,391) + " " + response.toString().substring(514,522)
-                        args.order.products.forEach {
+                        order.bill = true
+                        order.billId = response.toString().substring(252,258).toInt()
+
+                        if(response.toString().length == 736)
+                            order.billDate = response.toString().substring(379,391) + " " + response.toString().substring(514,522)
+                        else
+                            order.billDate = response.toString().substring(379,390) + " " + response.toString().substring(513,521)
+
+                        order.products.forEach {
                             mainBranch.products.forEach { branchProd ->
                                 if(it.prodName == branchProd.prodName)
                                     branchProd.quantity -= it.quantity
+                                    branchProd.quantity = branchProd.quantity.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble()
                             }
                         }
                         mBranchViewModel.updateBranch(mainBranch)
-                        mOrderViewModel.updateOrder(args.order)
+                        mOrderViewModel.updateOrder(order)
                         mLogViewModel.addLog(Log(0,args.user.firstName,"Issue invoice",cal.time.toString()))
                         GlobalScope.launch(Dispatchers.Main) {
                             val action = UpdateOrderFragmentDirections.actionUpdateOrderFragmentToBillFragment(order,args.user)
@@ -240,8 +250,13 @@ class UpdateOrderFragment : Fragment() {
                         }
                     }
                 }
+            }catch (e : SocketTimeoutException){
+                GlobalScope.launch(Dispatchers.Main) {
+                    val action = UpdateOrderFragmentDirections.actionUpdateOrderFragmentToBillFragment(order,args.user)
+                    findNavController().navigate(action)
+                }
             }catch (e: Exception){
-                println("Error : $e")
+                println("Greska $e")
             }
         }
     }

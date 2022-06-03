@@ -17,6 +17,7 @@ import com.example.roomapp.model.Branch
 import com.example.roomapp.model.Category
 import com.example.roomapp.model.Log
 import com.example.roomapp.viewmodel.*
+import kotlinx.android.synthetic.main.fragment_bill.*
 import kotlinx.android.synthetic.main.fragment_bill.view.*
 import kotlinx.coroutines.*
 import java.io.BufferedReader
@@ -74,7 +75,12 @@ class BillFragment : Fragment() {
         recyclerView2.adapter = adapter2
         recyclerView2.layoutManager = LinearLayoutManager(requireContext())
 
-        view.billDate.text = args.order.billDate
+        if(args.order.billId==0){
+            Toast.makeText(context, "Unable to print bill", Toast.LENGTH_LONG).show()
+            view.billDate.text = "NOT PRINTED, ONLY PREVIEW"
+        }else
+            view.billDate.text = args.order.billDate
+
         view.branchName.text = args.order.branch
 
 
@@ -84,11 +90,13 @@ class BillFragment : Fragment() {
 
         mCategoryViewModel.readAllData.observe(viewLifecycleOwner, Observer {
             it.forEach {
+                var da = false
                 args.order.products.forEach { product ->
                     if(it.nameCategory == product.category ){
-                        lista.add(it)
+                        da = true
                     }
                 }
+                if(da) lista.add(it)
             }
             adapter2.setData(args.order.products,lista)
         })

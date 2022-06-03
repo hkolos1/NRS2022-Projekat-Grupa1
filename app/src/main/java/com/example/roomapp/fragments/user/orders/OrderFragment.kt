@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
 import com.example.roomapp.model.Log
+import com.example.roomapp.model.Order
 import com.example.roomapp.viewmodel.LogViewModel
 import com.example.roomapp.viewmodel.OrderViewModel
 import kotlinx.android.synthetic.main.fragment_order.view.*
@@ -43,8 +44,14 @@ class OrderFragment : Fragment() {
         mOrderViewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
+
         mOrderViewModel.readAllData.observe(viewLifecycleOwner, Observer {order ->
-            adapter.setData(order.sortedByDescending { it.id },args.user)
+            val lista = mutableListOf<Order>()
+            order.forEach {
+                if(it.branch == args.user.branch)
+                    lista.add(it)
+            }
+            adapter.setData(lista.sortedByDescending { it.id },args.user)
             numb=adapter.itemCount
         })
 

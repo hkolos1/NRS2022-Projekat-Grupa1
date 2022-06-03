@@ -80,9 +80,17 @@ class AddOrderFragment : Fragment() {
         mLogViewModel.addLog(Log(0,args.user.firstName,"Added order ${order.name}",cal.time.toString()))
 
         Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
-        findNavController().navigateUp()
-        val action= OrderFragmentDirections.actionOrderFragmentToUpdateOrderFragment(args.user,order)
-        findNavController().navigate(action)
+
+        mOrderViewModel.readAllData.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            orders -> orders.forEach {
+                if(it.name == order.name){
+                    findNavController().navigateUp()
+                    val action= OrderFragmentDirections.actionOrderFragmentToUpdateOrderFragment(args.user,it)
+                    findNavController().navigate(action)
+                }
+            }
+        })
+
     }
 
 

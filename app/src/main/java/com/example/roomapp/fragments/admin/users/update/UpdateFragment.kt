@@ -75,17 +75,21 @@ class UpdateFragment : Fragment() {
             }
         }
 
-
         view.updateFirstName_et.setText(args.currentUser.firstName)
         view.updateLastName_et.setText(args.currentUser.lastName)
         view.updateAge_et.setSelection(args.currentUser.age)
+
+        if(args.user.id == args.currentUser.id){
+            view.updateAge_et.isEnabled = false
+            setHasOptionsMenu(false)
+        }else
+        // Add menu
+            setHasOptionsMenu(true)
 
         view.update_btn.setOnClickListener {
             updateItem()
         }
 
-        // Add menu
-        setHasOptionsMenu(true)
 
         return view
     }

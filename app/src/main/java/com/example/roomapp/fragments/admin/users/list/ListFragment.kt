@@ -44,7 +44,7 @@ class ListFragment : Fragment() {
         }
 
         // Add menu
-        setHasOptionsMenu(true)
+        //setHasOptionsMenu(true)
 
         return view
     }

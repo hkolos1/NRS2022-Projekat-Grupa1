@@ -35,7 +35,7 @@ class UserFragment : Fragment() {
 
         mLogViewModel = ViewModelProvider(this).get(LogViewModel::class.java)
 
-        view.textViewUser.text = "Welcome ${args.user.firstName}"
+        view.textViewUser.text = "Welcome ${args.user.firstName} \n ${args.user.branch}"
         view.refreshDrawableState()
 
 
