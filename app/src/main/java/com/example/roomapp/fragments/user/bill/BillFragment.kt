@@ -14,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.R
 import com.example.roomapp.model.Branch
+import com.example.roomapp.model.Category
 import com.example.roomapp.model.Log
 import com.example.roomapp.viewmodel.*
 import kotlinx.android.synthetic.main.fragment_bill.view.*
@@ -79,8 +80,17 @@ class BillFragment : Fragment() {
 
         view.billID.text=args.order.billId.toString()
 
+        val lista = mutableListOf<Category>()
+
         mCategoryViewModel.readAllData.observe(viewLifecycleOwner, Observer {
-            adapter2.setData(args.order.products,it)
+            it.forEach {
+                args.order.products.forEach { product ->
+                    if(it.nameCategory == product.category ){
+                        lista.add(it)
+                    }
+                }
+            }
+            adapter2.setData(args.order.products,lista)
         })
 
         view.orderTotal.text = args.order.total.toBigDecimal().setScale(2, RoundingMode.HALF_EVEN).toDouble().toString()

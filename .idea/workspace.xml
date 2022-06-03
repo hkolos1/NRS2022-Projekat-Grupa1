@@ -12,11 +12,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f451ca0-b2a5-4359-abf2-28bb1158c715" name="Default Changelist" comment="Category UI upgrade">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+
+    <list default="true" id="5fe47775-b00f-4d27-a4a3-d62f1fa96a9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_row_order.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_row_order.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_order.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_order.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/user/bill/BillFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/roomapp/fragments/user/bill/BillFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
