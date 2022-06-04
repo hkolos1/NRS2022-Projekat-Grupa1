@@ -63,6 +63,14 @@ Sve osobe koje rade na ovom projektu moraju pratiti sljedeće korake prilikom ra
 ### Sprint 6:
 * Svaka grupa zadatak koji je dobila na konsultacijama
 
+### Sprint 7:
+* Kreirati SRS za projekat (primjer https://krazytech.com/projects/sample-software-requirements-specificationsrs-report-airline-database)
+* U SRS uključiti sve dijelove FURPS+ modela
+* Napraviti dokument metodologije rada koji sadrži Pregled sprintova, User stories, burn-down chart
+* Napraviti korisničko uputstvo koje pokriva instalaciju, konfiguraciju i korištenje 
+* Sve spomenute dokumente, download kompletnog koda, te one-click instalacijski package (apk), a onda zajedno u jedan fajl koji nosi naziv “GRUPA X - KOMPLET PROJEKAT ZA PREGLEDANJE I OCJENU”
+
+
 
 ## Definition of Done
 
