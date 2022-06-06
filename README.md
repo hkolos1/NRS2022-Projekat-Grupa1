@@ -1,6 +1,6 @@
-# NRS2022-Projekat-Grupa1
+<code><img height="100" src="https://i.ibb.co/Nmjmc5f/Untitled-1-01.png"></code>
 
-## Uvod
+https://user-images.githubusercontent.com/75615888/172119298-a341db05-aa27-4cec-ac61-db9170e7983b.mp4
 
 ## Članovi tima
 
