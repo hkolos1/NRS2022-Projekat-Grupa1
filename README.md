@@ -2,6 +2,17 @@
 
 https://user-images.githubusercontent.com/75615888/172119298-a341db05-aa27-4cec-ac61-db9170e7983b.mp4
 
+## Uvod
+SuperKasa je Android mobilna aplikacija, razvijena od strane 6 studenata, sa Elektrotehničkog fakulteta Univerziteta u Sarajevu, u sklopu predmeta 'Napredni razvoj softvera'.
+### Funkcionalnosti aplikacije su:
+* da olakša upravljanje radnicima i omogući sistematičniji pregled svih zaposlenika kompanije,
+* da omogući uvid u rad svakog zaposlenika,
+* da olakša upravljanje proizvodima sa kojima Vaša kompanija raspolaže,
+* da olakša svakodnevni rad zaposlenika, koje rade sa artiklima kompanije,
+* da olakša kreiranje narudžbi i  izdavanje fiskalnog računa za iste,
+* da omogući uvid u sve izdate fiskalne račune.
+
+
 ## Članovi tima
 
 * [Yahia Aissa Elhattab](https://github.com/hapiiiii) - Vođa tima
