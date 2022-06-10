@@ -119,8 +119,20 @@ class LoginFragment : Fragment() {
                 mBranchViewModel.addBranch(Branch(2,"Mostar", mutableListOf(), mutableListOf("Kasa")))
                 mBranchViewModel.addBranch(Branch(3,"Banja Luka", mutableListOf(), mutableListOf("Kasa")))
                 mCategoryViewModel.addCategory(Category(0,"PDV","PDV",17))
-                mProductViewModel.addProduct(Product(0,"Burek",100.0,"kg",null,"Unassigned","PDV",10.95,true))
-                mProductViewModel.addProduct(Product(0,"Jogurt",100.0,"komad",null,"Unassigned","PDV",0.95,false))
+                mProductViewModel.addProduct(Product(0,"Burek",1000.0,"kg",null,"Unassigned","PDV",10.95,true))
+                mProductViewModel.addProduct(Product(0,"Jogurt 1l",1000.0,"komad",null,"Unassigned","PDV",1.90,false))
+                mProductViewModel.addProduct(Product(0,"Dinja",1000.0,"kg",null,"Unassigned","PDV",2.25,true))
+                mProductViewModel.addProduct(Product(0,"Čokolada 95g",1000.0,"komad",null,"Unassigned","PDV",1.25,false))
+                mProductViewModel.addProduct(Product(0,"Juneće mljeveno meso",1000.0,"kg",null,"Unassigned","PDV",13.95,true))
+                mProductViewModel.addProduct(Product(0,"Majoneza 400g",1000.0,"komad",null,"Unassigned","PDV",3.80,false))
+                mProductViewModel.addProduct(Product(0,"Sladoled 1l",1000.0,"komad",null,"Unassigned","PDV",4.45,false))
+                mProductViewModel.addProduct(Product(0,"Dvojni C 1l",1000.0,"komad",null,"Unassigned","PDV",1.80,false))
+                mProductViewModel.addProduct(Product(0,"Banana",1000.0,"kg",null,"Unassigned","PDV",1.95,true))
+                mProductViewModel.addProduct(Product(0,"Lubenica",1000.0,"kg",null,"Unassigned","PDV",1.55,true))
+                mProductViewModel.addProduct(Product(0,"Bazen",1000.0,"komad",null,"Unassigned","PDV",240.0,false))
+                mProductViewModel.addProduct(Product(0,"Baklava",1000.0,"kg",null,"Unassigned","PDV",35.0,true))
+                mProductViewModel.addProduct(Product(0,"Tulumbe",1000.0,"kg",null,"Unassigned","PDV",20.0,true))
+
             }
         }
     }
